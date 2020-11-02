@@ -6,6 +6,9 @@ namespace oop_group5_project
 {
     class Admin
     {
+        int id;
+        string password;
+
         public Admin()
         {                                                           //23024 Thomas BAUDU 
                                                                     //23189 Audrey CHANTY

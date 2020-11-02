@@ -6,6 +6,11 @@ namespace oop_group5_project
 {
     class Teacher
     {
+
+        int id;
+        string password;
+        string name;
+
         public Teacher()                                        //23024 Thomas BAUDU 
         {                                                       //23189 Audrey CHANTY
                                                                 //23182 Jean-Baptiste CORRE
