@@ -17,7 +17,8 @@ namespace oop_group5_project
             List<Class> listclass = new List<Class> { c1, c2 };
             TimeTable timetable = new TimeTable(listclass);
             Payment payment = new Payment(7900, 5000);
-
+            List<Grade> listgrade = new List<Grade> { };
+            Student test = new Student(classroom, profil, timetable, payment, listgrade);
         }
 
 
