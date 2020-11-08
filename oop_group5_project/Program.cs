@@ -13,6 +13,8 @@ namespace oop_group5_project
                                                                 //23213 Tristan GERON
                                                                 //23164 Alexandre MAROTTE
             Console.WriteLine("Test");
+
+            Console.WriteLine("Coucou c moi lol"); //TEST
         }
     }
 }
