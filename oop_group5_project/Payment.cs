@@ -8,5 +8,11 @@ namespace oop_group5_project
     {
         int cost;
         int alreadypaid;
+
+        public Payment (int a, int b)
+        {
+            cost = a;
+            alreadypaid = b;
+        }
     }
 }

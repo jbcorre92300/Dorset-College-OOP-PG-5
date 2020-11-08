@@ -6,8 +6,6 @@ namespace oop_group5_project
 {
     class Student
     {
-        int id;
-        string password;
         int Classroom;
         List <string> profil;
         TimeTable timetable;
