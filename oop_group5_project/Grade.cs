@@ -6,5 +6,10 @@ namespace oop_group5_project
 {
     class Grade
     {
+        
+        public Grade()
+        {
+            
+        }
     }
 }

@@ -9,8 +9,10 @@ namespace oop_group5_project
         int id;
         string password;
 
-        public Admin()
-        {                                                           //23024 Thomas BAUDU 
+        public Admin(int id,string password)
+        {
+            this.id = id;
+            this.password = password;                               //23024 Thomas BAUDU 
                                                                     //23189 Audrey CHANTY
                                                                     //23182 Jean-Baptiste CORRE
                                                                     //23165 Victor FAUCHARD
