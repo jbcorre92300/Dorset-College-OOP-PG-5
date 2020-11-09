@@ -10,12 +10,7 @@ namespace oop_group5_project
         {
             int classroom = 17;
             List<string> profil = new List<string> { "01/01/2000", "Paul", "Dupont" };
-            Date date1 = new Date(2020, 11, 09, 09, 00);
-            Date date2 = new Date(2020, 11, 10, 11, 00);
-            Class c1 = new Class(date1, "math", "L204");
-            Class c2 = new Class(date2, "physics", "L503");
-            List<Class> listclass = new List<Class> { c1, c2 };
-            TimeTable timetable = new TimeTable(listclass);
+            TimeTable timetable = new TimeTable(new List<Class> { });
             Payment payment = new Payment(7900, 5000);
             List<Grade> listgrade = new List<Grade> { };
             Student test = new Student(classroom, profil, timetable, payment, listgrade);

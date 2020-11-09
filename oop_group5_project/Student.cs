@@ -11,11 +11,12 @@ namespace oop_group5_project
                                                                 //23164 Alexandre MAROTTE
     class Student                                                      
     {
-        int classroom;
-        List <string> profil;
-        TimeTable timetable;
-        Payment payment;
-        List<Grade> listgrade;
+        int id;
+        public int classroom;
+        public List<string> profil;
+        public TimeTable timetable;
+        public Payment payment;
+        public List<Grade> listgrade;
 
 
         public Student(int classroom, List<string> profil,TimeTable timetable, Payment payment, List<Grade> listgrade)

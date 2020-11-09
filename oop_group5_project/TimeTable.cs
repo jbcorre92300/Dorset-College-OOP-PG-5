@@ -6,7 +6,7 @@ namespace oop_group5_project
 {
     class TimeTable
     {
-        List<Class> timetable;
+        public List<Class> timetable;
 
 
         public TimeTable(List<Class> timetable)
