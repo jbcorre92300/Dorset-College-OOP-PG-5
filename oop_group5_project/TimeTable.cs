@@ -6,12 +6,12 @@ namespace oop_group5_project
 {
     class TimeTable
     {
-        public List<Class> timetable;
+        public List<Class> listclass;
 
 
         public TimeTable(List<Class> timetable)
         {
-            this.timetable = timetable;
+            this.listclass = timetable;
         }
     }
 }
