@@ -23,9 +23,16 @@ namespace oop_group5_project
                                                                 //23165 Victor FAUCHARD
                                                                 //23213 Tristan GERON
                                                                 //23164 Alexandre MAROTTE
-            Console.WriteLine("Test");
+            
 
-            Console.WriteLine("Coucou c moi lol"); //TEST
+            Console.WriteLine("Username : ");
+            string id = Convert.ToString(Console.ReadLine());
+
+            Console.WriteLine("Password :");
+            string password = Convert.ToString(Console.ReadLine());
+
+            // Compare the username and the password with the list of existing Students/Teachers/Admins
+            //If there is a match, the login succeed and the informations concerning the user are loading in
         }
     }
 }
