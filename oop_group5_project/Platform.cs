@@ -12,6 +12,7 @@ namespace oop_group5_project
         public string  usertype { get; set; }
     
 
+
         //Goal : reaching a matching username and password to login and get back the informations concerning any user (student, teacher, admin)
 
         public void Login()
