@@ -87,6 +87,7 @@ namespace oop_group5_project
                 }
             }
 
+
             Console.Clear();
         }
     }
