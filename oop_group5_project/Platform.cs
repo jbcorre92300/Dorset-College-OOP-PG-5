@@ -6,16 +6,11 @@ namespace oop_group5_project
 {
     class Platform
     {
-        public string id;
-        public string password;
-        public List<Platform> users;
+        public string id { get; set; }
+        public string password { get; set; }
 
-        public Platform(string id, string password, List<Platform> users)
-        {
-            this.id = id;
-            this.password = password;
-            this.users = users;
-        }
+        public string  usertype { get; set; }
+    
 
         //Goal : reaching a matching username and password to login and get back the informations concerning any user (student, teacher, admin)
 
