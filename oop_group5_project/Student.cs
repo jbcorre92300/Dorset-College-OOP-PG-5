@@ -27,6 +27,17 @@ namespace oop_group5_project
             this.payment = payment;
             this.listgrade = listgrade;
         }
+
+
+
+        public void makeapaiment(double paiment)
+        {
+            if (paiment > payment.cost - payment.alreadypaid)
+            {
+                paiment = payment.cost - payment.alreadypaid;
+            }
+            payment.alreadypaid += paiment;
+        }
     }   
     
 }

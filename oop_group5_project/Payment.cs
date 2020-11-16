@@ -6,8 +6,8 @@ namespace oop_group5_project
 {
     class Payment
     {
-        int cost;
-        int alreadypaid;
+        public double cost;
+        public double alreadypaid;
 
         public Payment (int a, int b)
         {

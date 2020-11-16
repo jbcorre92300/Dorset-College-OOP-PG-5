@@ -22,9 +22,9 @@ namespace oop_group5_project
             this.matter = matter;
         }
 
-        public void AddaGradeforaStudent(Student student, double note) // id student a la place de student 
+        public void AddaGradeforaStudent(Student student, double note, string gradename) // id student a la place de student 
         {
-            Grade grade = new Grade(matter, note);
+            Grade grade = new Grade(matter, note, gradename);
             student.listgrade.Add(grade);
         }
 
