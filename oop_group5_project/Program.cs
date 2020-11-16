@@ -5,7 +5,13 @@ using System.Text;
 namespace oop_group5_project
 {
     class Program
-    {
+    {//23024 Thomas BAUDU 
+     //23189 Audrey CHANTY
+     //23182 Jean-Baptiste CORRE
+     //23165 Victor FAUCHARD
+     //23213 Tristan GERON
+     //23164 Alexandre MAROTTE
+
         static void Buildfortest()
         {
             int classroom = 17;
@@ -17,12 +23,8 @@ namespace oop_group5_project
         }
 
 
-        static void Main(string[] args)                         //23024 Thomas BAUDU 
-        {                                                       //23189 Audrey CHANTY
-                                                                //23182 Jean-Baptiste CORRE
-                                                                //23165 Victor FAUCHARD
-                                                                //23213 Tristan GERON
-                                                                //23164 Alexandre MAROTTE
+        static void Main(string[] args)
+        { 
             Console.WriteLine("Test");
 
             Console.WriteLine("Coucou c moi lol"); //TEST

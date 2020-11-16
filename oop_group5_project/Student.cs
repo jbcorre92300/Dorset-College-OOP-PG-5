@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace oop_group5_project
-{                                                               //23024 Thomas BAUDU 
-                                                                //23189 Audrey CHANTY
-                                                                //23182 Jean-Baptiste CORRE
-                                                                //23165 Victor FAUCHARD
-                                                                //23213 Tristan GERON
-                                                                //23164 Alexandre MAROTTE
+{                                                               
     class Student                                                      
     {
-        int id;
+        //23024 Thomas BAUDU 
+        //23189 Audrey CHANTY
+        //23182 Jean-Baptiste CORRE
+        //23165 Victor FAUCHARD
+        //23213 Tristan GERON
+        //23164 Alexandre MAROTTE
         public int classroom;
         public List<string> profil;
         public TimeTable timetable;
