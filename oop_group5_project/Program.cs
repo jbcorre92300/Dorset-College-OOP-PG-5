@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 
-// Test Wllh encore une fois
 
 namespace oop_group5_project
 {
