@@ -12,9 +12,11 @@ namespace oop_group5_project
             int classroom = 17;
             List<string> profil = new List<string> { "01/01/2000", "Paul", "Dupont" };
             TimeTable timetable = new TimeTable(new List<Class> { });
-            Payment payment = new Payment(7900);
+            // Payment payment = new Payment(7900);   - ne sert plus à rien avec l'interface
             List<Grade> listgrade = new List<Grade> { };
-            Student test = new Student(classroom, profil, timetable, payment, listgrade);
+            int cost = 7900;
+            
+            Student test = new Student(classroom, profil, timetable, listgrade, cost);
         }
 
         public class ConsoleSpiner

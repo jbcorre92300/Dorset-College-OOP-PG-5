@@ -39,9 +39,12 @@ namespace oop_group5_project
             Console.WriteLine("What is the phone number of the student?");
             profil.Add(Console.ReadLine());
             TimeTable timetable = new TimeTable(new List<Class> { });
-            Payment payment = new Payment(7900);
+            // Payment payment = new Payment(7900);   - ne sert plus à rien avec l'interface
             List<Grade> listgrade = new List<Grade> { };
-            Student student = new Student(id, profil, timetable, payment, listgrade);
+            int cost = 7900;
+            
+            Student student = new Student(id, profil, timetable, listgrade, cost);
+            
             return student;
 
 

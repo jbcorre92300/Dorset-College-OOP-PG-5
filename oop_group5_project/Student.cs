@@ -9,24 +9,30 @@ namespace oop_group5_project
                                                                 //23165 Victor FAUCHARD
                                                                 //23213 Tristan GERON
                                                                 //23164 Alexandre MAROTTE
-    class Student                                                      
+    class Student : InterfacePayment                                                     
     {
         int id;
         public int classroom;
         public List<string> profil;
         public TimeTable timetable;
-        public Payment payment;
         public List<Grade> listgrade;
+        private int cost;
+        
+        public int Cost
+        {
+            get { return cost; }
+        }
 
 
-        public Student(int classroom, List<string> profil,TimeTable timetable, Payment payment, List<Grade> listgrade)
+        public Student(int classroom, List<string> profil,TimeTable timetable, List<Grade> listgrade, int cost)
         {
             this.classroom = classroom;
             this.profil = profil;
             this.timetable = timetable;
-            this.payment = payment;
             this.listgrade = listgrade;
+            this.cost = cost;
         }
+
 
 
         /*
@@ -38,8 +44,56 @@ namespace oop_group5_project
             }
             payment.alreadypaid += paiment;
         }
-
         */
+
+         public void BeginningPayment()
+        {
+            Console.WriteLine("How do you want to make your payment ?" +
+                "1 for Cash Payment" +
+                "2 for Several Times Payment");
+
+            if (Console.ReadLine() == "1") CashPayment();
+
+            if (Console.ReadLine() == "2") SeveralTimesPayment();
+
+            else
+            {
+                Console.WriteLine("Error");
+                BeginningPayment();
+            }
+        }
+
+
+        public void CashPayment()
+        {
+            Console.WriteLine("Please pay " + cost + " euros" + "\n" + "Enter yout number card : ");
+
+            int numbercard = Convert.ToInt32(Console.ReadLine()); // faire un solde pour l'étudiant, si l'étudiant à le solde demandé, alors retourner true, sinon false.
+
+            Console.WriteLine("Successfull Payment !");
+
+        }
+
+
+        public void SeveralTimesPayment()
+        {
+            int remainingpayment = cost;
+            int alreadypaid = 0;
+
+            Console.WriteLine("How much do you want to pay right now ? : ");
+
+            int payment = Convert.ToInt32(Console.ReadLine());
+
+            remainingpayment -= payment;
+
+            alreadypaid += payment;
+
+            if (remainingpayment == 0 && alreadypaid == cost) Console.WriteLine("Your payment is complete !");
+
+            else Console.WriteLine("There is " + remainingpayment + " euros left to pay");
+        }
+
+        
     }   
     
 }
