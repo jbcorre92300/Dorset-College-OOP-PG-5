@@ -39,7 +39,7 @@ namespace oop_group5_project
             Console.WriteLine("What is the phone number of the student?");
             profil.Add(Console.ReadLine());
             TimeTable timetable = new TimeTable(new List<Class> { });
-            Payment payment = new Payment(7900, 5000);
+            Payment payment = new Payment(7900);
             List<Grade> listgrade = new List<Grade> { };
             Student student = new Student(id, profil, timetable, payment, listgrade);
             return student;

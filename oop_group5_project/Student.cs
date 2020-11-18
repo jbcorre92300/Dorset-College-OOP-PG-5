@@ -29,7 +29,7 @@ namespace oop_group5_project
         }
 
 
-
+        /*
         public void makeapaiment(double paiment)
         {
             if (paiment > payment.cost - payment.alreadypaid)
@@ -38,6 +38,8 @@ namespace oop_group5_project
             }
             payment.alreadypaid += paiment;
         }
+
+        */
     }   
     
 }

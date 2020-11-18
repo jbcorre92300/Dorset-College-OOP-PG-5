@@ -2,11 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 
-// Test Vicou Visual Studio Code
-
-// Test Vicou Visual Studio Code 2
-
-// Test Vicou Visual Studio Code 3
 
 namespace oop_group5_project
 {
@@ -17,7 +12,7 @@ namespace oop_group5_project
             int classroom = 17;
             List<string> profil = new List<string> { "01/01/2000", "Paul", "Dupont" };
             TimeTable timetable = new TimeTable(new List<Class> { });
-            Payment payment = new Payment(7900, 5000);
+            Payment payment = new Payment(7900);
             List<Grade> listgrade = new List<Grade> { };
             Student test = new Student(classroom, profil, timetable, payment, listgrade);
         }
