@@ -13,5 +13,13 @@ namespace oop_group5_project
         {
             this.listclass = timetable;
         }
+
+        public void AddClass (Class newclass)
+        {
+            listclass.Add(newclass);
+        }
+            
+
+
     }
 }

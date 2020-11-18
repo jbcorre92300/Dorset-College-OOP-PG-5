@@ -9,6 +9,7 @@ namespace oop_group5_project
         string name;
         Matter matter;
         double grade;
+
         public Grade(Matter matter, double grade, string name)
         {
             this.name = name;
