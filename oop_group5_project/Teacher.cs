@@ -38,7 +38,23 @@ namespace oop_group5_project
             {
                 student.timetable.listclass.Add(newclass);
             }
-            
+
+        }
+
+        public void Attendance (Classroom classroom)
+        {
+            foreach(Student student in classroom.classroom)
+                {
+                    Console.WriteLine ("Is this student is here ?");
+
+                    string answer = Console.ReadLine();
+
+                    if (answer == "Yes") break;
+
+                    if (answer == "No") break; // A finir
+                }
+
+
 
 
         }

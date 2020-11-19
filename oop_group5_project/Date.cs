@@ -4,7 +4,7 @@ using System.Text;
 
 namespace oop_group5_project
 {
-    class Date
+    class Date // On pourrait aussi utiliser des Datetime juste, qu'on mettrait dans TimeTable direct
     {
         int year;
         int month;

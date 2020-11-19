@@ -6,11 +6,13 @@ namespace oop_group5_project
 {
     class Admin
     {
+        string name;
         int id;
         string password;
 
-        public Admin(int id, string password)
+        public Admin(string name, int id, string password)
         {
+            this.name = name;
             this.id = id;
             this.password = password;                               //23024 Thomas BAUDU 
                                                                     //23189 Audrey CHANTY
@@ -44,7 +46,7 @@ namespace oop_group5_project
             int cost = 7900;
             
             Student student = new Student(id, profil, timetable, listgrade, cost);
-            
+
             return student;
 
 
