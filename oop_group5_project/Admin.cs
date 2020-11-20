@@ -26,6 +26,7 @@ namespace oop_group5_project
         }
         public Student createstudent()
         {
+            string name = "Paul";
             Console.WriteLine("What is the id for the student?");
             int id = Convert.ToInt32(Console.ReadLine());
             List<string> profil = new List<string> { };
@@ -45,7 +46,7 @@ namespace oop_group5_project
             List<Grade> listgrade = new List<Grade> { };
             int cost = 7900;
             
-            Student student = new Student(id, profil, timetable, listgrade, cost);
+            Student student = new Student(name, id, profil, timetable, listgrade, cost);
 
             return student;
 

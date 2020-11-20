@@ -11,6 +11,7 @@ namespace oop_group5_project
                                                                 //23164 Alexandre MAROTTE
     class Student : InterfacePayment                                                     
     {
+        public string name;
         int id;
         public int classroom;
         public List<string> profil;
@@ -25,8 +26,9 @@ namespace oop_group5_project
         }
 
 
-        public Student(int classroom, List<string> profil,TimeTable timetable, List<Grade> listgrade, int cost)
+        public Student(string name, int classroom, List<string> profil,TimeTable timetable, List<Grade> listgrade, int cost)
         {
+            this.name = name;
             this.classroom = classroom;
             this.profil = profil;
             this.timetable = timetable;
@@ -59,7 +61,7 @@ namespace oop_group5_project
 
             else
             {
-                Console.WriteLine("Error");
+                Console.WriteLine("Error, please try again");
                 BeginningPayment();
             }
         }
@@ -67,7 +69,7 @@ namespace oop_group5_project
 
         public void CashPayment()
         {
-            Console.WriteLine("Please pay " + cost + " euros" + "\n" + "Enter yout number card : ");
+            Console.WriteLine("Please pay " + cost + " euros" + "\n" + "Enter your number card : ");
 
             int numbercard = Convert.ToInt32(Console.ReadLine()); // faire un solde pour l'étudiant, si l'étudiant à le solde demandé, alors retourner true, sinon false.
 

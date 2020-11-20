@@ -45,7 +45,7 @@ namespace oop_group5_project
         {
             foreach(Student student in classroom.classroom)
                 {
-                    Console.WriteLine ("Is this student is here ?");
+                    Console.WriteLine ("Is this student" + student.name  + " here ?");
 
                     string answer = Console.ReadLine();
 
@@ -55,10 +55,6 @@ namespace oop_group5_project
 
                     else Console.WriteLine ("Error");
                 }
-
-
-
-
         }
 
     }
