@@ -28,12 +28,12 @@ namespace oop_group5_project
             student.listgrade.Add(grade);
         }
 
-        public void AddaClassforaClassroom(int classname, Date date, string location)
+        public void AddaClassforaClassroom(int classname, Date date, string location, Classroom classroom)
         {
             //int i = l'index de la classe dans la liste de class du teacher
             int i = 1;
             Teacher teacher = new Teacher(name, listclassroom, matter);
-            Class newclass = new Class(date, matter, location, teacher);
+            Class newclass = new Class(date, matter, location, teacher, classroom);
             foreach(Student student in listclassroom[i].classroom)
             {
                 student.timetable.listclass.Add(newclass);
@@ -51,7 +51,9 @@ namespace oop_group5_project
 
                     if (answer == "Yes") break;
 
-                    if (answer == "No") break; // A finir
+                    if (answer == "No") student.nonattendance ++;
+
+                    else Console.WriteLine ("Error");
                 }
 
 

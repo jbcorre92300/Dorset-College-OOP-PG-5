@@ -17,6 +17,7 @@ namespace oop_group5_project
         public TimeTable timetable;
         public List<Grade> listgrade;
         private int cost;
+        public int nonattendance;
         
         public int Cost
         {
