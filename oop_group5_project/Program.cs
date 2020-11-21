@@ -20,7 +20,7 @@ namespace oop_group5_project
             Student test = new Student(name, classroom, profil, timetable, listgrade, cost);
         }
 
-        public class ConsoleSpiner
+        public class ConsoleSpiner      //Loading Bar during the login
         {
             int counter;
             public ConsoleSpiner()
@@ -80,14 +80,22 @@ namespace oop_group5_project
 
                 if (userexist == false)
                 {
+                    Console.Clear();
+                    Console.WriteLine("Loading....");
+                    System.Threading.Thread.Sleep(3500);
+                    Console.Clear();
                     Console.WriteLine("Sorry, the id or the password is incorrect, try again");
                     System.Threading.Thread.Sleep(3500);                                            //Delay 3.5 seconds for a new trial
                     Console.Clear();
                 }
                 else 
                 {
-                    Console.Write("Loading....");
-                    Console.WriteLine("Well logged in, welcome back user " + id); 
+                    Console.Clear();
+                    Console.WriteLine("Loading....");
+                    System.Threading.Thread.Sleep(3500);
+                    Console.Clear();
+                    Console.WriteLine("Well logged in, welcome back user " + id);
+                    System.Threading.Thread.Sleep(3500);
                 }
             }
 
