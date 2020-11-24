@@ -34,6 +34,7 @@ namespace oop_group5_project
             this.timetable = timetable;
             this.listgrade = listgrade;
             this.cost = cost;
+            this.nonattendance = 0;
         }
 
 
@@ -50,7 +51,7 @@ namespace oop_group5_project
         */
 
          public void BeginningPayment()
-        {
+         {
             Console.WriteLine("How do you want to make your payment ?" +
                 "1 for Cash Payment" +
                 "2 for Several Times Payment");
@@ -64,7 +65,7 @@ namespace oop_group5_project
                 Console.WriteLine("Error, please try again");
                 BeginningPayment();
             }
-        }
+         }
 
 
         public void CashPayment()

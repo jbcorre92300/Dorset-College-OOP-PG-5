@@ -50,12 +50,12 @@ namespace oop_group5_project
                                                                 //23164 Alexandre MAROTTE
 
             
-            List<Platform> user = new List<Platform>();
+            List<Platform> userlist = new List<Platform>();
 
-            user.Add(new Platform() { id = "12345", password = "azerty65" , usertype = "student"});
-            user.Add(new Platform() { id = "13579", password = "abcde89", usertype = "student" });
-            user.Add(new Platform() { id = "23456", password = "qsdfg12", usertype = "teacher" });
-            user.Add(new Platform() { id = "34567", password = "wxcvb34", usertype = "admin" });
+            userlist.Add(new Platform() { id = "12345", password = "azerty65" , usertype = "student"});
+            userlist.Add(new Platform() { id = "13579", password = "abcde89", usertype = "student" });
+            userlist.Add(new Platform() { id = "23456", password = "qsdfg12", usertype = "teacher" });
+            userlist.Add(new Platform() { id = "34567", password = "wxcvb34", usertype = "admin" });
 
             bool userexist = false;
 
@@ -69,12 +69,13 @@ namespace oop_group5_project
 
                 // Compare the username and the password with the list of existing Students/Teachers/Admins
                 // If there is a match, the login succeed and the informations concerning the user are loading in
-
-                foreach (Platform username in user)
+                Platform user = new Platform ();
+                foreach (Platform username in userlist)
                 {
                     if (id == username.id && password == username.password)
                     {
                         userexist = true;
+                        user = username;
                     }
                 }
 
@@ -82,20 +83,21 @@ namespace oop_group5_project
                 {
                     Console.Clear();
                     Console.WriteLine("Loading....");
-                    System.Threading.Thread.Sleep(3500);
+                    System.Threading.Thread.Sleep(2000);
                     Console.Clear();
                     Console.WriteLine("Sorry, the id or the password is incorrect, try again");
-                    System.Threading.Thread.Sleep(3500);                                            //Delay 3.5 seconds for a new trial
+                    System.Threading.Thread.Sleep(2000);                                            //Delay 2 seconds for a new trial
                     Console.Clear();
                 }
                 else 
                 {
                     Console.Clear();
                     Console.WriteLine("Loading....");
-                    System.Threading.Thread.Sleep(3500);
+                    System.Threading.Thread.Sleep(2000);
                     Console.Clear();
                     Console.WriteLine("Well logged in, welcome back user " + id);
-                    System.Threading.Thread.Sleep(3500);
+                    Console.WriteLine("you are a " + user.usertype);
+                    System.Threading.Thread.Sleep(2000);
                 }
             }
 
