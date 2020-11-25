@@ -54,5 +54,13 @@ namespace oop_group5_project
 
 
         }*/
+
+        public void AdmonMenu()
+        {
+            
+        }
+
+
+
     }
 }

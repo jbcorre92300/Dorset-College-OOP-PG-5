@@ -95,6 +95,11 @@ namespace oop_group5_project
             else Console.WriteLine("There is " + remainingpayment + " euros left to pay");
         }
 
+
+        public void StudentMenu()
+        {
+            
+        }
         
     }   
     

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace oop_group5_project
 {
-    class Teacher : Platform
+    class Teacher : Platform, ManageAttendance
     {                                                           //23024 Thomas BAUDU 
                                                                 //23189 Audrey CHANTY
                                                                 //23182 Jean-Baptiste CORRE
@@ -44,7 +44,7 @@ namespace oop_group5_project
 
         }
 
-        public void Attendance (Classroom classroom)
+        public void Attendance(Classroom classroom)
         {
             foreach(Student student in classroom.classroom)
                 {
@@ -59,6 +59,13 @@ namespace oop_group5_project
                     else Console.WriteLine ("Error");
                 }
         }
+
+
+        public void TeacherMenu()
+        {
+
+        }
+
 
     }
 }
