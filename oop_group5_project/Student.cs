@@ -9,33 +9,30 @@ namespace oop_group5_project
                                                                 //23165 Victor FAUCHARD
                                                                 //23213 Tristan GERON
                                                                 //23164 Alexandre MAROTTE
-    class Student : InterfacePayment//, Platform                                                     
-    {
-        public string name;
-        public string id;
-        public int classroom;
-        public List<string> profil;
-        public TimeTable timetable;
-        public List<Grade> listgrade;
-        private int cost;
-        public int nonattendance;
+    class Student : Platform, InterfacePayment
         
-        public int Cost
-        {
-            get { return cost; }
-        }
+    {
+        public string Name { get; set; }
+        public Classroom Classroom { get; set; }
+        public List<string> Profil { get; set; }
+        public TimeTable Timetable { get; set; }
+        public List<Grade> Listgrade { get; set; }
+        public int Cost { get; set; }
+        public int Nonattendance { get; set; }
+        
+       
 
 
-        public Student(string name, int classroom, List<string> profil,TimeTable timetable, List<Grade> listgrade, int cost)
-        // :base(string id, string password, string usertype) 
+        public Student(string name, Classroom classroom, List<string> profil,TimeTable timetable, List<Grade> listgrade, int cost,string id,string password,string usertype)
+        : base(id, password, usertype)
         {
-            this.name = name;
-            this.classroom = classroom;
-            this.profil = profil;
-            this.timetable = timetable;
-            this.listgrade = listgrade;
-            this.cost = cost;
-            this.nonattendance = 0;
+            Name = name;
+            Classroom = classroom;
+            Profil = profil;
+            Timetable = timetable;
+            Listgrade = listgrade;
+            Cost = cost;
+            Nonattendance = 0;
         }
 
 
@@ -71,7 +68,7 @@ namespace oop_group5_project
 
         public void CashPayment()
         {
-            Console.WriteLine("Please pay " + cost + " euros" + "\n" + "Enter your number card : ");
+            Console.WriteLine("Please pay " + Cost + " euros" + "\n" + "Enter your number card : ");
 
             int numbercard = Convert.ToInt32(Console.ReadLine()); // faire un solde pour l'étudiant, si l'étudiant à le solde demandé, alors retourner true, sinon false.
 
@@ -82,7 +79,7 @@ namespace oop_group5_project
 
         public void SeveralTimesPayment()
         {
-            int remainingpayment = cost;
+            int remainingpayment = Cost;
             int alreadypaid = 0;
 
             Console.WriteLine("How much do you want to pay right now ? : ");
@@ -93,7 +90,7 @@ namespace oop_group5_project
 
             alreadypaid += payment;
 
-            if (remainingpayment == 0 && alreadypaid == cost) Console.WriteLine("Your payment is complete !");
+            if (remainingpayment == 0 && alreadypaid == Cost) Console.WriteLine("Your payment is complete !");
 
             else Console.WriteLine("There is " + remainingpayment + " euros left to pay");
         }

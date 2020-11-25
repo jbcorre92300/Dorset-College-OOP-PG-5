@@ -4,18 +4,19 @@ using System.Text;
 
 namespace oop_group5_project
 {
-    class Admin //: Platform
+    class Admin : Platform
     {
-        public string name;                         //A supprimer pck attributs de la classe platform deja défini
-        public string id;
-        public string password;
+        public string Name { get; set; }
+        /*public string id;
+        public string password;*/
 
-        public Admin(string name, string id, string password)
-            // :base(string id, string password, string usertype) 
+        public Admin(string name, string id,string password,string usertype)
+             : base(id,password,usertype) 
         {
-            this.name = name;
-            this.id = id;
-            this.password = password;                               //23024 Thomas BAUDU 
+            Name = name;
+            Id = id;
+            Password = password;
+            Usertype = "3";                                         //23024 Thomas BAUDU 
                                                                     //23189 Audrey CHANTY
                                                                     //23182 Jean-Baptiste CORRE
                                                                     //23165 Victor FAUCHARD
@@ -25,7 +26,7 @@ namespace oop_group5_project
 
 
         }
-        public Student createstudent()
+        /*public Student createstudent()
         {
             string name = "Paul";
             Console.WriteLine("What is the id for the student?");
@@ -47,11 +48,11 @@ namespace oop_group5_project
             List<Grade> listgrade = new List<Grade> { };
             int cost = 7900;
             
-            Student student = new Student(name, id, profil, timetable, listgrade, cost);
-
+            Student student = new Student(Name, id, profil, timetable, listgrade, cost);
+            
             return student;
 
 
-        }
+        }*/
     }
 }
