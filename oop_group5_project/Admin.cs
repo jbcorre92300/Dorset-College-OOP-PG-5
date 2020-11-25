@@ -4,13 +4,14 @@ using System.Text;
 
 namespace oop_group5_project
 {
-    class Admin
+    class Admin //: Platform
     {
-        public string name;
-        public int id;
+        public string name;                         //A supprimer pck attributs de la classe platform deja défini
+        public string id;
         public string password;
 
-        public Admin(string name, int id, string password)
+        public Admin(string name, string id, string password)
+            // :base(string id, string password, string usertype) 
         {
             this.name = name;
             this.id = id;

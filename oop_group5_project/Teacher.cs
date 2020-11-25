@@ -4,7 +4,7 @@ using System.Text;
 
 namespace oop_group5_project
 {
-    class Teacher
+    class Teacher//: Platform
     {                                                           //23024 Thomas BAUDU 
                                                                 //23189 Audrey CHANTY
                                                                 //23182 Jean-Baptiste CORRE
@@ -16,6 +16,7 @@ namespace oop_group5_project
         public Matter matter;
 
         public Teacher(string name, List<Classroom> liste, Matter matter)
+        // :base(string id, string password, string usertype) 
         {
             this.name = name;
             this.listclassroom = liste;

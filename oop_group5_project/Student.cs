@@ -9,10 +9,10 @@ namespace oop_group5_project
                                                                 //23165 Victor FAUCHARD
                                                                 //23213 Tristan GERON
                                                                 //23164 Alexandre MAROTTE
-    class Student : InterfacePayment                                                     
+    class Student : InterfacePayment//, Platform                                                     
     {
         public string name;
-        public int id;
+        public string id;
         public int classroom;
         public List<string> profil;
         public TimeTable timetable;
@@ -27,6 +27,7 @@ namespace oop_group5_project
 
 
         public Student(string name, int classroom, List<string> profil,TimeTable timetable, List<Grade> listgrade, int cost)
+        // :base(string id, string password, string usertype) 
         {
             this.name = name;
             this.classroom = classroom;

@@ -52,7 +52,7 @@ namespace oop_group5_project
             
             List<Platform> userlist = new List<Platform>();
 
-            userlist.Add(new Platform() { id = "12345", password = "azerty65" , usertype = "student"});
+            userlist.Add(new Platform() { id = "12345", password = "azerty65" , usertype = "student"}); 
             userlist.Add(new Platform() { id = "13579", password = "abcde89", usertype = "student" });
             userlist.Add(new Platform() { id = "23456", password = "qsdfg12", usertype = "teacher" });
             userlist.Add(new Platform() { id = "34567", password = "wxcvb34", usertype = "admin" });
