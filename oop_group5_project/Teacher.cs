@@ -11,9 +11,9 @@ namespace oop_group5_project
                                                                 //23165 Victor FAUCHARD
                                                                 //23213 Tristan GERON
                                                                 //23164 Alexandre MAROTTE
-        string name;
-        List<Classroom> listclassroom;
-        Matter matter;
+        public string name;
+        public List<Classroom> listclassroom;
+        public Matter matter;
 
         public Teacher(string name, List<Classroom> liste, Matter matter)
         {

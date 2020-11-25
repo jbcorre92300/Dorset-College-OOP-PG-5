@@ -6,11 +6,11 @@ namespace oop_group5_project
 {
     class Class
     {
-        Date date;
-        Matter matter;
-        string location;
-        Teacher teacher;
-        Classroom classroom;
+        public Date date;
+        public Matter matter;
+        public string location;
+        public Teacher teacher;
+        public Classroom classroom;
 
         public Class(Date date,Matter matter, string location, Teacher teacher, Classroom classroom)
         {

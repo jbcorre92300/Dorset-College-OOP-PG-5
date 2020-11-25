@@ -12,7 +12,7 @@ namespace oop_group5_project
     class Student : InterfacePayment                                                     
     {
         public string name;
-        int id;
+        public int id;
         public int classroom;
         public List<string> profil;
         public TimeTable timetable;

@@ -4,11 +4,11 @@ using System.Text;
 
 namespace oop_group5_project
 {
-    class Payment
+    class Payment                                       //Interface faite (classe à supprimer ?)
     {
-        int cost;
-        int alreadypaid;
-        int remainingpayment;
+        public int cost;
+        public int alreadypaid;
+        public int remainingpayment;
 
         public Payment(int a)
         {

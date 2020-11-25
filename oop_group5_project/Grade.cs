@@ -6,9 +6,9 @@ namespace oop_group5_project
 {
     class Grade
     {
-        string name;
-        Matter matter;
-        double grade;
+        public string name;
+        public Matter matter;
+        public double grade;
 
         public Grade(Matter matter, double grade, string name)
         {

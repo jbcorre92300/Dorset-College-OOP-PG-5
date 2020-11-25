@@ -6,9 +6,9 @@ namespace oop_group5_project
 {
     class Admin
     {
-        string name;
-        int id;
-        string password;
+        public string name;
+        public int id;
+        public string password;
 
         public Admin(string name, int id, string password)
         {

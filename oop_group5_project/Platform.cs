@@ -4,11 +4,10 @@ using System.Text;
 
 namespace oop_group5_project
 {
-    class Platform
+    public class Platform
     {
         public string id { get; set; }
         public string password { get; set; }
-
         public string  usertype { get; set; }
     
 
