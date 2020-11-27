@@ -10,14 +10,18 @@ namespace oop_group5_project
         static void Buildfortest()
         {
             string name = "Edouart";
-            int classroom = 17;
+            List<Student> liststudent = new List<Student>();
+            Classroom classroom = new Classroom(1,liststudent);
             List<string> profil = new List<string> { "01/01/2000", "Paul", "Dupont" };
             TimeTable timetable = new TimeTable(new List<Class> { });
             // Payment payment = new Payment(7900);   - ne sert plus à rien avec l'interface
             List<Grade> listgrade = new List<Grade> { };
             int cost = 7900;
+            string id = "987654";
+            string password = "password";
+            string usertype = "1";
 
-            Student test = new Student(name, classroom, profil, timetable, listgrade, cost);
+            Student test = new Student(name,classroom,profil,timetable,listgrade,cost,id,password,usertype);
         }
 
         public class ConsoleSpiner      //Loading Bar during the login
@@ -50,12 +54,22 @@ namespace oop_group5_project
                                                                 //23164 Alexandre MAROTTE
 
             
-            List<Platform> userlist = new List<Platform>();
+            List<User> userlist = new List<User>();
             Admin admintest = new Admin("JB", "12345", "password", "3");
-            userlist.Add(admintest); 
-            userlist.Add(new Platform() { id = "13579", password = "abcde89", usertype = "student" });
-            userlist.Add(new Platform() { id = "23456", password = "qsdfg12", usertype = "teacher" });
-            userlist.Add(new Platform() { id = "34567", password = "wxcvb34", usertype = "admin" });
+            userlist.Add(admintest);
+            List<Student> liststudent = new List<Student>();
+            Classroom classroom = new Classroom(1, liststudent);
+            List<string> profil = new List<string> { "01/01/2000", "jj", "Dupont" };
+            TimeTable timetable = new TimeTable(new List<Class> { });
+            // Payment payment = new Payment(7900);   - ne sert plus à rien avec l'interface
+            List<Grade> listgrade = new List<Grade> { };
+            int cost = 7900;
+            Student studenttest = new Student("jj", classroom, profil, timetable, listgrade, cost, "2255", "password", "1");
+            userlist.Add(studenttest);
+            List < Classroom > listclassroom = new List<Classroom>();
+
+            Teacher teachertest = new Teacher("Ms.Smith", listclassroom, french, "159", "password", "2");
+            userlist.Add(teachertest);
 
             bool userexist = false;
 
@@ -67,15 +81,18 @@ namespace oop_group5_project
                 Console.WriteLine("Password : ");
                 string password = Convert.ToString(Console.ReadLine());
 
+                Console.WriteLine("Are you a : 1)Student \n2)Teacher\n3)Admin");
+                string usertype = Convert.ToString(Console.ReadLine());
+                
                 // Compare the username and the password with the list of existing Students/Teachers/Admins
                 // If there is a match, the login succeed and the informations concerning the user are loading in
-                Platform user = new Platform ();
-                foreach (Platform username in userlist)
+                
+                foreach (User username in userlist)
                 {
-                    if (id == username.id && password == username.password)
+                    if (id == username.Id && password == username.Password)
                     {
                         userexist = true;
-                        user = username;
+                        
                     }
                 }
 
@@ -96,7 +113,7 @@ namespace oop_group5_project
                     System.Threading.Thread.Sleep(2000);
                     Console.Clear();
                     Console.WriteLine("Well logged in, welcome back user " + id);
-                    Console.WriteLine("you are a " + user.usertype);
+                    Console.WriteLine("you are a " + username.usertype);
                     System.Threading.Thread.Sleep(2000);
                 }
             }

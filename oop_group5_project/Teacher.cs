@@ -5,7 +5,7 @@ using System.Text;
 
 namespace oop_group5_project
 {
-    class Teacher : Platform, ManageAttendance
+   class Teacher : User, ManageAttendance
     {                                                           //23024 Thomas BAUDU 
                                                                 //23189 Audrey CHANTY
                                                                 //23182 Jean-Baptiste CORRE

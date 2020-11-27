@@ -4,7 +4,7 @@ using System.Text;
 
 namespace oop_group5_project
 {
-    class Admin : Platform
+    class Admin : User
     {
         public string Name { get; set; }
         /*public string id;

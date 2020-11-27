@@ -9,7 +9,7 @@ namespace oop_group5_project
                                                                 //23165 Victor FAUCHARD
                                                                 //23213 Tristan GERON
                                                                 //23164 Alexandre MAROTTE
-    class Student : Platform, InterfacePayment
+    class Student : User, InterfacePayment
         
     {
         public string Name { get; set; }

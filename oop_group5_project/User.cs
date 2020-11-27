@@ -4,13 +4,13 @@ using System.Text;
 
 namespace oop_group5_project
 {
-    public abstract class Platform
+    public abstract class User
     {
         public string Id { get; set; }
         public string Password { get; set; }
         public string  Usertype { get; set; } 
     
-        public Platform(string id,string password,string usertype)
+        public User(string id,string password,string usertype)
         {
             Id = id;
             Password = password;
