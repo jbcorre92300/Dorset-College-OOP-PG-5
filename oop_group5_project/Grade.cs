@@ -6,15 +6,20 @@ namespace oop_group5_project
 {
     class Grade
     {
-        public string name;
-        public Matter matter;
-        public double grade;
+        public string Name;
+        public Matter Matter;
+        public double Mark;
 
-        public Grade(Matter matter, double grade, string name)
+        public Grade(string name, Matter matter, double mark)
         {
-            this.name = name;
-            this.matter = matter;
-            this.grade = grade;
+            Name = name;
+            Matter = matter;
+            Mark = mark;
+        }
+
+        public override string ToString()
+        {
+            return $"{Matter}    {Name} :{Mark}";
         }
     }
 }

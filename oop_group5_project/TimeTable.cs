@@ -6,17 +6,17 @@ namespace oop_group5_project
 {
     class TimeTable
     {
-        public List<Class> listclass;
+        public List<Class> Listclass;
 
 
-        public TimeTable(List<Class> timetable)
+        public TimeTable(List<Class> listclass)
         {
-            this.listclass = timetable;
+            Listclass = listclass;
         }
 
         public void AddClass (Class newclass)
         {
-            listclass.Add(newclass);
+            Listclass.Add(newclass);
         }
             
 

@@ -11,7 +11,7 @@ namespace oop_group5_project
         {
             string name = "Edouart";
             List<Student> liststudent = new List<Student>();
-            Classroom classroom = new Classroom(1,liststudent);
+            Classroom classroom = new Classroom("1",liststudent);
             List<string> profil = new List<string> { "01/01/2000", "Paul", "Dupont" };
             TimeTable timetable = new TimeTable(new List<Class> { });
             // Payment payment = new Payment(7900);   - ne sert plus à rien avec l'interface
@@ -58,7 +58,7 @@ namespace oop_group5_project
             Admin admintest = new Admin("JB", "12345", "password", "3");
             userlist.Add(admintest);
             List<Student> liststudent = new List<Student>();
-            Classroom classroom = new Classroom(1, liststudent);
+            Classroom classroom = new Classroom("1", liststudent);
             List<string> profil = new List<string> { "01/01/2000", "jj", "Dupont" };
             TimeTable timetable = new TimeTable(new List<Class> { });
             // Payment payment = new Payment(7900);   - ne sert plus à rien avec l'interface
@@ -68,10 +68,12 @@ namespace oop_group5_project
             userlist.Add(studenttest);
             List < Classroom > listclassroom = new List<Classroom>();
 
-            Teacher teachertest = new Teacher("Ms.Smith", listclassroom, french, "159", "password", "2");
+            Teacher teachertest = new Teacher("Ms.Smith", listclassroom, Matter.french, "159", "password", "2");
             userlist.Add(teachertest);
 
-            bool userexist = false;
+            studenttest.StudentMenu();
+
+            /*bool userexist = false;
 
             while(userexist == false)
             {
@@ -91,6 +93,7 @@ namespace oop_group5_project
                 {
                     if (id == username.Id && password == username.Password)
                     {
+                        
                         userexist = true;
                         
                     }
@@ -116,7 +119,7 @@ namespace oop_group5_project
                     Console.WriteLine("you are a " + username.usertype);
                     System.Threading.Thread.Sleep(2000);
                 }
-            }
+            }*/
 
 
             Console.Clear();

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace oop_group5_project
 {
-   class Teacher : User, ManageAttendance
+   class Teacher : User//, ManageAttendance
     {                                                           //23024 Thomas BAUDU 
                                                                 //23189 Audrey CHANTY
                                                                 //23182 Jean-Baptiste CORRE
@@ -27,7 +27,7 @@ namespace oop_group5_project
 
         public void AddaGradeforaStudent(Student student, double note, string gradename) // id student a la place de student 
         {
-            Grade grade = new Grade(Matter, note, gradename);
+            Grade grade = new Grade(gradename, Matter, note);
             student.Listgrade.Add(grade);
         }
 
@@ -37,16 +37,16 @@ namespace oop_group5_project
             int i = 1;
             Teacher teacher = new Teacher(Name, Listclassroom, Matter,Id,Password,Usertype);
             Class newclass = new Class(date, Matter, location, teacher, classroom);
-            foreach(Student student in Listclassroom[i].classroom)
+            foreach(Student student in Listclassroom[i].Classroomlist)
             {
-                student.Timetable.listclass.Add(newclass);
+                student.Timetable.Listclass.Add(newclass);
             }
 
         }
 
         public void Attendance(Classroom classroom)
         {
-            foreach(Student student in classroom.classroom)
+            foreach(Student student in classroom.Classroomlist)
                 {
                     Console.WriteLine ("Is this student" + student.Name  + " here ?");
 

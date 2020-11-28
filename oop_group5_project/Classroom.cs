@@ -6,17 +6,20 @@ namespace oop_group5_project
 {
     class Classroom
     {
-        public int name { get; set;}
-        public List<Student> classroom { get; set;}
+        public string Name { get; set;}
+        public List<Student> Classroomlist { get; set;}
 
 
-        public Classroom (int Name, List<Student> Classroom)
+        public Classroom (string name, List<Student> classroomlist)
         {
-            this.name = Name;
-            this.classroom = Classroom;
+            Name = name;
+            Classroomlist = classroomlist;
         }
 
-
+        public override string ToString()
+        {
+           return $"Class : {Name}";
+        }
 
     }
 }
