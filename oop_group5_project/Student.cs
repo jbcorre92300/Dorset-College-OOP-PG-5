@@ -12,6 +12,7 @@ namespace oop_group5_project
     class Student : User, InterfacePayment
         
     {
+        #region champ
         public string Name { get; set; }
         public Classroom Classroom { get; set; }
         public List<string> Profil { get; set; }
@@ -19,9 +20,7 @@ namespace oop_group5_project
         public List<Grade> Listgrade { get; set; }
         public int Cost { get; set; }
         public List<Class> Nonattendance { get; set; }
-        
-       
-
+        #endregion
 
         public Student(string name, Classroom classroom, List<string> profil,TimeTable timetable, List<Grade> listgrade, int cost,string id,string password,string usertype)
         : base(id, password, usertype)
@@ -35,19 +34,6 @@ namespace oop_group5_project
             Nonattendance = null;
             Usertype = "1";
         }
-
-
-
-        /*
-        public void makeapaiment(double paiment)
-        {
-            if (paiment > payment.cost - payment.alreadypaid)
-            {
-                paiment = payment.cost - payment.alreadypaid;
-            }
-            payment.alreadypaid += paiment;
-        }
-        */
 
         public void BeginningPayment()
         {
@@ -71,20 +57,18 @@ namespace oop_group5_project
             }
         }
 
-
         public void CashPayment()
         {
             Console.WriteLine("Please pay " + Cost + " euros" + "\n" + "Enter your number card : ");
 
             int numbercard = Convert.ToInt32(Console.ReadLine()); // faire un solde pour l'étudiant, si l'étudiant à le solde demandé, alors retourner true, sinon false.
-
+            Cost = 0;
             Console.WriteLine("Successfull Payment !");
             System.Threading.Thread.Sleep(2000);
             Console.Clear();
             StudentMenu();
 
         }
-
 
         public void SeveralTimesPayment()
         {
@@ -99,8 +83,11 @@ namespace oop_group5_project
 
             alreadypaid += payment;
 
-            if (remainingpayment == 0 && alreadypaid == Cost) Console.WriteLine("Your payment is complete !");
-
+            if (remainingpayment == 0 && alreadypaid == Cost)
+            {
+                Console.WriteLine("Your payment is complete !");
+                Cost = remainingpayment;
+            }
             else Console.WriteLine("There is " + remainingpayment + " euros left to pay");
             System.Threading.Thread.Sleep(2000);
             Console.Clear();
@@ -184,7 +171,10 @@ namespace oop_group5_project
 
         public void SeeNoAttendence()
         {
-
+            foreach(Class cou in Nonattendance)
+            {
+                Console.WriteLine(cou.ToString());
+            }
         }
 
         public void StudentMenu()
@@ -221,6 +211,6 @@ namespace oop_group5_project
             }
         }
         
-    }   
+    }  
     
 }
