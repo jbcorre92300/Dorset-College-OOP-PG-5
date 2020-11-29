@@ -23,8 +23,6 @@ namespace oop_group5_project
                                                                     //23213 Tristan GERON
                                                                     //23164 Alexandre MAROTTE
 
-
-
         }
         /*public Student createstudent()
         {
@@ -54,10 +52,96 @@ namespace oop_group5_project
 
 
         }*/
-
-        public void AdmonMenu()
+        public void TrackPaymentStudent(Student a)
         {
-            
+            Console.WriteLine($"{a.Name} has {a.Cost} euros left to pay");
+        }
+
+        public void SeeClassResults(Classroom c)
+        {
+            foreach(Student s in c.Classroomlist)
+            {
+                Console.Write(s.Name);
+                foreach(Grade g in s.Listgrade)
+                {
+                    Console.Write($"{g} / ");
+                }
+            }
+        }
+        public void SeeClassAttendance(Classroom c)
+        {
+            foreach (Student s in c.Classroomlist)
+            {
+                Console.WriteLine($"{s.Name} : {s.Nonattendance} classes missed ");
+                
+            }
+        }
+
+        public void AdminMenu()
+        {
+            Console.Clear();
+            Console.WriteLine($"Welcome {Name}, choose an option :\n1)Track Payment\n2)See exams/assignments results of a class\n3)See attendance of a class\n4)See Timetables\n5)See student profile");
+            int menu = Convert.ToInt32(Console.ReadLine());
+            switch (menu)
+            {
+                case 1:
+                    Console.Clear();
+                    Console.WriteLine($"Enter a Student ID");
+                    string wantedId = Console.ReadLine();
+                    foreach(Student s in /*full student list*/)
+                    {
+                        if(wantedId == s.Id)
+                        {
+                            TrackPaymentStudent(s);
+                        }
+                        else
+                        {
+                            Console.WriteLine("The student was not found");
+                        }
+                    }
+                    
+                    break;
+                case 2:
+                    Console.Clear();
+                    Console.WriteLine($"Enter a Class Name");
+                    string wantedClass = Console.ReadLine();
+                    foreach (Classroom c in /*full classroom list*/)
+                    {
+                        if (wantedClass == c.Name)
+                        {
+                            SeeClassResults(c);
+                        }
+                        else
+                        {
+                            Console.WriteLine("The class was not found");
+                        }
+                    }
+                    break;
+                case 3:
+                    Console.Clear();
+                    Console.WriteLine($"Enter a Class Name");
+                    string wantedClass2 = Console.ReadLine();
+                    foreach (Classroom c in /*full classroom list*/)
+                    {
+                        if (wantedClass2 == c.Name)
+                        {
+                            SeeClassAttendance(c);
+                        }
+                        else
+                        {
+                            Console.WriteLine("The class was not found");
+                        }
+                    }
+                    break;
+                case 4:
+                    Console.Clear();
+                    BeginningPayment();
+                    break;
+                case 5:
+                    Console.Clear();
+                    SeeExamsandAssignementResults();
+                    break;
+            }
         }
 
 
