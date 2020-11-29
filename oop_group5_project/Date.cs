@@ -6,19 +6,13 @@ namespace oop_group5_project
 {
     class Date // On pourrait aussi utiliser des Datetime juste, qu'on mettrait dans TimeTable direct
     {
-        int year;
-        int month;
-        int day;
-        int hour;
-        int minute;
+        public string day;
+        public int hour;
 
-        public Date(int year,int month, int day, int hour, int minute)
+        public Date(string day, int hour)
         {
-            this.year = year;
-            this.month = month;
             this.day = day;
             this.hour = hour;
-            this.minute = minute;
         }
 
     }

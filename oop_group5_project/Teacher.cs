@@ -36,7 +36,7 @@ namespace oop_group5_project
             //int i = l'index de la classe dans la liste de class du teacher
             int i = 1;
             Teacher teacher = new Teacher(Name, Listclassroom, Matter,Id,Password,Usertype);
-            Class newclass = new Class(date, Matter, location, teacher, classroom);
+            Class newclass = new Class(date, Matter, location, teacher);
             foreach(Student student in Listclassroom[i].Classroomlist)
             {
                 student.Timetable.Listclass.Add(newclass);

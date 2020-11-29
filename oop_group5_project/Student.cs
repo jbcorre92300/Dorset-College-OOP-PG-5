@@ -18,7 +18,7 @@ namespace oop_group5_project
         public TimeTable Timetable { get; set; }
         public List<Grade> Listgrade { get; set; }
         public int Cost { get; set; }
-        public List<Class> Nonattendance { get; set; }
+        public int Nonattendance { get; set; }
         
        
 
@@ -32,7 +32,7 @@ namespace oop_group5_project
             Timetable = timetable;
             Listgrade = listgrade;
             Cost = cost;
-            Nonattendance = null;
+            Nonattendance = 0;
             Usertype = "1";
         }
 
@@ -144,19 +144,49 @@ namespace oop_group5_project
             StudentMenu();
         }
 
-        public void SeeAttendance()
+        public void SeeAttendence()
         {
-            foreach(Class course in Nonattendance)
+            Console.Clear();
+            Console.WriteLine("    Monday       Tuesday      Wednesday      Thursday      Friday");
+            Console.WriteLine("-----------------------------------------------------------------");
+            for (int hour = 6; hour< 20; hour++)
             {
-                Console.WriteLine(course);
+                Console.Write(hour + "h ");
+                testclassaday(hour, "Monday");
+                testclassaday(hour, "Tuesday");
+                testclassaday(hour, "Wednesday");
+                testclassaday(hour, "Thursday");
+                testclassaday(hour, "Friday");
+                Console.WriteLine();
             }
+            
+        }
+        public void testclassaday(int hour, string day)
+        {
+            string mess = "";
+            foreach (Class cours in Timetable.Listclass)
+            {
+                if (cours.Date.hour == hour&&cours.Date.day==day )
+                {
+                    mess = Convert.ToString(cours.Matter);
+                    
+                    
+                }
+            }
+            int end = day.Length + 6 - mess.Length+1;
+            for (int i = 0; i < end; i++)
+            {
+                mess += " ";
+            }
+            Console.Write(mess);
+
         }
 
 
         public void StudentMenu()
         {
             Console.Clear();
-            Console.WriteLine($"Welcome {Name}, choose an option :\n1)See profile\n2)Login for a class\n3)See Timetable\n4)Payment\n5)See exam/assignement results\n6)See attendance");
+            Console.WriteLine($"Welcome {Name}, choose an option :\n1)See profile\n2)Login for a class\n3)See Timetable\n4)Payment\n5)See exam/assignement results");
             int menu = Convert.ToInt32(Console.ReadLine());
             switch (menu)
             {
@@ -169,7 +199,8 @@ namespace oop_group5_project
                     //Methode pour se mettre présent à un cours actuel;
                     break;
                 case 3:
-                    //Méthode pour voir l'emploi du temps
+                    Console.Clear();
+                    SeeAttendence();
                     break;
                 case 4:
                     Console.Clear();
@@ -178,10 +209,6 @@ namespace oop_group5_project
                 case 5:
                     Console.Clear();
                     SeeExamsandAssignementResults();
-                    break;
-                case 6:
-                    Console.Clear();
-                    SeeAttendance();
                     break;
             }
         }

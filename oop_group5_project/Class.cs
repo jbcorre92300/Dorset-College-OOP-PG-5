@@ -10,15 +10,13 @@ namespace oop_group5_project
         public Matter Matter { get; set; }
         public string Location { get; set; }
         public Teacher Teacher { get; set; }
-        public Classroom Classroom { get; set; }
 
-        public Class(Date date,Matter matter, string location, Teacher teacher, Classroom classroom)
+        public Class(Date date,Matter matter, string location, Teacher teacher)
         {
             Date = date;
             Matter = matter;
             Location = location;
             Teacher = teacher;
-            Classroom = classroom;
         }
         public override string ToString()
         {

@@ -7,6 +7,9 @@ namespace oop_group5_project
 {
     class Program
     {
+
+
+
         static void Buildfortest()
         {
             string name = "Edouart";
@@ -53,7 +56,6 @@ namespace oop_group5_project
                                                                 //23213 Tristan GERON
                                                                 //23164 Alexandre MAROTTE
 
-            
             List<User> userlist = new List<User>();
             Admin admintest = new Admin("JB", "12345", "password", "3");
             userlist.Add(admintest);
@@ -71,8 +73,14 @@ namespace oop_group5_project
             Teacher teachertest = new Teacher("Ms.Smith", listclassroom, Matter.french, "159", "password", "2");
             userlist.Add(teachertest);
 
-            studenttest.StudentMenu();
-
+            //studenttest.StudentMenu();
+            Date date1 = new Date("Wednesday", 14);
+            Date date2 = new Date("Monday", 9);
+            Class classtest1 = new Class(date1,Matter.art,"L210",teachertest);
+            Class classtest2 = new Class(date2, Matter.mathematics, "L210", teachertest);
+            studenttest.Timetable.Listclass.Add(classtest1);
+            studenttest.Timetable.Listclass.Add(classtest2);
+            studenttest.SeeAttendence();
             /*bool userexist = false;
 
             while(userexist == false)
@@ -121,8 +129,9 @@ namespace oop_group5_project
                 }
             }*/
 
-
+            Console.ReadKey();
             Console.Clear();
+            
         }
     }
 }
