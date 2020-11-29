@@ -44,7 +44,7 @@ namespace oop_group5_project
 
         }
 
-        public void Attendance(Classroom classroom)
+        public void Attendance(Classroom classroom,Class cours)
         {
             foreach(Student student in classroom.Classroomlist)
                 {
@@ -54,7 +54,7 @@ namespace oop_group5_project
 
                     if (answer == "Yes") break;
 
-                    if (answer == "No") student.Nonattendance ++;
+                    if (answer == "No") student.Nonattendance.Add(cours);
 
                     else Console.WriteLine ("Error");
                 }
