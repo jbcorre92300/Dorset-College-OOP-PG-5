@@ -18,7 +18,7 @@ namespace oop_group5_project
         public TimeTable Timetable { get; set; }
         public List<Grade> Listgrade { get; set; }
         public int Cost { get; set; }
-        public int Nonattendance { get; set; }
+        public List<Class> Nonattendance { get; set; }
         
        
 
@@ -32,7 +32,7 @@ namespace oop_group5_project
             Timetable = timetable;
             Listgrade = listgrade;
             Cost = cost;
-            Nonattendance = 0;
+            Nonattendance = null;
             Usertype = "1";
         }
 
@@ -182,11 +182,15 @@ namespace oop_group5_project
 
         }
 
+        public void SeeNoAttendence()
+        {
+
+        }
 
         public void StudentMenu()
         {
             Console.Clear();
-            Console.WriteLine($"Welcome {Name}, choose an option :\n1)See profile\n2)Login for a class\n3)See Timetable\n4)Payment\n5)See exam/assignement results");
+            Console.WriteLine($"Welcome {Name}, choose an option :\n1)See profile\n2)Login for a class\n3)See Timetable\n4)Payment\n5)See exam/assignement results\n6)See your no Attendence");
             int menu = Convert.ToInt32(Console.ReadLine());
             switch (menu)
             {
@@ -209,6 +213,10 @@ namespace oop_group5_project
                 case 5:
                     Console.Clear();
                     SeeExamsandAssignementResults();
+                    break;
+                case 6:
+                    Console.Clear();
+                    SeeNoAttendence();
                     break;
             }
         }
