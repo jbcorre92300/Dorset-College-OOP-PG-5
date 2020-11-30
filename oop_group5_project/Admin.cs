@@ -97,9 +97,133 @@ namespace oop_group5_project
         }
 
 
+        public void AdminMenu()
+        {
+            Console.Clear();
+            Console.WriteLine($"Welcome {Name}, choose an option :\n1)Track Payment\n2)See exams/assignments results of a class\n3)See attendance of a class\n4)See Timetables\n5)See student profile");
+            int menu = Convert.ToInt32(Console.ReadLine());
 
-        
-        
+
+            switch (menu)
+            {
+                case 1:
+                    Console.Clear();
+                    Console.WriteLine($"Enter a Student ID");
+                    string wantedId = Console.ReadLine();
+                    foreach (Student s in /*full student list*/)
+                    {
+                        if (wantedId == s.Id)
+                        {
+                            TrackPaymentStudent(s);
+                            Console.WriteLine("Press any touch to exit");
+                            Console.ReadKey();
+                            AdminMenu();
+                        }
+                        else
+                        {
+                            Console.WriteLine("The student was not found");
+                            Console.WriteLine("Press any touch to exit");
+                            Console.ReadKey();
+                            AdminMenu();
+                        }
+                    }
+
+                    break;
+                case 2:
+                    Console.Clear();
+                    Console.WriteLine($"Enter a Class Name");
+                    string wantedClass = Console.ReadLine();
+                    foreach (Classroom c in /*full classroom list*/)
+                    {
+                        if (wantedClass == c.Name)
+                        {
+                            SeeClassResults(c);
+                            Console.WriteLine("Press any touch to exit");
+                            Console.ReadKey();
+                            AdminMenu();
+                        }
+                        else
+                        {
+                            Console.WriteLine("The class was not found");
+                            Console.WriteLine("Press any touch to exit");
+                            Console.ReadKey();
+                            AdminMenu();
+                        }
+                    }
+                    break;
+                case 3:
+                    Console.Clear();
+                    Console.WriteLine($"Enter a Class Name");
+                    string wantedClass2 = Console.ReadLine();
+                    foreach (Classroom c in /*full classroom list*/)
+                    {
+                        if (wantedClass2 == c.Name)
+                        {
+                            SeeClassAttendance(c);
+                            Console.WriteLine("Press any touch to exit");
+                            Console.ReadKey();
+                            AdminMenu();
+                        }
+                        else
+                        {
+                            Console.WriteLine("The class was not found");
+                            Console.WriteLine("Press any touch to exit");
+                            Console.ReadKey();
+                            AdminMenu();
+                        }
+                    }
+                    break;
+                case 4:
+                    Console.Clear();
+                    Console.WriteLine($"Enter a Class Name");
+                    string wantedClass3 = Console.ReadLine();
+                    foreach (Classroom c in /*full classroom list*/)
+                    {
+                        if (wantedClass3 == c.Name)
+                        {
+                            SeeClassTimetable(c);
+                            Console.WriteLine("Press any touch to exit");
+                            Console.ReadKey();
+                            AdminMenu();
+                        }
+                        else
+                        {
+                            Console.WriteLine("The class was not found");
+                            Console.WriteLine("Press any touch to exit");
+                            Console.ReadKey();
+                            AdminMenu();
+                        }
+                    }
+
+                    break;
+                case 5:
+                    Console.Clear();
+                    Console.WriteLine($"Enter a Student ID");
+                    string wantedId2 = Console.ReadLine();
+                    foreach (Student s in /*full student list*/)
+                    {
+                        if (wantedId2 == s.Id)
+                        {
+                            SeeStudentProfile(s);
+                            Console.WriteLine("Press any touch to exit");
+                            Console.ReadKey();
+                            AdminMenu();
+                        }
+                        else
+                        {
+                            Console.WriteLine("The student was not found");
+                            Console.WriteLine("Press any touch to exit");
+                            Console.ReadKey();
+                            AdminMenu();
+
+                        }
+                    }
+                    break;
+            }
+
+        }
+
+
 
 
 

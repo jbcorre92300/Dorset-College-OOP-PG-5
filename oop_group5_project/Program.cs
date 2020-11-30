@@ -99,6 +99,7 @@ namespace oop_group5_project
 
         static void Main(string[] args)
         { 
+
             string name ="";
             string surname="";
             string usertype = "";
