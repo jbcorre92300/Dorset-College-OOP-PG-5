@@ -61,11 +61,52 @@ namespace oop_group5_project
         }
 
 
-        public void TeacherMenu()
+       public void TeacherMenu()
         {
+                Console.Clear();
+                Console.WriteLine($"Welcome {Name}, choose an option :\n1)Attendance \n2)Add class\n3)Add a Graduation for exams");
+                int menu = Convert.ToInt32(Console.ReadLine());
+                switch (menu)
+                {
+                  
+                    case 1:
+                        Console.Clear();
+                        Console.WriteLine("Choose the classroom you want to attempted");
+                        string desiredclassroom = Console.ReadLine();
 
-        }
+                        foreach(Classroom element in Listclassroom)
+                        {
+                            if (desiredclassroom == element.Name)
+                            {
+                                Attendance(element,);
+                            }
+                            else
+                            {
+                                Console.WriteLine("The student is not here"); 
+                            }
 
+                        }
+                        
+                        break;
+                    case 2:
+                        Console.Clear();
+                        Console.WriteLine("Choose the class you want to be added in a classroom");
+                        string addedclassroom = Console.Readline();
+                        foreach(classroom element in Listclassroom)
+                        {
+                          if(addedclassroom
+                        }
+                        AddaClassforaClassroom();
+                        break;
+                    case 3:
+                        Console.Clear();
+                        Console.WriteLine("Chosse the class you want to be graded ");
+                        AddaGradeforaStudent();
+                        break;
+                
+                }
+            
+      }
 
     }
 }
