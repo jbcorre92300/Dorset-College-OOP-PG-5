@@ -79,9 +79,20 @@ namespace oop_group5_project
 
         public void SeeClassTimetable(Classroom c)
         {
-            Console.WriteLine($"{c.Name} : ");
+            Console.WriteLine($"Class {c.Name} : ");
             Student s = c.Classroomlist[1];
             s.SeeAttendence();
+            Console.WriteLine("1) Add an exam to this class\n 2)Go back to menu");
+            string z = Console.ReadLine();
+            if (z == "1")
+            {
+                //Méthode pour ajouter un EXAMEN
+            }
+            else
+            {
+                Console.Clear();
+                AdminMenu();
+            }
         }
 
         public void SeeStudentProfile(Student s)
@@ -117,6 +128,7 @@ namespace oop_group5_project
                             TrackPaymentStudent(s);
                             Console.WriteLine("Press any touch to exit");
                             Console.ReadKey();
+                            Console.Clear();
                             AdminMenu();
                         }
                         else
@@ -124,6 +136,7 @@ namespace oop_group5_project
                             Console.WriteLine("The student was not found");
                             Console.WriteLine("Press any touch to exit");
                             Console.ReadKey();
+                            Console.Clear();
                             AdminMenu();
                         }
                     }
@@ -138,15 +151,13 @@ namespace oop_group5_project
                         if (wantedClass == c.Name)
                         {
                             SeeClassResults(c);
-                            Console.WriteLine("Press any touch to exit");
-                            Console.ReadKey();
-                            AdminMenu();
                         }
                         else
                         {
                             Console.WriteLine("The class was not found");
                             Console.WriteLine("Press any touch to exit");
                             Console.ReadKey();
+                            Console.Clear();
                             AdminMenu();
                         }
                     }
@@ -162,6 +173,7 @@ namespace oop_group5_project
                             SeeClassAttendance(c);
                             Console.WriteLine("Press any touch to exit");
                             Console.ReadKey();
+                            Console.Clear();
                             AdminMenu();
                         }
                         else
@@ -169,6 +181,7 @@ namespace oop_group5_project
                             Console.WriteLine("The class was not found");
                             Console.WriteLine("Press any touch to exit");
                             Console.ReadKey();
+                            Console.Clear();
                             AdminMenu();
                         }
                     }
@@ -184,6 +197,7 @@ namespace oop_group5_project
                             SeeClassTimetable(c);
                             Console.WriteLine("Press any touch to exit");
                             Console.ReadKey();
+                            Console.Clear();
                             AdminMenu();
                         }
                         else
@@ -191,6 +205,7 @@ namespace oop_group5_project
                             Console.WriteLine("The class was not found");
                             Console.WriteLine("Press any touch to exit");
                             Console.ReadKey();
+                            Console.Clear();
                             AdminMenu();
                         }
                     }
@@ -207,6 +222,7 @@ namespace oop_group5_project
                             SeeStudentProfile(s);
                             Console.WriteLine("Press any touch to exit");
                             Console.ReadKey();
+                            Console.Clear();
                             AdminMenu();
                         }
                         else
@@ -214,6 +230,7 @@ namespace oop_group5_project
                             Console.WriteLine("The student was not found");
                             Console.WriteLine("Press any touch to exit");
                             Console.ReadKey();
+                            Console.Clear();
                             AdminMenu();
 
                         }
