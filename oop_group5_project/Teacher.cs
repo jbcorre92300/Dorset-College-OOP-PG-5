@@ -91,8 +91,8 @@ namespace oop_group5_project
                     case 2:
                         Console.Clear();
                         Console.WriteLine("Choose the class you want to be added in a classroom");
-                        string addedclassroom = Console.Readline();
-                        foreach(classroom element in Listclassroom)
+                        string addedclassroom = Console.ReadLine();
+                        foreach(Classroom element in Listclassroom)
                         {
                           if(addedclassroom
                         }
