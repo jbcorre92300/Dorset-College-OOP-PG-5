@@ -150,7 +150,7 @@ namespace oop_group5_project
         public void testclassaday(int hour, string day)
         {
             string mess = "";
-            foreach (Class cours in Timetable.Listclass)
+            foreach (Class cours in Classroom.Timetable.Listclass)
             {
                 if (cours.Date.hour == hour&&cours.Date.day==day )
                 {
