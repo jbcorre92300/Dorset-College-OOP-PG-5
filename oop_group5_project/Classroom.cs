@@ -8,6 +8,7 @@ namespace oop_group5_project
     {
         public string Name { get; set;}
         public List<Student> Classroomlist { get; set;}
+        public TimeTable Timetable { get; set; }
 
 
         public Classroom (string name, List<Student> classroomlist)

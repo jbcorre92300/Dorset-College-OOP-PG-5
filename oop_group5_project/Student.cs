@@ -9,14 +9,13 @@ namespace oop_group5_project
                                                                 //23165 Victor FAUCHARD
                                                                 //23213 Tristan GERON
                                                                 //23164 Alexandre MAROTTE
-    class Student : User, InterfacePayment
+    class Student : User
         
     {
         #region champ
         public string Name { get; set; }
         public Classroom Classroom { get; set; }
         public List<string> Profil { get; set; }
-        public TimeTable Timetable { get; set; }
         public List<Grade> Listgrade { get; set; }
         public int Cost { get; set; }
         public List<Class> Nonattendance { get; set; }

@@ -31,19 +31,7 @@ namespace oop_group5_project
             student.Listgrade.Add(grade);
         }
 
-        public void AddaClassforaClassroom(int classname, Date date, string location, Classroom classroom)
-        {
-            //int i = l'index de la classe dans la liste de class du teacher
-            int i = 1;
-            Teacher teacher = new Teacher(Name, Listclassroom, Matter, Id, Password, Usertype);
-            Class newclass = new Class(date, Matter, location, teacher);
-            foreach (Student student in Listclassroom[i].Classroomlist)
-            {
-                student.Timetable.Listclass.Add(newclass);
-            }
-
-        }
-
+        
         public void Attendance(Classroom classroom, Class cours)
         {
             foreach (Student student in classroom.Classroomlist)
@@ -61,6 +49,7 @@ namespace oop_group5_project
         }
 
 
+
         public void TeacherMenu()
         {
             Console.Clear();
@@ -70,18 +59,30 @@ namespace oop_group5_project
             {
 
                 case 1:
+
                     Console.Clear();
+
                     Console.WriteLine("Choose the classroom you want to attempted");
                     string desiredclassroom = Console.ReadLine();
+
+                    Matter desiredclass = new Matter ();
+                    Console.WriteLine("choose the class you want to attempted");
+                    int result = Convert.ToInt32(Console.ReadLine());
+                    
+                    if (result == 0 || result == 1 || result == 2 || result == 3 || result == 4 || result == 5 || result == 6 || result == 7)
+                    {
+                        desiredclass = Matter;
+                    }
+                    
 
                     foreach (Classroom element in Listclassroom)
                     {
                         
                         if (desiredclassroom == element.Name)
                         {
-                            foreach (Class element2 in element.Cours)
+                            foreach (Class element2 in element.Timetable.Listclass)
                             {
-
+                                if(desiredclass == (Matter)1 || )
                             }
                             Attendance(element, );
                         }
