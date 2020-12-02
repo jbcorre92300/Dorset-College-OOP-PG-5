@@ -61,10 +61,10 @@ namespace oop_group5_project
         {
             foreach(Student s in c.Classroomlist)
             {
-                Console.Write(s.Name);
+                Console.WriteLine($"----{s.Name}----");
                 foreach(Grade g in s.Listgrade)
                 {
-                    Console.Write($"{g} / ");
+                    Console.WriteLine($"{g} / ");
                 }
             }
         }
@@ -72,16 +72,143 @@ namespace oop_group5_project
         {
             foreach (Student s in c.Classroomlist)
             {
-                Console.WriteLine($"{s.Name} : {s.Nonattendance} classes missed ");
-                
+                Console.WriteLine($"{s.Name} : {s.Nonattendance.Count} classes missed "); 
+                foreach(Class classes in s.Nonattendance)
+                {
+                    Console.WriteLine(classes);
+                }
+            }
+            Console.WriteLine($"1)Remove an absence for a student\n2)Go back to menu");
+            string r = Console.ReadLine();
+            if(r=="1")
+            {
+                Console.Clear();
+                Console.WriteLine($"Enter a Student ID");
+                string wantedId = Console.ReadLine();
+                foreach (Student s in /*full student list*/)
+                {
+                    if (wantedId == s.Id)
+                    {
+                        RemoveAbsence(s);
+                        Console.WriteLine("Press any touch to exit");
+                        Console.ReadKey();
+                        Console.Clear();
+                        AdminMenu();
+                    }
+                    else
+                    {
+                        Console.WriteLine("The student was not found");
+                        Console.WriteLine("Press any touch to exit");
+                        Console.ReadKey();
+                        Console.Clear();
+                        AdminMenu();
+                    }
+                }
+            }
+
+        }
+        public void RemoveAbsence(Student s)
+        {
+            Console.WriteLine($"What is the day of the absence you would like to remove ?");
+            string day = Console.ReadLine();
+            Console.WriteLine($"What is the time of the absence you would like to remove ?");
+            int hour = Convert.ToInt32(Console.ReadLine());
+            Date wanteddate = new Date(day, hour);
+            foreach (Class c in s.Nonattendance)
+            {
+                if(wanteddate == c.Date)
+                {
+                    s.Nonattendance.Remove(c);
+                    Console.WriteLine($"The absence for the class: {c} has been removed");
+
+                }
+                else
+                {
+                    Console.WriteLine("There was no absence found at this date and this time");
+                }
             }
         }
 
         public void SeeClassTimetable(Classroom c)
         {
-            Console.WriteLine($"{c.Name} : ");
+            Console.WriteLine($"Class {c.Name} : ");
             Student s = c.Classroomlist[1];
             s.SeeAttendence();
+            Console.WriteLine("1) Add an exam to this class\n 2)Go back to menu");
+            string z = Console.ReadLine();
+            if (z == "1")
+            {
+                Console.WriteLine($"What is the matter of the exam ?\n1)Mathematics\n2)French\n3)Physics\n4)Biology\n5)Art\n6)Physical Education\n7)Economy\n8)Litterar English");
+                int menu = Convert.ToInt32(Console.ReadLine());
+                Matter matter = new Matter();
+                switch (menu)
+                {
+                    case 1:
+                        matter = Matter.mathematics;
+                        break;
+                    case 2:
+                        matter = Matter.french;
+                        break;
+                    case 3:
+                        matter = Matter.physics;
+                        break;
+                    case 4:
+                        matter = Matter.biology;
+                        break;
+                    case 5:
+                        matter = Matter.art;
+                        break;
+                    case 6:
+                        matter = Matter.physicsactivity;
+                        break;
+                    case 7:
+                        matter = Matter.economy;
+                        break;
+                    case 8:
+                        matter = Matter.litterarenglish;
+                        break;
+                }
+                Console.WriteLine($"On what day would you like to add an exam ?");
+                string day = Console.ReadLine();
+                Console.WriteLine($"On what time ?");
+                int hour = Convert.ToInt32(Console.ReadLine());
+                Date date = new Date(day, hour);
+                Console.WriteLine($"In which room ?");
+                string location = Console.ReadLine();
+                Console.WriteLine($"Enter the Teacher ID");
+                string wantedId = Console.ReadLine();
+                foreach (Teacher t in /*full teacher list*/)
+                {
+                    if (wantedId == t.Id)
+                    {
+                        Class exam = new Class(date, matter, location, t);
+                        foreach(Student student in c.Classroomlist)
+                        {
+                            student.Timetable.Listclass.Add(exam);
+                        }
+                        Console.WriteLine($"A new exam of {matter} has been added for next {date.day} at {date.hour}h with {t.Name}");//Méthode pour ajouter un EXAMEN
+                        Console.WriteLine("Press any touch to exit");
+                        Console.ReadKey();
+                        Console.Clear();
+                        AdminMenu();
+                    }
+                    else
+                    {
+                        Console.WriteLine("The teacher was not found");
+                        Console.WriteLine("Press any touch to exit");
+                        Console.ReadKey();
+                        Console.Clear();
+                        AdminMenu();
+                    }
+                }
+
+                
+            }
+            else
+            {
+                Console.Clear();
+                AdminMenu();
+            }
         }
 
         public void SeeStudentProfile(Student s)
@@ -117,6 +244,7 @@ namespace oop_group5_project
                             TrackPaymentStudent(s);
                             Console.WriteLine("Press any touch to exit");
                             Console.ReadKey();
+                            Console.Clear();
                             AdminMenu();
                         }
                         else
@@ -124,6 +252,7 @@ namespace oop_group5_project
                             Console.WriteLine("The student was not found");
                             Console.WriteLine("Press any touch to exit");
                             Console.ReadKey();
+                            Console.Clear();
                             AdminMenu();
                         }
                     }
@@ -138,15 +267,13 @@ namespace oop_group5_project
                         if (wantedClass == c.Name)
                         {
                             SeeClassResults(c);
-                            Console.WriteLine("Press any touch to exit");
-                            Console.ReadKey();
-                            AdminMenu();
                         }
                         else
                         {
                             Console.WriteLine("The class was not found");
                             Console.WriteLine("Press any touch to exit");
                             Console.ReadKey();
+                            Console.Clear();
                             AdminMenu();
                         }
                     }
@@ -162,6 +289,7 @@ namespace oop_group5_project
                             SeeClassAttendance(c);
                             Console.WriteLine("Press any touch to exit");
                             Console.ReadKey();
+                            Console.Clear();
                             AdminMenu();
                         }
                         else
@@ -169,6 +297,7 @@ namespace oop_group5_project
                             Console.WriteLine("The class was not found");
                             Console.WriteLine("Press any touch to exit");
                             Console.ReadKey();
+                            Console.Clear();
                             AdminMenu();
                         }
                     }
@@ -184,6 +313,7 @@ namespace oop_group5_project
                             SeeClassTimetable(c);
                             Console.WriteLine("Press any touch to exit");
                             Console.ReadKey();
+                            Console.Clear();
                             AdminMenu();
                         }
                         else
@@ -191,6 +321,7 @@ namespace oop_group5_project
                             Console.WriteLine("The class was not found");
                             Console.WriteLine("Press any touch to exit");
                             Console.ReadKey();
+                            Console.Clear();
                             AdminMenu();
                         }
                     }
@@ -207,6 +338,7 @@ namespace oop_group5_project
                             SeeStudentProfile(s);
                             Console.WriteLine("Press any touch to exit");
                             Console.ReadKey();
+                            Console.Clear();
                             AdminMenu();
                         }
                         else
@@ -214,6 +346,7 @@ namespace oop_group5_project
                             Console.WriteLine("The student was not found");
                             Console.WriteLine("Press any touch to exit");
                             Console.ReadKey();
+                            Console.Clear();
                             AdminMenu();
 
                         }
