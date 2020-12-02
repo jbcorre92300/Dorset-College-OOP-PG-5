@@ -65,33 +65,13 @@ namespace oop_group5_project
                     Console.WriteLine("Choose the classroom you want to attempted");
                     string desiredclassroom = Console.ReadLine();
 
-<<<<<<< HEAD
                     
-=======
-                    Matter desiredclass = new Matter();
-                    Console.WriteLine("choose the class you want to attempted");
-                    int result = Convert.ToInt32(Console.ReadLine());
-
-                    if (result == 0 || result == 1 || result == 2 || result == 3 || result == 4 || result == 5 || result == 6 || result == 7)
-                    {
-                        desiredclass = Matter;
-                    }
-
->>>>>>> 42793bb6cb6ec1ff89a6730aa45e92816e88a704
 
                     foreach (Classroom element in Listclassroom)
                     {
 
                         if (desiredclassroom == element.Name)
                         {
-<<<<<<< HEAD
-
-=======
-                            foreach (Class element2 in element.Timetable.Listclass)
-                            {
-                                if (desiredclass == (Matter)1 || )
-                            }
->>>>>>> 42793bb6cb6ec1ff89a6730aa45e92816e88a704
                             Attendance(element, );
                         }
                         else
@@ -112,7 +92,6 @@ namespace oop_group5_project
                     {
                         if (addedclassroom == element.class)
                         {
-<<<<<<< HEAD
                               AddaClassforaClassroom(Ba,Wednesday,Bat B,  );
                         }
                         else
@@ -126,16 +105,6 @@ namespace oop_group5_project
                         
                 case 3:
 
-=======
-                              AddaClassforaClassroom(Ba, Wednesday, Bat B,  );
-    }
-                        else{}
-{
-
-}
-break;
-                    case 3:
->>>>>>> 42793bb6cb6ec1ff89a6730aa45e92816e88a704
                         Console.Clear();
 Console.WriteLine("Chosse the class you want to be graded ");
 AddaGradeforaStudent();
