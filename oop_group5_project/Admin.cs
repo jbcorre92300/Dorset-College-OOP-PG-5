@@ -68,19 +68,21 @@ namespace oop_group5_project
                 }
             }
         }
+
+
         public void SeeClassAttendance(Classroom c)
         {
             foreach (Student s in c.Classroomlist)
             {
-                Console.WriteLine($"{s.Name} : {s.Nonattendance.Count} classes missed "); 
-                foreach(Class classes in s.Nonattendance)
+                Console.WriteLine($"{s.Name} : {s.Nonattendance.Count} classes missed ");
+                foreach (Class classes in s.Nonattendance)
                 {
                     Console.WriteLine(classes);
                 }
             }
             Console.WriteLine($"1)Remove an absence for a student\n2)Go back to menu");
             string r = Console.ReadLine();
-            if(r=="1")
+            if (r == "1")
             {
                 Console.Clear();
                 Console.WriteLine($"Enter a Student ID");
@@ -116,7 +118,7 @@ namespace oop_group5_project
             Date wanteddate = new Date(day, hour);
             foreach (Class c in s.Nonattendance)
             {
-                if(wanteddate == c.Date)
+                if (wanteddate == c.Date)
                 {
                     s.Nonattendance.Remove(c);
                     Console.WriteLine($"The absence for the class: {c} has been removed");
@@ -182,7 +184,7 @@ namespace oop_group5_project
                     if (wantedId == t.Id)
                     {
                         Class exam = new Class(date, matter, location, t);
-                        foreach(Student student in c.Classroomlist)
+                        foreach (Student student in c.Classroomlist)
                         {
                             student.Timetable.Listclass.Add(exam);
                         }
@@ -202,7 +204,7 @@ namespace oop_group5_project
                     }
                 }
 
-                
+
             }
             else
             {
