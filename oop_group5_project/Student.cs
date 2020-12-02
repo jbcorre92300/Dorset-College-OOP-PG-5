@@ -27,7 +27,7 @@ namespace oop_group5_project
             Name = name;
             Classroom = classroom;
             Profil = profil;
-            Timetable = timetable;
+            //Timetable = timetable;
             Listgrade = listgrade;
             Cost = cost;
             Nonattendance = null;

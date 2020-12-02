@@ -31,7 +31,7 @@ namespace oop_group5_project
             student.Listgrade.Add(grade);
         }
 
-        
+
         public void Attendance(Classroom classroom, Class cours)
         {
             foreach (Student student in classroom.Classroomlist)
@@ -65,24 +65,24 @@ namespace oop_group5_project
                     Console.WriteLine("Choose the classroom you want to attempted");
                     string desiredclassroom = Console.ReadLine();
 
-                    Matter desiredclass = new Matter ();
+                    Matter desiredclass = new Matter();
                     Console.WriteLine("choose the class you want to attempted");
                     int result = Convert.ToInt32(Console.ReadLine());
-                    
+
                     if (result == 0 || result == 1 || result == 2 || result == 3 || result == 4 || result == 5 || result == 6 || result == 7)
                     {
                         desiredclass = Matter;
                     }
-                    
+
 
                     foreach (Classroom element in Listclassroom)
                     {
-                        
+
                         if (desiredclassroom == element.Name)
                         {
                             foreach (Class element2 in element.Timetable.Listclass)
                             {
-                                if(desiredclass == (Matter)1 || )
+                                if (desiredclass == (Matter)1 || )
                             }
                             Attendance(element, );
                         }
@@ -103,18 +103,18 @@ namespace oop_group5_project
                     {
                         if (addedclassroom = element.class)
                         {
-                              AddaClassforaClassroom(Ba,Wednesday,Bat B,  );
-                        }
+                              AddaClassforaClassroom(Ba, Wednesday, Bat B,  );
+    }
                         else{}
-                        {
+{
 
-                        }
-                        break;
+}
+break;
                     case 3:
                         Console.Clear();
-                        Console.WriteLine("Chosse the class you want to be graded ");
-                        AddaGradeforaStudent();
-                        break;
+Console.WriteLine("Chosse the class you want to be graded ");
+AddaGradeforaStudent();
+break;
                 
                 }
             
