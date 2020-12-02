@@ -25,10 +25,30 @@ namespace oop_group5_project
             Usertype = "2";
         }
 
-        public void AddaGradeforaStudent(Student student, double note, string gradename) // id student a la place de student 
+        public void AddaGradeforaClassroom() // id student a la place de student 
         {
-            Grade grade = new Grade(gradename, Matter, note);
-            student.Listgrade.Add(grade);
+            Console.WriteLine("What is the name of the grade ?");
+            string gradename = Console.ReadLine();
+
+            Console.WriteLine ("For which classroom do you want to add a grade ?");
+            string nameclassroom = Console.ReadLine();
+
+            foreach (Classroom element in Listclassroom)
+            {
+                if (nameclassroom == element.Name)
+
+                {
+                    foreach (Student element2 in element.Classroomlist)
+                    {
+                        Console.WriteLine("What grade do you want to apply for " + element2.Name);
+                        double mark = Convert.ToInt32(Console.ReadLine());
+
+                        Grade grade = new Grade (gradename, Matter, mark);
+                        element2.Listgrade.Add(grade);
+
+                    }
+                }
+            }
         }
 
 
@@ -49,11 +69,47 @@ namespace oop_group5_project
         }
 
 
+        public void SeeClassResults(Classroom c)
+        {
+            foreach(Student s in c.Classroomlist)
+            {
+                Console.WriteLine($"----{s.Name}----");
+                foreach(Grade g in s.Listgrade)
+                {
+                    Console.WriteLine($"{g} / ");
+                }
+            }
+        }
+
+        public void SeeClassAttendance(Classroom c)
+        {
+            foreach (Student s in c.Classroomlist)
+            {
+                Console.WriteLine($"{s.Name} : {s.Nonattendance.Count} classes missed ");
+                foreach (Class classes in s.Nonattendance)
+                {
+                    Console.WriteLine(classes);
+                }
+            }           
+        }
+
+        public void SeeStudentProfile(Student s)
+        {
+            string stringprofil = "";
+            foreach (string a in s.Profil)
+            {
+                stringprofil += s;
+                Console.Write(" / ");
+
+            }
+            Console.WriteLine($"{Name}\n{s.Classroom}\n{stringprofil}");
+        }
+
 
         public void TeacherMenu()
         {
             Console.Clear();
-            Console.WriteLine($"Welcome {Name}, choose an option :\n1)Attendance \n2)Add class\n3)Add a Graduation for exams");
+            Console.WriteLine($"Welcome {Name}, choose an option :\n1) Attendance \n2) Add a Graduation for exams \n 3) See a classroom's results \n 4) See a student attendance \n 5) See a student profile");
             int menu = Convert.ToInt32(Console.ReadLine());
             switch (menu)
             {
@@ -65,50 +121,129 @@ namespace oop_group5_project
                     Console.WriteLine("Choose the classroom you want to attempted");
                     string desiredclassroom = Console.ReadLine();
 
-                    
+                    Console.WriteLine ("for what class do you want to attempt ? please type the day of the class");
+                    string desiredday = Console.ReadLine();
+
+                    Console.WriteLine ("for what class do you want to attempt ? please type the hour of the class");
+                    int desiredhour = Convert.ToInt32(Console.ReadLine());
 
                     foreach (Classroom element in Listclassroom)
                     {
 
                         if (desiredclassroom == element.Name)
                         {
-                            Attendance(element, );
-                        }
-                        else
-                        {
-                            Console.WriteLine("The student is not here");
+                            foreach (Class element2 in element.Timetable.Listclass)
+                            {
+                                if (element.Timetable.Date.day == desiredday && element.Timetable.Date.hour == desiredhour) 
+                                {
+                                    Attendance(element, element2);
+                                }
+
+                                else
+                                {
+                                    Console.WriteLine("there's a problem in your choice, please retry");
+                                    TeacherMenu();
+                                }
+                            }                            
                         }
 
+                        else
+
+                        {
+                            Console.WriteLine("there's a problem in your choice, please retry");
+                            TeacherMenu();
+                        }
                     }
 
                     break;
 
                 case 2:
 
+                    Console.Clear();                   
+                    AddaGradeforaClassroom();
+                    
+                    break;
+
+
+                case 3:
+
                     Console.Clear();
-                    Console.WriteLine("Choose the class you want to be added in a classroom");
-                    string addedclassroom = Console.ReadLine();
-                    foreach (Class element in  Classroom)
+
+                    Console.WriteLine($"Enter a Class Name");
+                    string wantedClass = Console.ReadLine();
+                    foreach (Classroom c in Listclassroom)
                     {
-                        if (addedclassroom == element.class)
+                        if (wantedClass == c.Name)
                         {
-                              AddaClassforaClassroom(Ba,Wednesday,Bat B,  );
+                            SeeClassResults(c);
                         }
                         else
                         {
-
+                            Console.WriteLine("The class was not found");
+                            Console.WriteLine("Press any touch to exit");
+                            Console.ReadKey();
+                            Console.Clear();
+                            TeacherMenu();
                         }
-                        
                     }
-                    
-                    break;
-                        
-                case 3:
 
-                        Console.Clear();
-Console.WriteLine("Chosse the class you want to be graded ");
-AddaGradeforaStudent();
-break;
+                    break;
+                
+                case 4:
+                    Console.Clear();
+                    Console.WriteLine($"Enter a Class Name");
+                    string wantedClass2 = Console.ReadLine();
+                    foreach (Classroom c in Listclassroom)
+                    {
+                        if (wantedClass2 == c.Name)
+                        {
+                            SeeClassAttendance(c);
+                            Console.WriteLine("Press any touch to exit");
+                            Console.ReadKey();
+                            Console.Clear();
+                            TeacherMenu();
+                        }
+                        else
+                        {
+                            Console.WriteLine("The class was not found");
+                            Console.WriteLine("Press any touch to exit");
+                            Console.ReadKey();
+                            Console.Clear();
+                            TeacherMenu();
+                        }
+                    }
+                    break;
+
+                case 5:
+
+                    Console.Clear();
+                    Console.WriteLine($"Enter a Student Name");
+                    string wantedName2 = Console.ReadLine();
+                    foreach (Classroom c in Listclassroom)
+                    {
+                        foreach (Student s in c.Classroomlist)
+                        {
+                            if (wantedName2 == s.Name)
+                            {
+                                SeeStudentProfile(s);
+                                Console.WriteLine("Press any touch to exit");
+                                Console.ReadKey();
+                                Console.Clear();
+                                TeacherMenu();
+                            }
+                            else
+                            {
+                                Console.WriteLine("The student was not found");
+                                Console.WriteLine("Press any touch to exit");
+                                Console.ReadKey();
+                                Console.Clear();
+                                TeacherMenu();
+
+                            }
+                        }
+                    }
+
+                    break;
                 
             }
             
