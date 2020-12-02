@@ -57,7 +57,44 @@ namespace oop_group5_project
         }
 
         //UNTIL HERE
-       
+
+        static void CreationStudentList()
+        {
+            string[] lines = System.IO.File.ReadAllLines("StudentList.csv");
+            List<Student> StudentList = new List<Student>();
+            foreach(string line in lines)
+            {
+                Student a = new Student();
+                string[] columns = newline.Split(',');
+                a.Name = columns[0];
+                a.Classeroom = columns[1];
+                a.Id = columns[2];
+                a.Password =columns[3];
+
+
+            }
+        }
+
+        static void CreationTeacherList()
+        {
+            string[] lines = System.IO.File.ReadAllLines("TeacherList.csv");
+            List<Teacher> StudentList = new List<Teacher>();
+            foreach (string line in lines)
+            {
+
+            }
+        }
+
+        static void CreationAdminList()
+        {
+            string[] lines = System.IO.File.ReadAllLines("AdminList.csv");
+            List<Admin> StudentList = new List<Admin>();
+            foreach (string line in lines)
+            {
+
+            }
+        }
+
         /*
         static void Buildfortest()
         {
@@ -106,23 +143,24 @@ namespace oop_group5_project
 
             //CSV FILE USING
 
-            string filePeopleList = "ExcelListProject.csv";
-            string fileStudentGrade = "GRADEScsv.csv";
-            string fileSchedule = "EDTExcelStudentClassCSV.csv";
-            //string fileMissing = " ";     //Not done the EXCEL ABSCENCE
+            string filePeopleList = "PeopleList.csv";
+            string fileStudentList = "StudentList.csv";
+            string fileAdminList = "AdminList.csv";
+            string fileTeacherList = "TeacherList.csv";
 
-            List<ArrayList> PeopleList = new List<ArrayList>();
-            List<ArrayList> GradeList = new List<ArrayList>();
-            List<ArrayList> ScheduleList = new List<ArrayList>();
+            List<ArrayList> PeopleList = new List<ArrayList>();     //Represents the database of ids and passwords for Students, Teachers and Admins
+            List<ArrayList> StudentList = new List<ArrayList>();
+            List<ArrayList> AdminList = new List<ArrayList>();
+            List<ArrayList> TeacherList = new List<ArrayList>();
 
             RemplirFichier(PeopleList, filePeopleList);
-            RemplirFichier(GradeList, fileStudentGrade);
-            RemplirFichier(ScheduleList, fileSchedule);
+            RemplirFichier(StudentList, fileStudentList);
+            RemplirFichier(AdminList, fileAdminList);
+            RemplirFichier(TeacherList, fileTeacherList);
 
             //file.RemoveAt(0);       //Remove first line with Name,Surname, ID, Password, Type
 
             PrintData(PeopleList);  // Affiche les données
-
 
             //DOES THE USER EXIST ?
             bool userexist = false;
@@ -145,119 +183,68 @@ namespace oop_group5_project
                             name = (string)user[0];
                             usertype = (string)user[4];                                     //Enregistrement de toutes les caractéristiques d'un élève --> Nom, classe? COURS etc
                             idused = id;
-
-                            //ENREGISTRER COURS ABSENCE ETC DU DOCUMENT EXCEL (PAS ENCORE ECRIT)
-
                         }
                 }
 
                 //LOADING ... IF ID OR PASSWORD INCORRECT, GETTING BACK TO IDENTIFICATION
                 if (userexist == false)
                 {
-                    /*Console.Clear();
-                    Console.WriteLine("Loading....");
-                    System.Threading.Thread.Sleep(2000);
-                    Console.Clear();*/
-
+                    Console.Clear(); Console.WriteLine("Loading...."); System.Threading.Thread.Sleep(2000); Console.Clear();
                     Console.WriteLine("Sorry, the id or the password is incorrect, try again");
-                    System.Threading.Thread.Sleep(2000);                                         //Delay 2 seconds for a new trial
-                    Console.Clear();
+                    System.Threading.Thread.Sleep(2000);Console.Clear();                                //Delay 2 seconds for a new tria
                 }
 
                 //USER EXISTS --> Connection Success
                 else
                 {
-                    /*Console.Clear();
-                    Console.WriteLine("Loading....");
-                    System.Threading.Thread.Sleep(2000);
-                    Console.Clear();*/
+                    Console.Clear(); Console.WriteLine("Loading...."); System.Threading.Thread.Sleep(2000); Console.Clear();    //Loading Bar, with 2 seconds delay
 
                     Console.WriteLine("Well logged in, welcome back " + usertype + " " + name);
                     //Console.WriteLine("you are a " + username.usertype);
                     System.Threading.Thread.Sleep(2000);
 
-
                     //STARTING OF THE SESSION
-
                     bool beingconnected = true;
+                    Console.Clear();
                     while (beingconnected == true)
                     {
                         switch (usertype)
                         {
                             case "Student":
-
-                                Console.Clear();
-
-                                //ADAPTER LES DONNES 3 FOIS LA LISTE DE NOTES, ABSENCE ET Emploi du temps A LA BONNE PERSONNE
-
-                                /*foreach (ArrayList user in PeopleList)
+                                foreach (ArrayList StudentData in StudentList)
                                 {
-                                    if (idused == (string)user[0])
+                                    if (idused == (string)StudentData[2])
                                     {
-                                        //Peut etre deja fait au début lors de la vérification du mot de passe mais laisser au cas où pour Absence
+                                        string classroom = (string)StudentData[2];  //Name, ID and password already known
                                     }
-
-                                }*/
-
-                                foreach (ArrayList user in GradeList)
-                                {
-                                    if (idused == (string)user[0])
-                                    {
-                                        //Notes de Mathematics = (int)user[1];
-                                        //Notes de French = (int)user[2];
-                                        //Notes de Litterature = (int)user[3];
-                                        //Notes de Sport = (int)user[4];
-                                        //Notes de Spanish = (int)user[5];
-
-                                        //FAIRE UNE FONCTION MOYENNE GENERALE ?
-                                        //double mean = .../5;
-                                    }
-
                                 }
-
-                                foreach (ArrayList user in ScheduleList)
-                                {
-                                    if (idused == (string)user[0])
-                                    {
-
-                                    }
-
-                                }
-
-                                //ENREGISTREMENT DE TOUTES LES DONNEES NECESSAIRES TERMINEES
-
-
-                                //MARQUER POSSIBILITE OFFERTE EN ETANT STUDENT A PARTIR DES CLASSES
 
 
                                 // .StudentMenu();
 
-                                Console.WriteLine("If you want to be disconnected, just type 0"); //Possiblement ajoutable au Student Menu, permet de revenir à la page de connexion initiale
-                                int rep = Convert.ToInt32(Console.ReadLine());
-                                if (rep == 0)
+                                break;
+
+                            case "Teacher":
+                                foreach (ArrayList TeacherData in TeacherList)
                                 {
-                                    beingconnected = false;
+                                    if (idused == (string)TeacherData[2])
+                                    {
+                                        string matter = (string)TeacherData[1];  //Name, ID and password already known
+                                    }
                                 }
                                 break;
 
-
-                            case "Teacher":
-
-                                //MARQUER POSSIBILITE OFFERTE EN ETANT TEACHER A PARTIR DES CLASSES
-
-                                break;
-
-
                             case "Admin":
-
-                                //MARQUER POSSIBILITE OFFERTE EN ETANT ADMIN A PARTIR DES CLASSES
-
+                                foreach (ArrayList AdminData in AdminList)
+                                {
+                                    if (idused == (string)AdminData[2])
+                                    {
+                                        //Name, ID and password already known
+                                    }
+                                }
                                 break;
                         }
-
                     }
-
-
                 }
             }
 

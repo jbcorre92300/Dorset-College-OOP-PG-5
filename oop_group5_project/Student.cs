@@ -14,7 +14,7 @@ namespace oop_group5_project
     {
         #region champ
         public string Name { get; set; }
-        public Classroom Classroom { get; set; }
+        public Classroom Classeroom { get; set; }
         public List<string> Profil { get; set; }
         public List<Grade> Listgrade { get; set; }
         public int Cost { get; set; }
@@ -25,7 +25,7 @@ namespace oop_group5_project
         : base(id, password, usertype)
         {
             Name = name;
-            Classroom = classroom;
+            Classeroom = classroom;
             Profil = profil;
             //Timetable = timetable;
             Listgrade = listgrade;
@@ -103,7 +103,7 @@ namespace oop_group5_project
 
                 
             }
-            Console.WriteLine($"{Name}\n{Classroom}\n{stringprofil}");
+            Console.WriteLine($"{Name}\n{Classeroom}\n{stringprofil}");
             Console.WriteLine("1) Modify Profile\nor press any touch to exit");
             string z = Console.ReadLine();
             if (z == "1")
