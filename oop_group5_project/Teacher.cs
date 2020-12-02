@@ -65,14 +65,6 @@ namespace oop_group5_project
                     Console.WriteLine("Choose the classroom you want to attempted");
                     string desiredclassroom = Console.ReadLine();
 
-                    Matter desiredclass = new Matter ();
-                    Console.WriteLine("choose the class you want to attempted");
-                    int result = Convert.ToInt32(Console.ReadLine());
-                    
-                    if (result == 0 || result == 1 || result == 2 || result == 3 || result == 4 || result == 5 || result == 6 || result == 7)
-                    {
-                        desiredclass = Matter;
-                    }
                     
 
                     foreach (Classroom element in Listclassroom)
@@ -80,10 +72,7 @@ namespace oop_group5_project
                         
                         if (desiredclassroom == element.Name)
                         {
-                            foreach (Class element2 in element.Timetable.Listclass)
-                            {
-                                if(desiredclass == (Matter)1 || )
-                            }
+
                             Attendance(element, );
                         }
                         else
@@ -96,29 +85,35 @@ namespace oop_group5_project
                     break;
 
                 case 2:
+
                     Console.Clear();
                     Console.WriteLine("Choose the class you want to be added in a classroom");
-                    string addedclassroom = Console.Readline();
-                    foreach (class element in  Classroom)
+                    string addedclassroom = Console.ReadLine();
+                    foreach (Class element in  Classroom)
                     {
-                        if (addedclassroom = element.class)
+                        if (addedclassroom == element.class)
                         {
                               AddaClassforaClassroom(Ba,Wednesday,Bat B,  );
                         }
-                        else{}
+                        else
                         {
 
                         }
-                        break;
-                    case 3:
+                        
+                    }
+                    
+                    break;
+                        
+                case 3:
+
                         Console.Clear();
                         Console.WriteLine("Chosse the class you want to be graded ");
                         AddaGradeforaStudent();
                         break;
                 
-                }
+            }
             
-             }
+        }
 
     }
 }

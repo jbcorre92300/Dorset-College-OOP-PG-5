@@ -21,13 +21,12 @@ namespace oop_group5_project
         public List<Class> Nonattendance { get; set; }
         #endregion
 
-        public Student(string name, Classroom classroom, List<string> profil,TimeTable timetable, List<Grade> listgrade, int cost,string id,string password,string usertype)
+        public Student(string name, Classroom classroom, List<string> profil, List<Grade> listgrade, int cost,string id,string password,string usertype)
         : base(id, password, usertype)
         {
             Name = name;
             Classroom = classroom;
             Profil = profil;
-            Timetable = timetable;
             Listgrade = listgrade;
             Cost = cost;
             Nonattendance = null;
