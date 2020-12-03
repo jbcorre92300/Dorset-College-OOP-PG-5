@@ -150,7 +150,7 @@ namespace oop_group5_project
         public void testclassaday(int hour, string day)
         {
             string mess = "";
-            foreach (Class cours in Classroom.Timetable.Listclass)
+            foreach (Class cours in Classeroom.Timetable.Listclass)
             {
                 if (cours.Date.hour == hour&&cours.Date.day==day )
                 {
@@ -179,7 +179,7 @@ namespace oop_group5_project
         public void StudentMenu()
         {
             Console.Clear();
-            Console.WriteLine($"Welcome {Name}, choose an option :\n1)See profile\n2)Login for a class\n3)See Timetable\n4)Payment\n5)See exam/assignement results\n6)See your no Attendence");
+            Console.WriteLine($"Welcome {Name}, choose an option :\n1)See profile\n2)See Timetable\n3)Payment\n4)See exam/assignement results\n5)See the classes you missed");
             int menu = Convert.ToInt32(Console.ReadLine());
             switch (menu)
             {
@@ -189,21 +189,17 @@ namespace oop_group5_project
                     break;
                 case 2:
                     Console.Clear();
-                    //Methode pour se mettre présent à un cours actuel;
+                    SeeAttendence();
                     break;
                 case 3:
                     Console.Clear();
-                    SeeAttendence();
+                    BeginningPayment();
                     break;
                 case 4:
                     Console.Clear();
-                    BeginningPayment();
-                    break;
-                case 5:
-                    Console.Clear();
                     SeeExamsandAssignementResults();
                     break;
-                case 6:
+                case 5:
                     Console.Clear();
                     SeeNoAttendence();
                     break;

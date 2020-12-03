@@ -186,7 +186,7 @@ namespace oop_group5_project
                         Class exam = new Class(date, matter, location, t);
                         foreach (Student student in c.Classroomlist)
                         {
-                            student.Timetable.Listclass.Add(exam);
+                            student.Classeroom.Timetable.Listclass.Add(exam);
                         }
                         Console.WriteLine($"A new exam of {matter} has been added for next {date.day} at {date.hour}h with {t.Name}");//Méthode pour ajouter un EXAMEN
                         Console.WriteLine("Press any touch to exit");
@@ -222,7 +222,7 @@ namespace oop_group5_project
                 Console.Write(" / ");
 
             }
-            Console.WriteLine($"{Name}\n{s.Classroom}\n{stringprofil}");
+            Console.WriteLine($"{Name}\n{s.Classeroom}\n{stringprofil}");
         }
 
 

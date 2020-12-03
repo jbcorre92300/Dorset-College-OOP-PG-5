@@ -102,7 +102,7 @@ namespace oop_group5_project
                 Console.Write(" / ");
 
             }
-            Console.WriteLine($"{Name}\n{s.Classroom}\n{stringprofil}");
+            Console.WriteLine($"{Name}\n{s.Classeroom}\n{stringprofil}");
         }
 
 
