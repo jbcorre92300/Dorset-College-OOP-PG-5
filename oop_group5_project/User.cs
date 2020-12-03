@@ -38,5 +38,10 @@ namespace oop_group5_project
                     break;
             }
         }
+
+        public override string ToString()
+        {
+            return $" --  {Id} {Password}";
+        }
     }
 }

@@ -22,7 +22,7 @@ namespace oop_group5_project
             Name = name;
             Listclassroom = liste;
             Matter = matter;
-            Usertype = "2";
+            Usertype = "Teacher";
         }
 
         public void AddaGradeforaClassroom() // id student a la place de student 
@@ -247,6 +247,10 @@ namespace oop_group5_project
                 
             }
             
+        }
+        public override string ToString()
+        {
+            return $"{Name} -- {Matter} {Id} {Password}";
         }
 
     }

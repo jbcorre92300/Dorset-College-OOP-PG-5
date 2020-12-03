@@ -58,40 +58,124 @@ namespace oop_group5_project
 
         //UNTIL HERE
 
-        static void CreationStudentList()
+        static void CreationFullList()
         {
-            string[] lines = System.IO.File.ReadAllLines("StudentList.csv");
+            List<User> FullList = new List<User>();
+            List<Classroom> ClassroomList = new List<Classroom>();
+            List<Student> listclassA = new List<Student>();
+            Classroom classA = new Classroom("A", listclassA);
+            ClassroomList.Add(classA);
+            List<Student> listclassB = new List<Student>();
+            Classroom classB = new Classroom("B", listclassB);
+            ClassroomList.Add(classB);
+            List<Student> listclassC = new List<Student>();
+            Classroom classC = new Classroom("C", listclassC);
+            ClassroomList.Add(classC);
+            string[] linestudent = System.IO.File.ReadAllLines("StudentList.csv");
             List<Student> StudentList = new List<Student>();
-            foreach(string line in lines)
+            foreach (string line in linestudent)
             {
-                Student a = new Student();
-                string[] columns = newline.Split(',');
-                a.Name = columns[0];
-                a.Classeroom = columns[1];
-                a.Id = columns[2];
-                a.Password =columns[3];
+                string[] columns = line.Split(';');
+                string name = columns[0];
+                string classroomname = columns[1];
+                string id = columns[2];
+                string password = columns[3];
+                List<string> profil = new List<string>();
+                List<Grade> listgrade = new List<Grade>();
+                if (classroomname == "A")
+                {
+                    Student s = new Student(name, classA, profil, listgrade, 8900, id, password, "Student");
+                    StudentList.Add(s);
+                    FullList.Add(s);
 
-
+                }
+                else if (classroomname == "B")
+                {
+                    Student s = new Student(name, classB, profil, listgrade, 8900, id, password, "Student");
+                    StudentList.Add(s);
+                    FullList.Add(s);
+                }
+                else if (classroomname == "C")
+                {
+                    Student s = new Student(name, classC, profil, listgrade, 8900, id, password, "Student");
+                    StudentList.Add(s);
+                    FullList.Add(s);
+                }
+                else { Console.WriteLine("The class was not found"); }
             }
-        }
-
-        static void CreationTeacherList()
-        {
-            string[] lines = System.IO.File.ReadAllLines("TeacherList.csv");
-            List<Teacher> StudentList = new List<Teacher>();
-            foreach (string line in lines)
+            string[] lineteacher = System.IO.File.ReadAllLines("TeacherList.csv");
+            List<Teacher> TeacherList = new List<Teacher>();
+            foreach (string linet in lineteacher)
             {
+                string[] columnsteacher = linet.Split(';');
+                string nameteacher = columnsteacher[0];
+                string matter = columnsteacher[1];
+                string idteacher = columnsteacher[2];
+                string passwordteacher = columnsteacher[3];
 
+                if (matter == "Mathematics")
+                {
+                    Teacher t = new Teacher(nameteacher, ClassroomList, Matter.mathematics, idteacher, passwordteacher, "Teacher");
+                    TeacherList.Add(t);
+                    FullList.Add(t);
+                }
+                else if (matter == "French")
+                {
+                    Teacher t = new Teacher(nameteacher, ClassroomList, Matter.french, idteacher, passwordteacher, "Teacher");
+                    TeacherList.Add(t);
+                    FullList.Add(t);
+                }
+                else if (matter == "Physics")
+                {
+                    Teacher t = new Teacher(nameteacher, ClassroomList, Matter.physics, idteacher, passwordteacher, "Teacher");
+                    TeacherList.Add(t);
+                    FullList.Add(t);
+                }
+                else if (matter == "Litterature")
+                {
+                    Teacher t = new Teacher(nameteacher, ClassroomList, Matter.litterarenglish, idteacher, passwordteacher, "Teacher");
+                    TeacherList.Add(t);
+                    FullList.Add(t);
+                }
+                else if (matter == "Sport")
+                {
+                    Teacher t = new Teacher(nameteacher, ClassroomList, Matter.physicsactivity, idteacher, passwordteacher, "Teacher");
+                    TeacherList.Add(t);
+                    FullList.Add(t);
+                }
+                else { Console.WriteLine("The matter was not found"); }
             }
-        }
-
-        static void CreationAdminList()
-        {
-            string[] lines = System.IO.File.ReadAllLines("AdminList.csv");
-            List<Admin> StudentList = new List<Admin>();
-            foreach (string line in lines)
+            string[] lineadmin = System.IO.File.ReadAllLines("AdminList.csv");
+            List<Admin> AdminList = new List<Admin>();
+            foreach (string linea in lineadmin)
             {
-
+                string[] columnsadmin = linea.Split(';');
+                string nameadmin = columnsadmin[0];
+                string idadmin = columnsadmin[1];
+                string passwordadmin = columnsadmin[2];
+                Admin a = new Admin(nameadmin, idadmin, passwordadmin, "Admin");
+                AdminList.Add(a);
+                FullList.Add(a);
+                a.StudentFullList = StudentList;
+                a.TeacherFullList = TeacherList;
+                a.ClassroomsFullList = ClassroomList;
+            }
+            foreach (Student s in StudentList)
+            {
+                Console.WriteLine(s);
+            }
+            foreach (Teacher t in TeacherList)
+            {
+                Console.WriteLine(t);
+            }
+            foreach (Admin a in AdminList)
+            {
+                Console.WriteLine(a);
+            }
+            foreach(User u in FullList)
+            {
+                
+                Console.WriteLine($"+ {u}");
             }
         }
 
@@ -136,7 +220,8 @@ namespace oop_group5_project
 
 
         static void Main(string[] args)
-        { 
+        {
+            CreationFullList();
             string name ="";
             string usertype = "";
             string idused = "";

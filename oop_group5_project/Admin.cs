@@ -7,9 +7,11 @@ namespace oop_group5_project
     class Admin : User
     {
         public string Name { get; set; }
+        public List<Student> StudentFullList { get; set; }
         /*public string id;
         public int password;*/
-
+        public List<Teacher> TeacherFullList { get; set; }
+        public List<Classroom> ClassroomsFullList { get; set; }
         public Admin(string name, string id,string password,string usertype)
              : base(id,password,usertype) 
         {
@@ -87,7 +89,7 @@ namespace oop_group5_project
                 Console.Clear();
                 Console.WriteLine($"Enter a Student ID");
                 string wantedId = Console.ReadLine();
-                foreach (Student s in /*full student list*/)
+                foreach (Student s in StudentFullList)
                 {
                     if (wantedId == s.Id)
                     {
@@ -179,7 +181,7 @@ namespace oop_group5_project
                 string location = Console.ReadLine();
                 Console.WriteLine($"Enter the Teacher ID");
                 string wantedId = Console.ReadLine();
-                foreach (Teacher t in /*full teacher list*/)
+                foreach (Teacher t in TeacherFullList)
                 {
                     if (wantedId == t.Id)
                     {
@@ -239,7 +241,7 @@ namespace oop_group5_project
                     Console.Clear();
                     Console.WriteLine($"Enter a Student ID");
                     string wantedId = Console.ReadLine();
-                    foreach (Student s in /*full student list*/)
+                    foreach (Student s in StudentFullList)
                     {
                         if (wantedId == s.Id)
                         {
@@ -264,7 +266,7 @@ namespace oop_group5_project
                     Console.Clear();
                     Console.WriteLine($"Enter a Class Name");
                     string wantedClass = Console.ReadLine();
-                    foreach (Classroom c in /*full classroom list*/)
+                    foreach (Classroom c in ClassroomsFullList)
                     {
                         if (wantedClass == c.Name)
                         {
@@ -284,7 +286,7 @@ namespace oop_group5_project
                     Console.Clear();
                     Console.WriteLine($"Enter a Class Name");
                     string wantedClass2 = Console.ReadLine();
-                    foreach (Classroom c in /*full classroom list*/)
+                    foreach (Classroom c in ClassroomsFullList)
                     {
                         if (wantedClass2 == c.Name)
                         {
@@ -308,7 +310,7 @@ namespace oop_group5_project
                     Console.Clear();
                     Console.WriteLine($"Enter a Class Name");
                     string wantedClass3 = Console.ReadLine();
-                    foreach (Classroom c in /*full classroom list*/)
+                    foreach (Classroom c in ClassroomsFullList)
                     {
                         if (wantedClass3 == c.Name)
                         {
@@ -333,7 +335,7 @@ namespace oop_group5_project
                     Console.Clear();
                     Console.WriteLine($"Enter a Student ID");
                     string wantedId2 = Console.ReadLine();
-                    foreach (Student s in /*full student list*/)
+                    foreach (Student s in StudentFullList)
                     {
                         if (wantedId2 == s.Id)
                         {
@@ -356,6 +358,11 @@ namespace oop_group5_project
                     break;
             }
 
+        }
+
+        public override string ToString()
+        {
+            return $"{Name} --  {Id} {Password}";
         }
 
 
