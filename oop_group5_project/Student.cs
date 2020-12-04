@@ -12,14 +12,15 @@ namespace oop_group5_project
     class Student : User
         
     {
-        #region champ
+        
         public string Name { get; set; }
         public Classroom Classeroom { get; set; }
         public List<string> Profil { get; set; }
         public List<Grade> Listgrade { get; set; }
         public int Cost { get; set; }
         public List<Class> Nonattendance { get; set; }
-        #endregion
+        
+        
 
         public Student(string name, Classroom classroom, List<string> profil, List<Grade> listgrade, int cost,string id,string password,string usertype)
         : base(id, password, usertype)
@@ -31,7 +32,7 @@ namespace oop_group5_project
             Listgrade = listgrade;
             Cost = cost;
             Nonattendance = null;
-            Usertype = "1";
+            Usertype = "Student";
         }
 
         public void BeginningPayment()
@@ -170,10 +171,26 @@ namespace oop_group5_project
 
         public void SeeNoAttendence()
         {
-            foreach(Class cou in Nonattendance)
+            if(Nonattendance.Count == 0)
             {
-                Console.WriteLine(cou.ToString());
+                Console.WriteLine("You have 0 absences this semester");
+                Console.WriteLine("Press any touch to exit");
+                Console.ReadKey();
+                StudentMenu();
             }
+            else
+            {
+                foreach (Class cou in Nonattendance)
+                {
+                    Console.WriteLine(cou.ToString());
+                    
+                }
+                Console.WriteLine($"You have {Nonattendance.Count} absences this semester");
+                Console.WriteLine("Press any touch to exit");
+                Console.ReadKey();
+                StudentMenu();
+            }
+            
         }
 
         public void StudentMenu()

@@ -85,6 +85,7 @@ namespace oop_group5_project
                 if (classroomname == "A")
                 {
                     Student s = new Student(name, classA, profil, listgrade, 8900, id, password, "Student");
+                    classA.Classroomlist.Add(s);
                     StudentList.Add(s);
                     FullList.Add(s);
 
@@ -92,12 +93,14 @@ namespace oop_group5_project
                 else if (classroomname == "B")
                 {
                     Student s = new Student(name, classB, profil, listgrade, 8900, id, password, "Student");
+                    classB.Classroomlist.Add(s);
                     StudentList.Add(s);
                     FullList.Add(s);
                 }
                 else if (classroomname == "C")
                 {
                     Student s = new Student(name, classC, profil, listgrade, 8900, id, password, "Student");
+                    classC.Classroomlist.Add(s);
                     StudentList.Add(s);
                     FullList.Add(s);
                 }
@@ -221,116 +224,246 @@ namespace oop_group5_project
 
         static void Main(string[] args)
         {
-            CreationFullList();
-            string name ="";
-            string usertype = "";
-            string idused = "";
+            List<User> FullList = new List<User>();
+            List<Classroom> ClassroomList = new List<Classroom>();
+            List<Student> listclassA = new List<Student>();
+            Classroom classA = new Classroom("A", listclassA);
+            ClassroomList.Add(classA);
+            List<Student> listclassB = new List<Student>();
+            Classroom classB = new Classroom("B", listclassB);
+            ClassroomList.Add(classB);
+            List<Student> listclassC = new List<Student>();
+            Classroom classC = new Classroom("C", listclassC);
+            ClassroomList.Add(classC);
+            string[] linestudent = System.IO.File.ReadAllLines("StudentList.csv");
+            List<Student> StudentList = new List<Student>();
+            List<Grade> listgrade = new List<Grade>();
+            foreach (string line in linestudent)
+            {
+                string[] columns = line.Split(';');
+                string name = columns[0];
+                string classroomname = columns[1];
+                string id = columns[2];
+                string password = columns[3];
+                List<string> profil = new List<string>();
+                List<Class> noattendance = new List<Class>();
+                if (classroomname == "A")
+                {
+                    Student s = new Student(name, classA, profil, listgrade, 8900, id, password, "Student");
+                    s.Nonattendance = noattendance;
+                    listclassA.Add(s);
+                    StudentList.Add(s);
+                    FullList.Add(s);
 
-            //CSV FILE USING
+                }
+                else if (classroomname == "B")
+                {
+                    Student s = new Student(name, classB, profil, listgrade, 8900, id, password, "Student");
+                    listclassB.Add(s);
+                    s.Nonattendance = noattendance;
+                    StudentList.Add(s);
+                    FullList.Add(s);
+                }
+                else if (classroomname == "C")
+                {
+                    Student s = new Student(name, classC, profil, listgrade, 8900, id, password, "Student");
+                    listclassC.Add(s);
+                    s.Nonattendance = noattendance;
+                    StudentList.Add(s);
+                    FullList.Add(s);
+                }
+                else { Console.WriteLine("The class was not found"); }
+            }
+            
+            string[] lineteacher = System.IO.File.ReadAllLines("TeacherList.csv");
+            List<Teacher> TeacherList = new List<Teacher>();
+            foreach (string linet in lineteacher)
+            {
+                string[] columnsteacher = linet.Split(';');
+                string nameteacher = columnsteacher[0];
+                string matter = columnsteacher[1];
+                string idteacher = columnsteacher[2];
+                string passwordteacher = columnsteacher[3];
 
-            string filePeopleList = "PeopleList.csv";
-            string fileStudentList = "StudentList.csv";
-            string fileAdminList = "AdminList.csv";
-            string fileTeacherList = "TeacherList.csv";
+                if (matter == "Mathematics")
+                {
+                    Teacher t = new Teacher(nameteacher, ClassroomList, Matter.mathematics, idteacher, passwordteacher, "Teacher");
+                    TeacherList.Add(t);
+                    FullList.Add(t);
+                }
+                else if (matter == "French")
+                {
+                    Teacher t = new Teacher(nameteacher, ClassroomList, Matter.french, idteacher, passwordteacher, "Teacher");
+                    TeacherList.Add(t);
+                    FullList.Add(t);
+                }
+                else if (matter == "Physics")
+                {
+                    Teacher t = new Teacher(nameteacher, ClassroomList, Matter.physics, idteacher, passwordteacher, "Teacher");
+                    TeacherList.Add(t);
+                    FullList.Add(t);
+                }
+                else if (matter == "Litterature")
+                {
+                    Teacher t = new Teacher(nameteacher, ClassroomList, Matter.litterarenglish, idteacher, passwordteacher, "Teacher");
+                    TeacherList.Add(t);
+                    FullList.Add(t);
+                }
+                else if (matter == "Sport")
+                {
+                    Teacher t = new Teacher(nameteacher, ClassroomList, Matter.physicsactivity, idteacher, passwordteacher, "Teacher");
+                    TeacherList.Add(t);
+                    FullList.Add(t);
+                }
+                else { Console.WriteLine("The matter was not found"); }
+            }
 
-            List<ArrayList> PeopleList = new List<ArrayList>();     //Represents the database of ids and passwords for Students, Teachers and Admins
-            List<ArrayList> StudentList = new List<ArrayList>();
-            List<ArrayList> AdminList = new List<ArrayList>();
-            List<ArrayList> TeacherList = new List<ArrayList>();
+            foreach(Teacher c in TeacherList)
+            {
+                foreach(Classroom cl in  c.Listclassroom)
+                {
+                    Console.WriteLine(cl);
+                }
+            }
+            string[] lineadmin = System.IO.File.ReadAllLines("AdminList.csv");
+            List<Admin> AdminList = new List<Admin>();
+            foreach (string linea in lineadmin)
+            {
+                string[] columnsadmin = linea.Split(';');
+                string nameadmin = columnsadmin[0];
+                string idadmin = columnsadmin[1];
+                string passwordadmin = columnsadmin[2];
+                Admin a = new Admin(nameadmin, idadmin, passwordadmin, "Admin");
+                AdminList.Add(a);
+                FullList.Add(a);
+                a.StudentFullList = StudentList;
+                a.TeacherFullList = TeacherList;
+                a.ClassroomsFullList = ClassroomList;
+            }
+            foreach (Student s in StudentList)
+            {
+                Console.WriteLine(s);
+                Console.WriteLine(s.Classeroom.Name);
+            }
+            foreach (Teacher t in TeacherList)
+            {
+                Console.WriteLine(t);
+            }
+            foreach (Admin a in AdminList)
+            {
+                Console.WriteLine(a);
+            }
+            foreach (User u in FullList)
+            {
 
-            RemplirFichier(PeopleList, filePeopleList);
-            RemplirFichier(StudentList, fileStudentList);
-            RemplirFichier(AdminList, fileAdminList);
-            RemplirFichier(TeacherList, fileTeacherList);
+                Console.WriteLine($"+ {u}");
+            }
 
-            //file.RemoveAt(0);       //Remove first line with Name,Surname, ID, Password, Type
-
-            PrintData(PeopleList);  // Affiche les données
 
             //DOES THE USER EXIST ?
             bool userexist = false;
             while (userexist == false)
             {
                 Console.WriteLine("\nUsername : ");
-                string id = Convert.ToString(Console.ReadLine());
+                string id = Console.ReadLine();
                 Console.WriteLine("Password : ");
-                string password = Convert.ToString(Console.ReadLine());
+                string password = Console.ReadLine();
 
                 // Compare the username and the password with the list of existing Students/Teachers/Admins
                 // If there is a match, the login succeed and the informations concerning the user are loading in
 
-                foreach (ArrayList user in PeopleList)
+                foreach (Student student in StudentList)
                 {
-                    if (id == (string)user[2])
-                        if(password == (string)user[3])    
+                    if (id == student.Id)
+                    {
+                        Console.WriteLine(student);
+
+                        if (password == student.Password)
                         {
                             userexist = true;
-                            name = (string)user[0];
-                            usertype = (string)user[4];                                     //Enregistrement de toutes les caractéristiques d'un élève --> Nom, classe? COURS etc
-                            idused = id;
+                            Console.Clear(); Console.WriteLine("Loading...."); System.Threading.Thread.Sleep(2000); Console.Clear();    //Loading Bar, with 2 seconds delay
+
+                            Console.WriteLine("Well logged in, welcome back " + student.Name);
+                            //Console.WriteLine("you are a " + username.usertype);
+                            System.Threading.Thread.Sleep(2000);
+                            student.StudentMenu();
                         }
-                }
 
-                //LOADING ... IF ID OR PASSWORD INCORRECT, GETTING BACK TO IDENTIFICATION
-                if (userexist == false)
-                {
-                    Console.Clear(); Console.WriteLine("Loading...."); System.Threading.Thread.Sleep(2000); Console.Clear();
-                    Console.WriteLine("Sorry, the id or the password is incorrect, try again");
-                    System.Threading.Thread.Sleep(2000);Console.Clear();                                //Delay 2 seconds for a new tria
-                }
-
-                //USER EXISTS --> Connection Success
-                else
-                {
-                    Console.Clear(); Console.WriteLine("Loading...."); System.Threading.Thread.Sleep(2000); Console.Clear();    //Loading Bar, with 2 seconds delay
-
-                    Console.WriteLine("Well logged in, welcome back " + usertype + " " + name);
-                    //Console.WriteLine("you are a " + username.usertype);
-                    System.Threading.Thread.Sleep(2000);
-
-                    //STARTING OF THE SESSION
-                    bool beingconnected = true;
-                    Console.Clear();
-                    while (beingconnected == true)
-                    {
-                        switch (usertype)
+                        else
                         {
-                            case "Student":
-                                foreach (ArrayList StudentData in StudentList)
-                                {
-                                    if (idused == (string)StudentData[2])
-                                    {
-                                        string classroom = (string)StudentData[2];  //Name, ID and password already known
-                                    }
-                                }
-
-
-                                // .StudentMenu();
-
-                                break;
-
-                            case "Teacher":
-                                foreach (ArrayList TeacherData in TeacherList)
-                                {
-                                    if (idused == (string)TeacherData[2])
-                                    {
-                                        string matter = (string)TeacherData[1];  //Name, ID and password already known
-                                    }
-                                }
-                                break;
-
-                            case "Admin":
-                                foreach (ArrayList AdminData in AdminList)
-                                {
-                                    if (idused == (string)AdminData[2])
-                                    {
-                                        //Name, ID and password already known
-                                    }
-                                }
-                                break;
+                           Console.Write("");
                         }
                     }
+
+                    else
+                    {
+                        Console.Write(""); ;
+                    }   
                 }
+
+                foreach (Teacher teacher in TeacherList)
+                {
+                    if (id == teacher.Id)
+                    {
+                        if (password == teacher.Password)
+                        {
+                            userexist = true;
+                            Console.Clear(); Console.WriteLine("Loading...."); System.Threading.Thread.Sleep(2000); Console.Clear();    //Loading Bar, with 2 seconds delay
+
+                            Console.WriteLine("Well logged in, welcome back " + teacher.Name);
+                            //Console.WriteLine("you are a " + username.usertype);
+                            System.Threading.Thread.Sleep(2000);
+                            teacher.TeacherMenu();
+                        }
+
+                        else
+                        {
+                            Console.Write(""); ;
+                        }
+                    }
+
+                    else
+                    {
+                        Console.Write(""); ;
+                    }
+                }
+
+                foreach (Admin admin in AdminList)
+                {
+                    if (id == admin.Id)
+                    {
+                        if (password == admin.Password)
+                        {
+                            userexist = true;
+                            Console.Clear(); Console.WriteLine("Loading...."); System.Threading.Thread.Sleep(2000); Console.Clear();    //Loading Bar, with 2 seconds delay
+
+                            Console.WriteLine("Well logged in, welcome back " + admin.Name);
+                            //Console.WriteLine("you are a " + username.usertype);
+                            System.Threading.Thread.Sleep(2000);
+                            admin.AdminMenu();
+                        }
+
+                        else
+                        {
+                            Console.Write(""); ;
+                        }
+                    }
+
+                    else
+                    {
+                        Console.Write(""); ;
+                    }
+                }
+                
+                
+                if(userexist == false)
+                {
+
+                }
+                Console.Clear(); Console.WriteLine("Loading...."); System.Threading.Thread.Sleep(2000); Console.Clear();
+                Console.WriteLine("Sorry, the id or the password is incorrect, try again");
+                System.Threading.Thread.Sleep(2000);Console.Clear(); 
+                
             }
 
 
