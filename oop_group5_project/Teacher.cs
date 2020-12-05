@@ -140,7 +140,7 @@ namespace oop_group5_project
         public void TeacherMenu()
         {
             Console.Clear();
-            Console.WriteLine($"Welcome {Name}, choose an option :\n1) Attendance \n2) Add a Graduation for exams \n 3) See a classroom's results \n 4) See a student attendance \n 5) See a student profile");
+            Console.WriteLine($"Welcome {Name}, choose an option :\n1) Attendance \n2) Add a Graduation for exams \n 3) See a classroom's results \n 4) See a student attendance \n 5) See a student profile\n6)Deconnexion");
             int menu = Convert.ToInt32(Console.ReadLine());
             switch (menu)
             {
@@ -329,7 +329,9 @@ namespace oop_group5_project
                     }
 
                     break;
-                
+                case 6:
+                    Console.Clear();
+                    break;
             }
             
         }
