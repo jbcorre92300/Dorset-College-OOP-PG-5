@@ -10,9 +10,6 @@ namespace oop_group5_project
         french,
         litterarenglish,
         physics,
-        biology,
-        art,
-        physicsactivity,
-        economy,
+        sport,
     }
 }

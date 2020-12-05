@@ -175,7 +175,7 @@ namespace oop_group5_project
             string z = Console.ReadLine();
             if (z == "1")
             {
-                Console.WriteLine($"What is the matter of the exam ?\n1)Mathematics\n2)French\n3)Physics\n4)Biology\n5)Art\n6)Physical Education\n7)Economy\n8)Litterar English");
+                Console.WriteLine($"What is the matter of the exam ?\n1)Mathematics\n2)French\n3)Physics\n4) Sport\n5)Litterature");
                 int menu = Convert.ToInt32(Console.ReadLine());
                 Matter matter = new Matter();
                 switch (menu)
@@ -190,18 +190,9 @@ namespace oop_group5_project
                         matter = Matter.physics;
                         break;
                     case 4:
-                        matter = Matter.biology;
+                        matter = Matter.sport;
                         break;
                     case 5:
-                        matter = Matter.art;
-                        break;
-                    case 6:
-                        matter = Matter.physicsactivity;
-                        break;
-                    case 7:
-                        matter = Matter.economy;
-                        break;
-                    case 8:
                         matter = Matter.litterarenglish;
                         break;
                 }

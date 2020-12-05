@@ -58,7 +58,7 @@ namespace oop_group5_project
 
         //UNTIL HERE
 
-        static void CreationFullList()
+        static void CreationFullList(List<Student> StudentList, List<Teacher> TeacherList, List<Admin> AdminList)
         {
             List<User> FullList = new List<User>();
             List<Classroom> ClassroomList = new List<Classroom>();
@@ -72,7 +72,6 @@ namespace oop_group5_project
             Classroom classC = new Classroom("C", listclassC);
             ClassroomList.Add(classC);
             string[] linestudent = System.IO.File.ReadAllLines("StudentList.csv");
-            List<Student> StudentList = new List<Student>();
             foreach (string line in linestudent)
             {
                 string[] columns = line.Split(';');
@@ -81,9 +80,10 @@ namespace oop_group5_project
                 string id = columns[2];
                 string password = columns[3];
                 List<string> profil = new List<string>();
-                List<Grade> listgrade = new List<Grade>();
+                
                 if (classroomname == "A")
                 {
+                    List<Grade> listgrade = new List<Grade>();
                     Student s = new Student(name, classA, profil, listgrade, 8900, id, password, "Student");
                     classA.Classroomlist.Add(s);
                     StudentList.Add(s);
@@ -92,6 +92,7 @@ namespace oop_group5_project
                 }
                 else if (classroomname == "B")
                 {
+                    List<Grade> listgrade = new List<Grade>();
                     Student s = new Student(name, classB, profil, listgrade, 8900, id, password, "Student");
                     classB.Classroomlist.Add(s);
                     StudentList.Add(s);
@@ -99,6 +100,7 @@ namespace oop_group5_project
                 }
                 else if (classroomname == "C")
                 {
+                    List<Grade> listgrade = new List<Grade>();
                     Student s = new Student(name, classC, profil, listgrade, 8900, id, password, "Student");
                     classC.Classroomlist.Add(s);
                     StudentList.Add(s);
@@ -107,7 +109,6 @@ namespace oop_group5_project
                 else { Console.WriteLine("The class was not found"); }
             }
             string[] lineteacher = System.IO.File.ReadAllLines("TeacherList.csv");
-            List<Teacher> TeacherList = new List<Teacher>();
             foreach (string linet in lineteacher)
             {
                 string[] columnsteacher = linet.Split(';');
@@ -121,35 +122,112 @@ namespace oop_group5_project
                     Teacher t = new Teacher(nameteacher, ClassroomList, Matter.mathematics, idteacher, passwordteacher, "Teacher");
                     TeacherList.Add(t);
                     FullList.Add(t);
+
+                    Date DateClassroomA = new Date ("Monday", 12);
+                    string locationClassroomA = "E106";
+                    Class ClassClassroomA = new Class(DateClassroomA, Matter.mathematics, locationClassroomA, t);
+                    classA.Timetable.AddClass(ClassClassroomA);
+
+                    Date DateClassroomB = new Date ("Tuesday", 9);
+                    string locationClassroomB = "E512";
+                    Class ClassClassroomB = new Class(DateClassroomB, Matter.mathematics, locationClassroomB, t);
+                    classB.Timetable.AddClass(ClassClassroomB);
+
+                    Date DateClassroomC = new Date ("Monday", 9);
+                    string locationClassroomC = "L420";
+                    Class ClassClassroomC = new Class(DateClassroomC, Matter.mathematics, locationClassroomC, t);
+                    classC.Timetable.AddClass(ClassClassroomC);
+
                 }
                 else if (matter == "French")
                 {
                     Teacher t = new Teacher(nameteacher, ClassroomList, Matter.french, idteacher, passwordteacher, "Teacher");
                     TeacherList.Add(t);
                     FullList.Add(t);
+
+                    Date DateClassroomA = new Date ("Monday", 15);
+                    string locationClassroomA = "L106";
+                    Class ClassClassroomA = new Class(DateClassroomA, Matter.french, locationClassroomA, t);
+                    classA.Timetable.AddClass(ClassClassroomA);
+
+                    Date DateClassroomB = new Date ("Wednesday", 9);
+                    string locationClassroomB = "E512";
+                    Class ClassClassroomB = new Class(DateClassroomB, Matter.french, locationClassroomB, t);
+                    classB.Timetable.AddClass(ClassClassroomB);
+
+                    Date DateClassroomC = new Date ("Friday", 15);
+                    string locationClassroomC = "L420";
+                    Class ClassClassroomC = new Class(DateClassroomC, Matter.french, locationClassroomC, t);
+                    classC.Timetable.AddClass(ClassClassroomC);
+
                 }
                 else if (matter == "Physics")
                 {
                     Teacher t = new Teacher(nameteacher, ClassroomList, Matter.physics, idteacher, passwordteacher, "Teacher");
                     TeacherList.Add(t);
                     FullList.Add(t);
+
+                    Date DateClassroomA = new Date ("Tuesday", 9);
+                    string locationClassroomA = "E106";
+                    Class ClassClassroomA = new Class(DateClassroomA, Matter.physics, locationClassroomA, t);
+                    classA.Timetable.AddClass(ClassClassroomA);
+
+                    Date DateClassroomB = new Date ("Tuesday", 12);
+                    string locationClassroomB = "E512";
+                    Class ClassClassroomB = new Class(DateClassroomB, Matter.physics, locationClassroomB, t);
+                    classB.Timetable.AddClass(ClassClassroomB);
+
+                    Date DateClassroomC = new Date ("Tuesday", 9);
+                    string locationClassroomC = "L420";
+                    Class ClassClassroomC = new Class(DateClassroomC, Matter.physics, locationClassroomC, t);
+                    classC.Timetable.AddClass(ClassClassroomC);
                 }
                 else if (matter == "Litterature")
                 {
                     Teacher t = new Teacher(nameteacher, ClassroomList, Matter.litterarenglish, idteacher, passwordteacher, "Teacher");
                     TeacherList.Add(t);
                     FullList.Add(t);
+
+                    Date DateClassroomA = new Date ("Tuesday", 13);
+                    string locationClassroomA = "E106";
+                    Class ClassClassroomA = new Class(DateClassroomA, Matter.litterarenglish, locationClassroomA, t);
+                    classA.Timetable.AddClass(ClassClassroomA);
+
+                    Date DateClassroomB = new Date ("Wednesday", 9);
+                    string locationClassroomB = "E512";
+                    Class ClassClassroomB = new Class(DateClassroomB, Matter.litterarenglish, locationClassroomB, t);
+                    classB.Timetable.AddClass(ClassClassroomB);
+
+                    Date DateClassroomC = new Date ("Tuesday", 12);
+                    string locationClassroomC = "L420";
+                    Class ClassClassroomC = new Class(DateClassroomC, Matter.litterarenglish, locationClassroomC, t);
+                    classC.Timetable.AddClass(ClassClassroomC);
                 }
                 else if (matter == "Sport")
                 {
-                    Teacher t = new Teacher(nameteacher, ClassroomList, Matter.physicsactivity, idteacher, passwordteacher, "Teacher");
+                    Teacher t = new Teacher(nameteacher, ClassroomList, Matter.sport, idteacher, passwordteacher, "Teacher");
                     TeacherList.Add(t);
                     FullList.Add(t);
+
+                    Date DateClassroomA = new Date ("Wednesday", 15);
+                    string locationClassroomA = "E106";
+                    Class ClassClassroomA = new Class(DateClassroomA, Matter.sport, locationClassroomA, t);
+                    classA.Timetable.AddClass(ClassClassroomA);
+
+                    Date DateClassroomB = new Date ("Wednesday", 12);
+                    string locationClassroomB = "E512";
+                    Class ClassClassroomB = new Class(DateClassroomB, Matter.sport, locationClassroomB, t);
+                    classB.Timetable.AddClass(ClassClassroomB);
+
+                    Date DateClassroomC = new Date ("Thursday", 15);
+                    string locationClassroomC = "L420";
+                    Class ClassClassroomC = new Class(DateClassroomC, Matter.sport, locationClassroomC, t);
+                    classC.Timetable.AddClass(ClassClassroomC);
+                    
                 }
                 else { Console.WriteLine("The matter was not found"); }
             }
             string[] lineadmin = System.IO.File.ReadAllLines("AdminList.csv");
-            List<Admin> AdminList = new List<Admin>();
             foreach (string linea in lineadmin)
             {
                 string[] columnsadmin = linea.Split(';');
@@ -234,6 +312,7 @@ namespace oop_group5_project
 
         static void Main(string[] args)
         {
+            /*
             List<User> FullList = new List<User>();
             List<Classroom> ClassroomList = new List<Classroom>();
             List<Student> listclassA = new List<Student>();
@@ -320,21 +399,21 @@ namespace oop_group5_project
                 }
                 else if (matter == "Sport")
                 {
-                    Teacher t = new Teacher(nameteacher, ClassroomList, Matter.physicsactivity, idteacher, passwordteacher, "Teacher");
+                    Teacher t = new Teacher(nameteacher, ClassroomList, Matter.sport, idteacher, passwordteacher, "Teacher");
                     TeacherList.Add(t);
                     FullList.Add(t);
                 }
                 else { Console.WriteLine("The matter was not found"); }
             }
 
-            /*foreach(Teacher c in TeacherList)
+            foreach(Teacher c in TeacherList)
             {
                 Console.WriteLine(c.Name);
                 foreach(Classroom cl in  c.Listclassroom)
                 {
                     Console.WriteLine(cl);
                 }
-            }*/
+            }
             string[] lineadmin = System.IO.File.ReadAllLines("AdminList.csv");
             List<Admin> AdminList = new List<Admin>();
             foreach (string linea in lineadmin)
@@ -350,7 +429,7 @@ namespace oop_group5_project
                 a.TeacherFullList = TeacherList;
                 a.ClassroomsFullList = ClassroomList;
             }
-            /*foreach (Student s in StudentList)
+            foreach (Student s in StudentList)
             {
                 Console.WriteLine(s);
                 Console.WriteLine(s.Classeroom.Name);
@@ -367,10 +446,16 @@ namespace oop_group5_project
             {
 
                 Console.WriteLine($"+ {u}");
-            }*/
-            
+            }
+            */
 
             //DOES THE USER EXIST ?
+
+            List<Student> StudentList = new List<Student>();
+            List<Teacher> TeacherList = new List<Teacher>();
+            List<Admin> AdminList = new List<Admin>();
+
+            CreationFullList(StudentList, TeacherList, AdminList);
 
             bool userexist = false;
             while (userexist == false)
