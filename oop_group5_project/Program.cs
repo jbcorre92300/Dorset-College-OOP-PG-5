@@ -221,6 +221,16 @@ namespace oop_group5_project
             }
         }*/
 
+        static void Deconnexion()
+        {
+
+        }
+
+        private static void centerText(String text)
+        {
+            Console.Write(new string(' ', (Console.WindowWidth - text.Length) / 2));
+            Console.Write(text);
+        }
 
         static void Main(string[] args)
         {
@@ -358,15 +368,17 @@ namespace oop_group5_project
 
                 Console.WriteLine($"+ {u}");
             }
-
+            
 
             //DOES THE USER EXIST ?
+
             bool userexist = false;
             while (userexist == false)
             {
-                Console.WriteLine("\nUsername : ");
+                centerText("Welcome in Global Visual College\n\n");
+                centerText("Username : ");
                 string id = Console.ReadLine();
-                Console.WriteLine("Password : ");
+                centerText("Password : ");
                 string password = Console.ReadLine();
 
                 // Compare the username and the password with the list of existing Students/Teachers/Admins
@@ -391,14 +403,14 @@ namespace oop_group5_project
 
                         else
                         {
-                           Console.Write("");
+                            Console.Write("");
                         }
                     }
 
                     else
                     {
                         Console.Write(""); ;
-                    }   
+                    }
                 }
 
                 foreach (Teacher teacher in TeacherList)
@@ -454,16 +466,18 @@ namespace oop_group5_project
                         Console.Write(""); ;
                     }
                 }
-                
-                
-                if(userexist == false)
+
+
+
+
+                if (userexist == false)
                 {
 
                 }
                 Console.Clear(); Console.WriteLine("Loading...."); System.Threading.Thread.Sleep(2000); Console.Clear();
                 Console.WriteLine("Sorry, the id or the password is incorrect, try again");
-                System.Threading.Thread.Sleep(2000);Console.Clear(); 
-                
+                System.Threading.Thread.Sleep(2000); Console.Clear();
+
             }
 
 
