@@ -45,7 +45,8 @@ namespace oop_group5_project
 
                         Grade grade = new Grade (gradename, Matter, mark);
                         element2.Listgrade.Add(grade);
-
+                        Console.WriteLine(element2.Listgrade.Count);
+                        
                     }
                     break;
                 }
@@ -93,7 +94,7 @@ namespace oop_group5_project
         {
             foreach(Student s in c.Classroomlist)
             {
-                Console.WriteLine($"----{s.Name}----");
+                Console.WriteLine(s.Listgrade.Count);
                 if(s.Listgrade.Count == 0)
                 {
                     Console.WriteLine($"{s.Name} hasn't got any grade in his list");
@@ -102,7 +103,8 @@ namespace oop_group5_project
                 {
                     foreach (Grade g in s.Listgrade)
                     {
-                        Console.WriteLine($"{g} / ");
+                        Console.WriteLine($"----{s.Name}----");
+                        Console.WriteLine(g);
                     }
                 }
                 
@@ -155,6 +157,7 @@ namespace oop_group5_project
 
                     Console.WriteLine ("Please type the hour of the class");
                     int desiredhour = Convert.ToInt32(Console.ReadLine());
+                    Console.Clear();
                     bool a = false;
                     foreach (Classroom element in Listclassroom)
                     {
@@ -215,6 +218,7 @@ namespace oop_group5_project
                     bool booool = false;
                     Console.WriteLine($"Enter a Class Name");
                     string wantedClass = Console.ReadLine();
+                    Console.Clear();
                     foreach (Classroom c in Listclassroom)
                     {
                         if (wantedClass == c.Name)
@@ -251,10 +255,10 @@ namespace oop_group5_project
                     Console.Clear();
                     Console.WriteLine($"Enter a Class Name");
                     string wantedClass2 = Console.ReadLine();
+                    Console.Clear();
                     bool b = false;
                     foreach (Classroom c in Listclassroom)
                     {
-                        Console.WriteLine(c.Name);
                         if (c.Name == wantedClass2)
                         {
                             b = true;

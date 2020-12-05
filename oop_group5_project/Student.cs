@@ -30,7 +30,7 @@ namespace oop_group5_project
             Profil = profil;
             //Timetable = timetable;
             Listgrade = listgrade;
-            Cost = cost;
+            Cost = 8900;
             Nonattendance = null;
             Usertype = "Student";
         }
@@ -59,11 +59,22 @@ namespace oop_group5_project
 
         public void CashPayment()
         {
-            Console.WriteLine("Please pay " + Cost + " euros" + "\n" + "Enter your number card : ");
+            if(Cost == 0)
+            {
+                Console.WriteLine("Your payment is done");
+            }
+            else if(Cost != 8900)
+            {
+                Console.WriteLine("You have already begun a several times payment");
+            }
+            else
+            {
+                Console.WriteLine("Please pay " + Cost + " euros" + "\n" + "Enter your number card : ");
 
-            int numbercard = Convert.ToInt32(Console.ReadLine()); // faire un solde pour l'étudiant, si l'étudiant à le solde demandé, alors retourner true, sinon false.
-            Cost = 0;
-            Console.WriteLine("Successfull Payment !");
+                int numbercard = Convert.ToInt32(Console.ReadLine()); // faire un solde pour l'étudiant, si l'étudiant à le solde demandé, alors retourner true, sinon false.
+                Cost = 0;
+                Console.WriteLine("Successfull Payment !");
+            }
             System.Threading.Thread.Sleep(2000);
             Console.Clear();
             StudentMenu();
@@ -74,21 +85,33 @@ namespace oop_group5_project
         {
             int remainingpayment = Cost;
             int alreadypaid = 0;
-
-            Console.WriteLine("How much do you want to pay right now ? : ");
-
-            int payment = Convert.ToInt32(Console.ReadLine());
-
-            remainingpayment -= payment;
-
-            alreadypaid += payment;
-
-            if (remainingpayment == 0 && alreadypaid == Cost)
+            if(remainingpayment == 0)
             {
-                Console.WriteLine("Your payment is complete !");
-                Cost = remainingpayment;
+                Console.WriteLine("Your payment is done");
             }
-            else Console.WriteLine("There is " + remainingpayment + " euros left to pay");
+            else
+            {
+                Console.WriteLine("You have " + remainingpayment + " euros left to pay\nHow much do you want to pay right now ? : ");
+
+                int payment = Convert.ToInt32(Console.ReadLine());
+
+                remainingpayment -= payment;
+
+                alreadypaid += payment;
+
+                if (remainingpayment == 0 && alreadypaid == Cost)
+                {
+                    Console.WriteLine("Your payment is complete !");
+                    Cost = remainingpayment;
+                }
+                else
+                {
+                    Console.WriteLine("There is " + remainingpayment + " euros left to pay");
+                    Cost = remainingpayment;
+
+                }
+            }
+            
             System.Threading.Thread.Sleep(2000);
             Console.Clear();
             StudentMenu();
@@ -121,10 +144,18 @@ namespace oop_group5_project
 
         public void SeeExamsandAssignementResults()
         {
-            foreach (Grade grade in Listgrade)
+            if(Listgrade.Count == 0)
             {
-                Console.WriteLine(grade);
+                Console.WriteLine("You haven't got any grades for the moment");
             }
+            else
+            {
+                foreach (Grade grade in Listgrade)
+                {
+                    Console.WriteLine(grade);
+                }
+            }
+            
 
             Console.WriteLine("Press any touch to exit");
             Console.ReadKey();
