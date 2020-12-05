@@ -57,6 +57,28 @@ namespace oop_group5_project
             }
         }
 
+        public void modifprofil()
+        {
+            Console.WriteLine("What di you want to modifie?");
+            Console.WriteLine("1)Name\n2)Date of Birthday\n3)Mail");
+            int value = Convert.ToInt32(Console.ReadLine());
+            switch (value)
+            {
+                case 1:
+                    Console.WriteLine("What is your real name");
+                    Name = Console.ReadLine();
+                    break;
+                case 2:
+                    Console.WriteLine("What is your Birthday (DD/MM/YYYY)");
+                    Profil[0] = Console.ReadLine();
+                    break;
+                case 3:
+                    Console.WriteLine("What is your email?");
+                    Profil[1] = Console.ReadLine();
+                    break;
+            }
+        }
+
         public void CashPayment()
         {
             if(Cost == 0)
@@ -132,7 +154,8 @@ namespace oop_group5_project
             string z = Console.ReadLine();
             if (z == "1")
             {
-                //Methode pour modifier le profil
+                Console.Clear();
+                modifprofil();
             }
             else
             {
