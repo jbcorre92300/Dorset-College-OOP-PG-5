@@ -264,7 +264,7 @@ namespace oop_group5_project
         public void AdminMenu()
         {
             Console.Clear();
-            Console.WriteLine($"Welcome {Name}, choose an option :\n1)Track Payment\n2)See exams/assignments results of a class\n3)See attendance of a class\n4)See Timetables\n5)See student profile");
+            Console.WriteLine($"Welcome {Name}, choose an option :\n1)Track Payment\n2)See exams/assignments results of a class\n3)See attendance of a class\n4)See Timetables\n5)See student profile\n6)Deconnexion");
             int menu = Convert.ToInt32(Console.ReadLine());
 
 
@@ -446,6 +446,9 @@ namespace oop_group5_project
                         Console.Clear();
                         AdminMenu();
                     }
+                    break;
+                case 6:
+                    Console.Clear();
                     break;
             }
 
