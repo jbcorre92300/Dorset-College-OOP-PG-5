@@ -5,7 +5,7 @@ using System.Text;
 
 namespace oop_group5_project
 {
-    class Teacher : User//, ManageAttendance
+    class Teacher : User
     {                                                           //23024 Thomas BAUDU 
                                                                 //23189 Audrey CHANTY
                                                                 //23182 Jean-Baptiste CORRE
@@ -36,7 +36,6 @@ namespace oop_group5_project
             foreach (Classroom element in Listclassroom)
             {
                 if (nameclassroom == element.Name)
-
                 {
                     foreach (Student element2 in element.Classroomlist)
                     {
@@ -60,7 +59,7 @@ namespace oop_group5_project
 
                 string answer = Console.ReadLine();
 
-                if (answer == "Yes") break;
+                if (answer == "Yes") Console.Write("");
 
                 if (answer == "No") student.Nonattendance.Add(cours);
 
@@ -121,10 +120,10 @@ namespace oop_group5_project
                     Console.WriteLine("Choose the classroom you want to attempted");
                     string desiredclassroom = Console.ReadLine();
 
-                    Console.WriteLine ("for what class do you want to attempt ? please type the day of the class");
+                    Console.WriteLine ("Please type the day of the class");
                     string desiredday = Console.ReadLine();
 
-                    Console.WriteLine ("for what class do you want to attempt ? please type the hour of the class");
+                    Console.WriteLine ("Please type the hour of the class");
                     int desiredhour = Convert.ToInt32(Console.ReadLine());
 
                     foreach (Classroom element in Listclassroom)
@@ -195,7 +194,7 @@ namespace oop_group5_project
                     string wantedClass2 = Console.ReadLine();
                     foreach (Classroom c in Listclassroom)
                     {
-                        if (wantedClass2 == c.Name)
+                        if (c.Name == wantedClass2)
                         {
                             SeeClassAttendance(c);
                             Console.WriteLine("Press any touch to exit");
