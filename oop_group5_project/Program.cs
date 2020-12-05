@@ -254,7 +254,6 @@ namespace oop_group5_project
                     listclassA.Add(s);
                     StudentList.Add(s);
                     FullList.Add(s);
-
                 }
                 else if (classroomname == "B")
                 {
