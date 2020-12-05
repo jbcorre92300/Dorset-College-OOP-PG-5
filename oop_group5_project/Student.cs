@@ -250,7 +250,7 @@ namespace oop_group5_project
         public void StudentMenu()
         {
             Console.Clear();
-            Console.WriteLine($"Welcome {Name}, choose an option :\n1)See profile\n2)See Timetable\n3)Payment\n4)See exam/assignement results\n5)See the classes you missed");
+            Console.WriteLine($"Welcome {Name}, choose an option :\n1)See profile\n2)See Timetable\n3)Payment\n4)See exam/assignement results\n5)See the classes you missed\n6)Deconnexion");
             int menu = Convert.ToInt32(Console.ReadLine());
             switch (menu)
             {
@@ -273,6 +273,9 @@ namespace oop_group5_project
                 case 5:
                     Console.Clear();
                     SeeNoAttendence();
+                    break;
+                case 6:
+                    Console.Clear();
                     break;
             }
         }

@@ -221,6 +221,16 @@ namespace oop_group5_project
             }
         }*/
 
+        static void Deconnexion()
+        {
+
+        }
+
+        private static void centerText(String text)
+        {
+            Console.Write(new string(' ', (Console.WindowWidth - text.Length) / 2));
+            Console.Write(text);
+        }
 
         static void Main(string[] args)
         {
@@ -317,14 +327,14 @@ namespace oop_group5_project
                 else { Console.WriteLine("The matter was not found"); }
             }
 
-            foreach(Teacher c in TeacherList)
+            /*foreach(Teacher c in TeacherList)
             {
                 Console.WriteLine(c.Name);
                 foreach(Classroom cl in  c.Listclassroom)
                 {
                     Console.WriteLine(cl);
                 }
-            }
+            }*/
             string[] lineadmin = System.IO.File.ReadAllLines("AdminList.csv");
             List<Admin> AdminList = new List<Admin>();
             foreach (string linea in lineadmin)
@@ -340,7 +350,7 @@ namespace oop_group5_project
                 a.TeacherFullList = TeacherList;
                 a.ClassroomsFullList = ClassroomList;
             }
-            foreach (Student s in StudentList)
+            /*foreach (Student s in StudentList)
             {
                 Console.WriteLine(s);
                 Console.WriteLine(s.Classeroom.Name);
@@ -357,16 +367,19 @@ namespace oop_group5_project
             {
 
                 Console.WriteLine($"+ {u}");
-            }
-
+            }*/
+            
 
             //DOES THE USER EXIST ?
+
             bool userexist = false;
             while (userexist == false)
             {
-                Console.WriteLine("\nUsername : ");
+                Console.WriteLine("\n\n\n\n\n\n\n\n\n\n");
+                centerText("Welcome in Global Visual College\n\n");
+                centerText("Username : ");
                 string id = Console.ReadLine();
-                Console.WriteLine("Password : ");
+                centerText("Password : ");
                 string password = Console.ReadLine();
 
                 // Compare the username and the password with the list of existing Students/Teachers/Admins
@@ -391,14 +404,14 @@ namespace oop_group5_project
 
                         else
                         {
-                           Console.Write("");
+                            Console.Write("");
                         }
                     }
 
                     else
                     {
                         Console.Write(""); ;
-                    }   
+                    }
                 }
 
                 foreach (Teacher teacher in TeacherList)
@@ -454,16 +467,18 @@ namespace oop_group5_project
                         Console.Write(""); ;
                     }
                 }
-                
-                
-                if(userexist == false)
-                {
 
+
+
+
+                if (userexist == false)
+                {
+                    Console.Clear(); Console.WriteLine("Loading...."); System.Threading.Thread.Sleep(2000); Console.Clear();
+                    Console.WriteLine("Sorry, the id or the password is incorrect, try again");
+                    System.Threading.Thread.Sleep(2000); Console.Clear();
                 }
-                Console.Clear(); Console.WriteLine("Loading...."); System.Threading.Thread.Sleep(2000); Console.Clear();
-                Console.WriteLine("Sorry, the id or the password is incorrect, try again");
-                System.Threading.Thread.Sleep(2000);Console.Clear(); 
-                
+
+                userexist = false;      //WHILE DISCONNECTED, WE GO BACK TO THE LOGIN SESSION
             }
 
 
