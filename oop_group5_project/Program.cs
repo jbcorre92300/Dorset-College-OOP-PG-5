@@ -222,6 +222,7 @@ namespace oop_group5_project
         static void Main(string[] args)
         {
             CreationFullList();
+
             string name ="";
             string usertype = "";
             string idused = "";
