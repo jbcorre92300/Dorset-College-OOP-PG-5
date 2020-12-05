@@ -56,7 +56,7 @@ namespace oop_group5_project
         }*/
         public void TrackPaymentStudent(Student a)
         {
-            Console.WriteLine($"{a.Name} has {a.Cost} euros left to pay");
+            centerText($"{a.Name} has {a.Cost} euros left to pay");
         }
 
         public void SeeClassResults(Classroom c)
@@ -130,7 +130,6 @@ namespace oop_group5_project
             }
             else
             {
-                Console.ReadKey();
                 Console.Clear();
                 AdminMenu();
             }
@@ -155,7 +154,6 @@ namespace oop_group5_project
                     {
                         s.Nonattendance.Remove(c);
                         Console.WriteLine($"The absence for the class: {c} has been removed");
-
                     }
                     else
                     {
@@ -260,16 +258,15 @@ namespace oop_group5_project
                 Console.WriteLine();
             }
             Console.Write("                                          ");
-            Console.WriteLine("Welcome {Name}, choose an option :" +
+            Console.WriteLine($"Welcome {Name}, choose an option :" +
                 "\n                                          1)Track Payment" +
                 "\n                                          2)See exams/assignments results of a class" +
                 "\n                                          3)See attendance of a class" +
                 "\n                                          4)See Timetables" +
                 "\n                                          5)See student profile" +
                 "\n                                          6)Deconnexion");
+
             int menu = Convert.ToInt32(Console.ReadLine());
-
-
             switch (menu)
             {
                 case 1:
@@ -278,7 +275,7 @@ namespace oop_group5_project
                     {
                         Console.WriteLine();
                     }
-                    Console.WriteLine($"Enter a Student ID");
+                    centerText($"Enter a Student ID : ");
                     bool a = false;
                     string wantedId = Console.ReadLine();
                     foreach (Student s in StudentFullList)
@@ -286,9 +283,9 @@ namespace oop_group5_project
                         if (wantedId == s.Id)
                         {
                             TrackPaymentStudent(s);
+                            Console.WriteLine();
                             a = true;
                             break;
-                            
                         }
                         else
                         {
@@ -297,15 +294,15 @@ namespace oop_group5_project
                     }
                     if(a == false)
                     {
-                        Console.WriteLine("The student was not found");
-                        Console.WriteLine("Press any touch to exit");
+                        centerText("The student was not found");
+                        centerText("Press any touch to exit");
                         Console.ReadKey();
                         Console.Clear();
                         AdminMenu();
                     }
                     else
                     {
-                        Console.WriteLine("Press any touch to exit");
+                        centerText("Press any touch to exit");
                         Console.ReadKey();
                         Console.Clear();
                         AdminMenu();
@@ -314,7 +311,7 @@ namespace oop_group5_project
                     break;
                 case 2:
                     Console.Clear();
-                    Console.WriteLine($"Enter a Class Name");
+                    centerText($"Enter a Class Name : ");
                     bool b = false;
                     string wantedClass = Console.ReadLine();
                     foreach (Classroom c in ClassroomsFullList)
@@ -333,15 +330,15 @@ namespace oop_group5_project
                     }
                     if (b == false)
                     {
-                        Console.WriteLine("The class was not found");
-                        Console.WriteLine("Press any touch to exit");
+                        centerText("The class was not found");
+                        centerText("Press any touch to exit");
                         Console.ReadKey();
                         Console.Clear();
                         AdminMenu();
                     }
                     else
                     {
-                        Console.WriteLine("Press any touch to exit");
+                        centerText("Press any touch to exit");
                         Console.ReadKey();
                         Console.Clear();
                         AdminMenu();
@@ -349,7 +346,7 @@ namespace oop_group5_project
                     break;
                 case 3:
                     Console.Clear();
-                    Console.WriteLine($"Enter a Class Name");
+                    centerText($"Enter a Class Name : ");
                     bool cd = false;
                     string wantedClass2 = Console.ReadLine();
                     foreach (Classroom c in ClassroomsFullList)
@@ -359,7 +356,6 @@ namespace oop_group5_project
                             SeeClassAttendance(c);
                             cd = true;
                             break;
-
                         }
                         else
                         {
@@ -368,15 +364,15 @@ namespace oop_group5_project
                     }
                     if (cd == false)
                     {
-                        Console.WriteLine("The class was not found");
-                        Console.WriteLine("Press any touch to exit");
+                        centerText("The class was not found");
+                        centerText("Press any touch to exit");
                         Console.ReadKey();
                         Console.Clear();
                         AdminMenu();
                     }
                     else
                     {
-                        Console.WriteLine("Press any touch to exit");
+                        centerText("Press any touch to exit");
                         Console.ReadKey();
                         Console.Clear();
                         AdminMenu();
@@ -384,7 +380,7 @@ namespace oop_group5_project
                     break;
                 case 4:
                     Console.Clear();
-                    Console.WriteLine($"Enter a Class Name");
+                    centerText($"Enter a Class Name : ");
                     bool abc = false;
                     string wantedClass3 = Console.ReadLine();
                     foreach (Classroom c in ClassroomsFullList)
@@ -403,15 +399,15 @@ namespace oop_group5_project
                     }
                     if (abc == false)
                     {
-                        Console.WriteLine("The class was not found");
-                        Console.WriteLine("Press any touch to exit");
+                        centerText("The class was not found");
+                        centerText("Press any touch to exit");
                         Console.ReadKey();
                         Console.Clear();
                         AdminMenu();
                     }
                     else
                     {
-                        Console.WriteLine("Press any touch to exit");
+                        centerText("Press any touch to exit");
                         Console.ReadKey();
                         Console.Clear();
                         AdminMenu();
@@ -420,7 +416,7 @@ namespace oop_group5_project
                     break;
                 case 5:
                     Console.Clear();
-                    Console.WriteLine($"Enter a Student ID");
+                    centerText($"Enter a Student ID : ");
                     bool aze = false;
                     string wantedId2 = Console.ReadLine();
                     foreach (Student s in StudentFullList)
@@ -439,15 +435,15 @@ namespace oop_group5_project
                     }
                     if (aze == false)
                     {
-                        Console.WriteLine("The student was not found");
-                        Console.WriteLine("Press any touch to exit");
+                        centerText("The student was not found");
+                        centerText("Press any touch to exit");
                         Console.ReadKey();
                         Console.Clear();
                         AdminMenu();
                     }
                     else
                     {
-                        Console.WriteLine("Press any touch to exit");
+                        centerText("Press any touch to exit");
                         Console.ReadKey();
                         Console.Clear();
                         AdminMenu();
