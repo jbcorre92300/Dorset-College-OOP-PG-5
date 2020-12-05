@@ -226,7 +226,7 @@ namespace oop_group5_project
 
         }
 
-        private static void centerText(String text)
+        static void centerText(String text)
         {
             Console.Write(new string(' ', (Console.WindowWidth - text.Length) / 2));
             Console.Write(text);
@@ -394,9 +394,9 @@ namespace oop_group5_project
                         if (password == student.Password)
                         {
                             userexist = true;
-                            Console.Clear(); Console.WriteLine("Loading...."); System.Threading.Thread.Sleep(2000); Console.Clear();    //Loading Bar, with 2 seconds delay
-
-                            Console.WriteLine("Well logged in, welcome back " + student.Name);
+                            Console.Clear(); Console.WriteLine("\n\n\n\n\n\n\n\n\n\n");
+                            centerText("Loading...."); System.Threading.Thread.Sleep(2000); Console.Clear(); Console.WriteLine("\n\n\n\n\n\n\n\n\n\n");    //Loading Bar, with 2 seconds delay
+                            centerText("Well logged in, welcome back " + student.Name);
                             //Console.WriteLine("you are a " + username.usertype);
                             System.Threading.Thread.Sleep(2000);
                             student.StudentMenu();
@@ -421,9 +421,9 @@ namespace oop_group5_project
                         if (password == teacher.Password)
                         {
                             userexist = true;
-                            Console.Clear(); Console.WriteLine("Loading...."); System.Threading.Thread.Sleep(2000); Console.Clear();    //Loading Bar, with 2 seconds delay
-
-                            Console.WriteLine("Well logged in, welcome back " + teacher.Name);
+                            Console.Clear(); Console.WriteLine("\n\n\n\n\n\n\n\n\n\n");
+                            centerText("Loading...."); System.Threading.Thread.Sleep(2000); Console.Clear(); Console.WriteLine("\n\n\n\n\n\n\n\n\n\n");    //Loading Bar, with 2 seconds delay
+                            centerText("Well logged in, welcome back " + teacher.Name);
                             //Console.WriteLine("you are a " + username.usertype);
                             System.Threading.Thread.Sleep(2000);
                             teacher.TeacherMenu();
@@ -448,9 +448,9 @@ namespace oop_group5_project
                         if (password == admin.Password)
                         {
                             userexist = true;
-                            Console.Clear(); Console.WriteLine("Loading...."); System.Threading.Thread.Sleep(2000); Console.Clear();    //Loading Bar, with 2 seconds delay
-
-                            Console.WriteLine("Well logged in, welcome back " + admin.Name);
+                            Console.Clear(); Console.WriteLine("\n\n\n\n\n\n\n\n\n\n");
+                            centerText("Loading...."); System.Threading.Thread.Sleep(2000); Console.Clear(); Console.WriteLine("\n\n\n\n\n\n\n\n\n\n");    //Loading Bar, with 2 seconds delay
+                            centerText("Well logged in, welcome back " + admin.Name);
                             //Console.WriteLine("you are a " + username.usertype);
                             System.Threading.Thread.Sleep(2000);
                             admin.AdminMenu();
@@ -473,12 +473,13 @@ namespace oop_group5_project
 
                 if (userexist == false)
                 {
-                    Console.Clear(); Console.WriteLine("Loading...."); System.Threading.Thread.Sleep(2000); Console.Clear();
-                    Console.WriteLine("Sorry, the id or the password is incorrect, try again");
+                    Console.Clear(); Console.WriteLine("\n\n\n\n\n\n\n\n\n\n");
+                    centerText("Loading...."); System.Threading.Thread.Sleep(2000); Console.Clear(); Console.WriteLine("\n\n\n\n\n\n\n\n\n\n");
+                    centerText("Sorry, the id or the password is incorrect, try again");
                     System.Threading.Thread.Sleep(2000); Console.Clear();
                 }
 
-                userexist = false;      //WHILE DISCONNECTED, WE GO BACK TO THE LOGIN SESSION
+                userexist = false;      //IF DECISION OF BEING DISCONNECTED, WE GO BACK TO THE LOGIN SESSION
             }
 
 

@@ -264,7 +264,18 @@ namespace oop_group5_project
         public void AdminMenu()
         {
             Console.Clear();
-            Console.WriteLine($"Welcome {Name}, choose an option :\n1)Track Payment\n2)See exams/assignments results of a class\n3)See attendance of a class\n4)See Timetables\n5)See student profile\n6)Deconnexion");
+            for(int i=0;i<=10;i++)
+            {
+                Console.WriteLine();
+            }
+            Console.Write("                                          ");
+            Console.WriteLine("Welcome {Name}, choose an option :" +
+                "\n                                          1)Track Payment" +
+                "\n                                          2)See exams/assignments results of a class" +
+                "\n                                          3)See attendance of a class" +
+                "\n                                          4)See Timetables" +
+                "\n                                          5)See student profile" +
+                "\n                                          6)Deconnexion");
             int menu = Convert.ToInt32(Console.ReadLine());
 
 
@@ -272,6 +283,10 @@ namespace oop_group5_project
             {
                 case 1:
                     Console.Clear();
+                    for (int i = 0; i <= 10; i++)
+                    {
+                        Console.WriteLine();
+                    }
                     Console.WriteLine($"Enter a Student ID");
                     bool a = false;
                     string wantedId = Console.ReadLine();
@@ -459,7 +474,11 @@ namespace oop_group5_project
             return $"{Name} --  {Id} {Password}";
         }
 
-
+        static void centerText(String text)
+        {
+            Console.Write(new string(' ', (Console.WindowWidth - text.Length) / 2));
+            Console.Write(text);
+        }
 
 
 
