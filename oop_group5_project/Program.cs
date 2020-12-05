@@ -327,14 +327,14 @@ namespace oop_group5_project
                 else { Console.WriteLine("The matter was not found"); }
             }
 
-            foreach(Teacher c in TeacherList)
+            /*foreach(Teacher c in TeacherList)
             {
                 Console.WriteLine(c.Name);
                 foreach(Classroom cl in  c.Listclassroom)
                 {
                     Console.WriteLine(cl);
                 }
-            }
+            }*/
             string[] lineadmin = System.IO.File.ReadAllLines("AdminList.csv");
             List<Admin> AdminList = new List<Admin>();
             foreach (string linea in lineadmin)
@@ -350,7 +350,7 @@ namespace oop_group5_project
                 a.TeacherFullList = TeacherList;
                 a.ClassroomsFullList = ClassroomList;
             }
-            foreach (Student s in StudentList)
+            /*foreach (Student s in StudentList)
             {
                 Console.WriteLine(s);
                 Console.WriteLine(s.Classeroom.Name);
@@ -367,7 +367,7 @@ namespace oop_group5_project
             {
 
                 Console.WriteLine($"+ {u}");
-            }
+            }*/
             
 
             //DOES THE USER EXIST ?
@@ -375,6 +375,7 @@ namespace oop_group5_project
             bool userexist = false;
             while (userexist == false)
             {
+                Console.WriteLine("\n\n\n\n\n\n\n\n\n\n");
                 centerText("Welcome in Global Visual College\n\n");
                 centerText("Username : ");
                 string id = Console.ReadLine();
@@ -472,12 +473,12 @@ namespace oop_group5_project
 
                 if (userexist == false)
                 {
-
+                    Console.Clear(); Console.WriteLine("Loading...."); System.Threading.Thread.Sleep(2000); Console.Clear();
+                    Console.WriteLine("Sorry, the id or the password is incorrect, try again");
+                    System.Threading.Thread.Sleep(2000); Console.Clear();
                 }
-                Console.Clear(); Console.WriteLine("Loading...."); System.Threading.Thread.Sleep(2000); Console.Clear();
-                Console.WriteLine("Sorry, the id or the password is incorrect, try again");
-                System.Threading.Thread.Sleep(2000); Console.Clear();
 
+                userexist = false;      //WHILE DISCONNECTED, WE GO BACK TO THE LOGIN SESSION
             }
 
 
