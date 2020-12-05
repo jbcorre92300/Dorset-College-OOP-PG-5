@@ -320,6 +320,7 @@ namespace oop_group5_project
 
             foreach(Teacher c in TeacherList)
             {
+                Console.WriteLine(c.Name);
                 foreach(Classroom cl in  c.Listclassroom)
                 {
                     Console.WriteLine(cl);
