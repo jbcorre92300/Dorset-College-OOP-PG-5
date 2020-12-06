@@ -229,29 +229,40 @@ namespace oop_group5_project
                 string location = Console.ReadLine();
                 Console.WriteLine($"Enter the Teacher ID");
                 string wantedId = Console.ReadLine();
+                bool tea = false;
                 foreach (Teacher t in TeacherFullList)
                 {
                     if (wantedId == t.Id)
                     {
+                        tea = true;
                         Class exam = new Class(date, matter, location, t);
                         foreach (Student student in c.Classroomlist)
                         {
                             student.Classeroom.Timetable.Listclass.Add(exam);
                         }
-                        Console.WriteLine($"A new exam of {matter} has been added for next {date.day} at {date.hour}h with {t.Name}");//Méthode pour ajouter un EXAMEN
-                        Console.WriteLine("Press any touch to exit");
-                        Console.ReadKey();
-                        Console.Clear();
-                        AdminMenu();
+                        break;
                     }
                     else
                     {
-                        Console.WriteLine("The teacher was not found");
-                        Console.WriteLine("Press any touch to exit");
-                        Console.ReadKey();
-                        Console.Clear();
-                        AdminMenu();
+                        Console.Write("");
+                        
                     }
+                }
+                if(tea == false)
+                {
+                    Console.WriteLine("The teacher was not found");
+                    Console.WriteLine("Press any touch to exit");
+                    Console.ReadKey();
+                    Console.Clear();
+                    AdminMenu();
+                }
+                else
+                {
+                    Console.WriteLine($"A new exam of {matter} has been added for next {date.day} at {date.hour}h ");//Méthode pour ajouter un EXAMEN
+                    Console.WriteLine("Press any touch to exit");
+                    Console.ReadKey();
+                    Console.Clear();
+                    AdminMenu();
                 }
 
 
