@@ -427,6 +427,7 @@ namespace oop_group5_project
                     if (abc == false)
                     {
                         centerText("The class was not found");
+                        Console.WriteLine();
                         centerText("Press any touch to exit");
                         Console.ReadKey();
                         Console.Clear();
@@ -477,9 +478,7 @@ namespace oop_group5_project
                         AdminMenu();
                     }
                     break;
-                case 6:
-                    Console.Clear();
-                    break;
+               
             }
 
         }
