@@ -11,10 +11,11 @@ namespace oop_group5_project
         public TimeTable Timetable { get; set; }
 
 
-        public Classroom (string name, List<Student> classroomlist)
+        public Classroom (string name, List<Student> classroomlist,TimeTable timetable)
         {
             Name = name;
             Classroomlist = classroomlist;
+            Timetable = timetable;
         }
 
         public override string ToString()

@@ -63,14 +63,27 @@ namespace oop_group5_project
             List<User> FullList = new List<User>();
             List<Classroom> ClassroomList = new List<Classroom>();
             List<Student> listclassA = new List<Student>();
-            Classroom classA = new Classroom("A", listclassA);
-            ClassroomList.Add(classA);
             List<Student> listclassB = new List<Student>();
-            Classroom classB = new Classroom("B", listclassB);
-            ClassroomList.Add(classB);
             List<Student> listclassC = new List<Student>();
-            Classroom classC = new Classroom("C", listclassC);
+            List<Class> classesA = new List<Class>();
+            List<Class> classesB = new List<Class>();
+            List<Class> classesC = new List<Class>();
+            TimeTable timetableA = new TimeTable(classesA);
+            TimeTable timetableB = new TimeTable(classesA);
+            TimeTable timetableC = new TimeTable(classesA);
+
+            Classroom classA = new Classroom("A", listclassA,timetableA);
+            ClassroomList.Add(classA);
+            //classA.Timetable = timetableA;
+            
+            Classroom classB = new Classroom("B", listclassB,timetableB);
+            ClassroomList.Add(classB);
+            //classB.Timetable = timetableB;
+            
+            Classroom classC = new Classroom("C", listclassC,timetableC);
             ClassroomList.Add(classC);
+            //classC.Timetable = timetableC;
+
             string[] linestudent = System.IO.File.ReadAllLines("StudentList.csv");
             foreach (string line in linestudent)
             {
@@ -79,12 +92,15 @@ namespace oop_group5_project
                 string classroomname = columns[1];
                 string id = columns[2];
                 string password = columns[3];
-                List<string> profil = new List<string>();
+                
                 
                 if (classroomname == "A")
                 {
+                    List<Class> noattendance = new List<Class>();
+                    List<string> profil = new List<string>();
                     List<Grade> listgrade = new List<Grade>();
                     Student s = new Student(name, classA, profil, listgrade, 8900, id, password, "Student");
+                    s.Nonattendance = noattendance;
                     classA.Classroomlist.Add(s);
                     StudentList.Add(s);
                     FullList.Add(s);
@@ -92,16 +108,22 @@ namespace oop_group5_project
                 }
                 else if (classroomname == "B")
                 {
+                    List<Class> noattendance = new List<Class>();
+                    List<string> profil = new List<string>();
                     List<Grade> listgrade = new List<Grade>();
                     Student s = new Student(name, classB, profil, listgrade, 8900, id, password, "Student");
+                    s.Nonattendance = noattendance;
                     classB.Classroomlist.Add(s);
                     StudentList.Add(s);
                     FullList.Add(s);
                 }
                 else if (classroomname == "C")
                 {
+                    List<Class> noattendance = new List<Class>();
+                    List<string> profil = new List<string>();
                     List<Grade> listgrade = new List<Grade>();
                     Student s = new Student(name, classC, profil, listgrade, 8900, id, password, "Student");
+                    s.Nonattendance = noattendance;
                     classC.Classroomlist.Add(s);
                     StudentList.Add(s);
                     FullList.Add(s);
@@ -126,17 +148,17 @@ namespace oop_group5_project
                     Date DateClassroomA = new Date ("Monday", 12);
                     string locationClassroomA = "E106";
                     Class ClassClassroomA = new Class(DateClassroomA, Matter.mathematics, locationClassroomA, t);
-                    classA.Timetable.AddClass(ClassClassroomA);
+                    classesA.Add(ClassClassroomA);
 
                     Date DateClassroomB = new Date ("Tuesday", 9);
                     string locationClassroomB = "E512";
                     Class ClassClassroomB = new Class(DateClassroomB, Matter.mathematics, locationClassroomB, t);
-                    classB.Timetable.AddClass(ClassClassroomB);
+                    classesB.Add(ClassClassroomB);
 
                     Date DateClassroomC = new Date ("Monday", 9);
                     string locationClassroomC = "L420";
                     Class ClassClassroomC = new Class(DateClassroomC, Matter.mathematics, locationClassroomC, t);
-                    classC.Timetable.AddClass(ClassClassroomC);
+                    classesC.Add(ClassClassroomC);
 
                 }
                 else if (matter == "French")
@@ -148,17 +170,17 @@ namespace oop_group5_project
                     Date DateClassroomA = new Date ("Monday", 15);
                     string locationClassroomA = "L106";
                     Class ClassClassroomA = new Class(DateClassroomA, Matter.french, locationClassroomA, t);
-                    classA.Timetable.AddClass(ClassClassroomA);
+                    classesA.Add(ClassClassroomA);
 
                     Date DateClassroomB = new Date ("Wednesday", 9);
                     string locationClassroomB = "E512";
                     Class ClassClassroomB = new Class(DateClassroomB, Matter.french, locationClassroomB, t);
-                    classB.Timetable.AddClass(ClassClassroomB);
+                    classesB.Add(ClassClassroomB);
 
                     Date DateClassroomC = new Date ("Friday", 15);
                     string locationClassroomC = "L420";
                     Class ClassClassroomC = new Class(DateClassroomC, Matter.french, locationClassroomC, t);
-                    classC.Timetable.AddClass(ClassClassroomC);
+                    classesC.Add(ClassClassroomC);
 
                 }
                 else if (matter == "Physics")
@@ -170,17 +192,17 @@ namespace oop_group5_project
                     Date DateClassroomA = new Date ("Tuesday", 9);
                     string locationClassroomA = "E106";
                     Class ClassClassroomA = new Class(DateClassroomA, Matter.physics, locationClassroomA, t);
-                    classA.Timetable.AddClass(ClassClassroomA);
+                    classesA.Add(ClassClassroomA);
 
                     Date DateClassroomB = new Date ("Tuesday", 12);
                     string locationClassroomB = "E512";
                     Class ClassClassroomB = new Class(DateClassroomB, Matter.physics, locationClassroomB, t);
-                    classB.Timetable.AddClass(ClassClassroomB);
+                    classesB.Add(ClassClassroomB);
 
                     Date DateClassroomC = new Date ("Tuesday", 9);
                     string locationClassroomC = "L420";
                     Class ClassClassroomC = new Class(DateClassroomC, Matter.physics, locationClassroomC, t);
-                    classC.Timetable.AddClass(ClassClassroomC);
+                    classesC.Add(ClassClassroomC);
                 }
                 else if (matter == "Litterature")
                 {
@@ -191,17 +213,17 @@ namespace oop_group5_project
                     Date DateClassroomA = new Date ("Tuesday", 13);
                     string locationClassroomA = "E106";
                     Class ClassClassroomA = new Class(DateClassroomA, Matter.litterarenglish, locationClassroomA, t);
-                    classA.Timetable.AddClass(ClassClassroomA);
+                    classesA.Add(ClassClassroomA);
 
                     Date DateClassroomB = new Date ("Wednesday", 9);
                     string locationClassroomB = "E512";
                     Class ClassClassroomB = new Class(DateClassroomB, Matter.litterarenglish, locationClassroomB, t);
-                    classB.Timetable.AddClass(ClassClassroomB);
+                    classesB.Add(ClassClassroomB);
 
                     Date DateClassroomC = new Date ("Tuesday", 12);
                     string locationClassroomC = "L420";
                     Class ClassClassroomC = new Class(DateClassroomC, Matter.litterarenglish, locationClassroomC, t);
-                    classC.Timetable.AddClass(ClassClassroomC);
+                    classesC.Add(ClassClassroomC);
                 }
                 else if (matter == "Sport")
                 {
@@ -212,18 +234,18 @@ namespace oop_group5_project
                     Date DateClassroomA = new Date ("Wednesday", 15);
                     string locationClassroomA = "E106";
                     Class ClassClassroomA = new Class(DateClassroomA, Matter.sport, locationClassroomA, t);
-                    classA.Timetable.AddClass(ClassClassroomA);
+                    classesA.Add(ClassClassroomA);
 
                     Date DateClassroomB = new Date ("Wednesday", 12);
                     string locationClassroomB = "E512";
                     Class ClassClassroomB = new Class(DateClassroomB, Matter.sport, locationClassroomB, t);
-                    classB.Timetable.AddClass(ClassClassroomB);
+                    classesB.Add(ClassClassroomB);
 
                     Date DateClassroomC = new Date ("Thursday", 15);
                     string locationClassroomC = "L420";
                     Class ClassClassroomC = new Class(DateClassroomC, Matter.sport, locationClassroomC, t);
-                    classC.Timetable.AddClass(ClassClassroomC);
-                    
+                    classesC.Add(ClassClassroomC);
+
                 }
                 else { Console.WriteLine("The matter was not found"); }
             }

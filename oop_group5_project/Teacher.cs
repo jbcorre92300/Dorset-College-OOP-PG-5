@@ -83,7 +83,7 @@ namespace oop_group5_project
 
                 if (answer == "Yes") Console.Write("");
 
-                if (answer == "No") student.Nonattendance.Add(cours);
+                else if (answer == "No") student.Nonattendance.Add(cours);
 
                 else Console.WriteLine("Error");
             }
@@ -166,7 +166,7 @@ namespace oop_group5_project
                         {
                             foreach (Class element2 in element.Timetable.Listclass)
                             {
-                                if (element.Timetable.Date.day == desiredday && element.Timetable.Date.hour == desiredhour) 
+                                if (element2.Date.day == desiredday && element2.Date.hour == desiredhour) 
                                 {
                                     Attendance(element, element2);
                                     a = true;

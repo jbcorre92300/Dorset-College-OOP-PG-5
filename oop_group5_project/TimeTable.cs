@@ -7,7 +7,6 @@ namespace oop_group5_project
     class TimeTable
     {
         public List<Class> Listclass;
-        public Date Date;
 
 
         public TimeTable(List<Class> listclass)

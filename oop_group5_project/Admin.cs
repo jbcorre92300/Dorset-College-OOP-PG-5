@@ -142,6 +142,7 @@ namespace oop_group5_project
             Console.WriteLine($"What is the time of the absence you would like to remove ?");
             int hour = Convert.ToInt32(Console.ReadLine());
             Date wanteddate = new Date(day, hour);
+            bool absence = false;
             if(s.Nonattendance.Count == 0)
             {
                 Console.WriteLine("There is no absences to remove");
@@ -152,14 +153,26 @@ namespace oop_group5_project
                 {
                     if (wanteddate == c.Date)
                     {
+                        absence = true;
                         s.Nonattendance.Remove(c);
-                        Console.WriteLine($"The absence for the class: {c} has been removed");
+                        break;
+                        
                     }
                     else
                     {
-                        Console.WriteLine("There was no absence found at this date and this time");
+                        Console.Write("");
                     }
                 }
+
+                if(absence == false)
+                {
+                    Console.WriteLine("There was no absence found at this date and this time");
+                }
+                else
+                {
+                    Console.WriteLine($"The absence for the class has been removed");
+                }
+
             }
             
         }
@@ -167,8 +180,7 @@ namespace oop_group5_project
         public void SeeClassTimetable(Classroom c)
         {
             Console.WriteLine($"Class {c.Name} : ");
-            Student s = c.Classroomlist[1];
-            s.SeeAttendence();
+            c.Classroomlist[1].SeeAttendence();
             Console.WriteLine("1) Add an exam to this class\n 2)Go back to menu");
             string z = Console.ReadLine();
             if (z == "1")
@@ -380,8 +392,8 @@ namespace oop_group5_project
                     break;
                 case 4:
                     Console.Clear();
-                    centerText($"Enter a Class Name : ");
                     bool abc = false;
+                    centerText($"Enter a Class Name : "); 
                     string wantedClass3 = Console.ReadLine();
                     foreach (Classroom c in ClassroomsFullList)
                     {
