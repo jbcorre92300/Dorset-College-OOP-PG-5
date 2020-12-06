@@ -275,7 +275,7 @@ namespace oop_group5_project
                 $"\n                                          3)Payment" +
                 $"\n                                          4)See exam/assignement results" +
                 $"\n                                          5)See the classes you missed" +
-                $"\n                                          6)Deconnexion");
+                $"\n                                          6)Log out");
             int menu = Convert.ToInt32(Console.ReadLine());
             switch (menu)
             {

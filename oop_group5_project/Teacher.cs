@@ -140,8 +140,26 @@ namespace oop_group5_project
                 $"\n                                          {stringprofil}");
         }
 
+        public void SeeClassTimetable(Classroom c)
+        {
+            Console.WriteLine("\n\n\n\n");
+            Console.WriteLine($"Class {c.Name} : ");
+            Console.Clear();
+            Console.WriteLine("    Monday       Tuesday      Wednesday      Thursday      Friday");
+            Console.WriteLine("-----------------------------------------------------------------");
+            for (int hour = 6; hour < 20; hour++)
+            {
+                Console.Write(hour + "h ");
+                c.Classroomlist[1].testclassaday(hour, "Monday");
+                c.Classroomlist[1].testclassaday(hour, "Tuesday");
+                c.Classroomlist[1].testclassaday(hour, "Wednesday");
+                c.Classroomlist[1].testclassaday(hour, "Thursday");
+                c.Classroomlist[1].testclassaday(hour, "Friday");
+                Console.WriteLine();
 
-        public void TeacherMenu()
+            }
+        }
+            public void TeacherMenu()
         {
             Console.Clear();
             Console.WriteLine("\n\n\n\n\n\n\n\n\n\n");
@@ -152,7 +170,8 @@ namespace oop_group5_project
                 $"\n                                          3) See a classroom's results " +
                 $"\n                                          4) See a student attendance " +
                 $"\n                                          5) See a student profile " +
-                $"\n                                          6) Deconnexion");
+                $"\n                                          6) See the timetables" +
+                $"\n                                          7) Log out");
             int menu = Convert.ToInt32(Console.ReadLine());
             switch (menu)
             {
@@ -334,6 +353,42 @@ namespace oop_group5_project
                         TeacherMenu();
                     }
 
+                    break;
+                case 6:
+                    Console.Clear();
+                    bool abc = false;
+                    Console.WriteLine("\n\n\n\n\n");
+                    centerText($"Enter a Class Name : ");
+                    string wantedClass3 = Console.ReadLine();
+                    foreach (Classroom c in Listclassroom)
+                    {
+                        if (wantedClass3 == c.Name)
+                        {
+                            SeeClassTimetable(c);
+                            abc = true;
+                            break;
+
+                        }
+                        else
+                        {
+                            Console.Write("");
+                        }
+                    }
+                    if (abc == false)
+                    {
+                        centerText("The class was not found");
+                        centerText("Press any touch to exit");
+                        Console.ReadKey();
+                        Console.Clear();
+                        TeacherMenu();
+                    }
+                    else
+                    {
+                        centerText("Press any touch to exit");
+                        Console.ReadKey();
+                        Console.Clear();
+                        TeacherMenu();
+                    }
                     break;
                 
             }

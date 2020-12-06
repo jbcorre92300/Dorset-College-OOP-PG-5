@@ -286,7 +286,7 @@ namespace oop_group5_project
                 "\n                                          3)See attendance of a class" +
                 "\n                                          4)See Timetables" +
                 "\n                                          5)See student profile" +
-                "\n                                          6)Deconnexion");
+                "\n                                          6)Log out");
 
             int menu = Convert.ToInt32(Console.ReadLine());
             switch (menu)

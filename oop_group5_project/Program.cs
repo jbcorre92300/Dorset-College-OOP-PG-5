@@ -359,7 +359,7 @@ namespace oop_group5_project
                     centerText("Sorry, the id or the password is incorrect, try again");
                     System.Threading.Thread.Sleep(2000); Console.Clear();
                 }
-
+                Console.Clear();
                 userexist = false;      //IF DECISION OF BEING DISCONNECTED, WE GO BACK TO THE LOGIN SESSION
             }
 
