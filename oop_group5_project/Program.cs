@@ -69,8 +69,8 @@ namespace oop_group5_project
             List<Class> classesB = new List<Class>();
             List<Class> classesC = new List<Class>();
             TimeTable timetableA = new TimeTable(classesA);
-            TimeTable timetableB = new TimeTable(classesA);
-            TimeTable timetableC = new TimeTable(classesA);
+            TimeTable timetableB = new TimeTable(classesB);
+            TimeTable timetableC = new TimeTable(classesC);
 
             Classroom classA = new Classroom("A", listclassA,timetableA);
             ClassroomList.Add(classA);
@@ -172,7 +172,7 @@ namespace oop_group5_project
                     Class ClassClassroomA = new Class(DateClassroomA, Matter.french, locationClassroomA, t);
                     classesA.Add(ClassClassroomA);
 
-                    Date DateClassroomB = new Date ("Wednesday", 9);
+                    Date DateClassroomB = new Date ("Friday", 9);
                     string locationClassroomB = "E512";
                     Class ClassClassroomB = new Class(DateClassroomB, Matter.french, locationClassroomB, t);
                     classesB.Add(ClassClassroomB);
