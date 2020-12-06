@@ -140,7 +140,15 @@ namespace oop_group5_project
         public void TeacherMenu()
         {
             Console.Clear();
-            Console.WriteLine($"Welcome {Name}, choose an option :\n1) Attendance \n2) Add a Graduation for exams \n3) See a classroom's results \n4) See a student attendance \n5) See a student profile \n6) Deconnexion");
+            Console.WriteLine("\n\n\n\n\n\n\n\n\n\n");
+            Console.Write("                                          ");
+            Console.WriteLine($"Welcome {Name}, choose an option :" +
+                $"\n                                          1) Attendance " +
+                $"\n                                          2) Add a Graduation for exams " +
+                $"\n                                          3) See a classroom's results " +
+                $"\n                                          4) See a student attendance " +
+                $"\n                                          5) See a student profile " +
+                $"\n                                          6) Deconnexion");
             int menu = Convert.ToInt32(Console.ReadLine());
             switch (menu)
             {
@@ -149,13 +157,13 @@ namespace oop_group5_project
 
                     Console.Clear();
 
-                    Console.WriteLine("Choose the classroom you want to attempted");
+                    centerText("Choose the classroom you want to attempted");
                     string desiredclassroom = Console.ReadLine();
 
-                    Console.WriteLine ("Please type the day of the class");
+                    centerText("Please type the day of the class");
                     string desiredday = Console.ReadLine();
 
-                    Console.WriteLine ("Please type the hour of the class");
+                    centerText("Please type the hour of the class : ");
                     int desiredhour = Convert.ToInt32(Console.ReadLine());
                     Console.Clear();
                     bool a = false;
@@ -188,15 +196,15 @@ namespace oop_group5_project
                     }
                     if (a == false)
                     {
-                        Console.WriteLine("there's a problem in your choice, please retry");
-                        Console.WriteLine("Press any touch to exit");
+                        centerText("there's a problem in your choice, please retry");
+                        centerText("Press any touch to exit");
                         Console.ReadKey();
                         Console.Clear();
                         TeacherMenu();
                     }
                     else
                     {
-                        Console.WriteLine("Press any touch to exit");
+                        centerText("Press any touch to exit");
                         Console.ReadKey();
                         Console.Clear();
                         TeacherMenu();
@@ -216,7 +224,7 @@ namespace oop_group5_project
 
                     Console.Clear();
                     bool booool = false;
-                    Console.WriteLine($"Enter a Class Name");
+                    centerText($"Enter a Class Name : ");
                     string wantedClass = Console.ReadLine();
                     Console.Clear();
                     foreach (Classroom c in Listclassroom)
@@ -235,15 +243,15 @@ namespace oop_group5_project
                     if(booool == false)
                     {
                         Console.Write("");
-                        Console.WriteLine("The class was not found");
-                        Console.WriteLine("Press any touch to exit");
+                        centerText("The class was not found");
+                        centerText("Press any touch to exit");
                         Console.ReadKey();
                         Console.Clear();
                         TeacherMenu();
                     }
                     else
                     {
-                        Console.WriteLine("Press any touch to exit");
+                        centerText("Press any touch to exit");
                         Console.ReadKey();
                         Console.Clear();
                         TeacherMenu();
@@ -253,7 +261,7 @@ namespace oop_group5_project
                 
                 case 4:
                     Console.Clear();
-                    Console.WriteLine($"Enter a Class Name");
+                    centerText($"Enter a Class Name : ");
                     string wantedClass2 = Console.ReadLine();
                     Console.Clear();
                     bool b = false;
@@ -274,15 +282,15 @@ namespace oop_group5_project
                     }
                     if (b == false)
                     {
-                        Console.WriteLine("The class was not found");
-                        Console.WriteLine("Press any touch to exit");
+                        centerText("The class was not found");
+                        centerText("Press any touch to exit");
                         Console.ReadKey();
                         Console.Clear();
                         TeacherMenu();
                     }
                     else
                     {
-                        Console.WriteLine("Press any touch to exit");
+                        centerText("Press any touch to exit");
                         Console.ReadKey();
                         Console.Clear();
                         TeacherMenu();
@@ -292,7 +300,7 @@ namespace oop_group5_project
                 case 5:
 
                     Console.Clear();
-                    Console.WriteLine($"Enter a Student Name");
+                    centerText($"Enter a Student Name : ");
                     bool bol = false;
                     string wantedName2 = Console.ReadLine();
                     foreach (Classroom c in Listclassroom)
@@ -314,15 +322,15 @@ namespace oop_group5_project
                     }
                     if (bol == false)
                     {
-                        Console.WriteLine("The student was not found");
-                        Console.WriteLine("Press any touch to exit");
+                        centerText("The student was not found");
+                        centerText("Press any touch to exit");
                         Console.ReadKey();
                         Console.Clear();
                         TeacherMenu();
                     }
                     else
                     {
-                        Console.WriteLine("Press any touch to exit");
+                        centerText("Press any touch to exit");
                         Console.ReadKey();
                         Console.Clear();
                         TeacherMenu();
@@ -336,6 +344,12 @@ namespace oop_group5_project
         public override string ToString()
         {
             return $"{Name} -- {Matter} {Id} {Password}";
+        }
+
+        static void centerText(String text)
+        {
+            Console.Write(new string(' ', (Console.WindowWidth - text.Length) / 2));
+            Console.Write(text);
         }
 
     }

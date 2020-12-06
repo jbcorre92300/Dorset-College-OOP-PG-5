@@ -224,7 +224,7 @@ namespace oop_group5_project
                 a.TeacherFullList = TeacherList;
                 a.ClassroomsFullList = ClassroomList;
             }
-            foreach (Student s in StudentList)
+            /*foreach (Student s in StudentList)
             {
                 Console.WriteLine(s);
             }
@@ -240,7 +240,7 @@ namespace oop_group5_project
             {
                 
                 Console.WriteLine($"+ {u}");
-            }
+            }*/
         }
 
         // Center a specific text on the console

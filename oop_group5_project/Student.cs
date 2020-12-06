@@ -37,7 +37,11 @@ namespace oop_group5_project
 
         public void BeginningPayment()
         {
-            Console.WriteLine("How do you want to make your payment ?\n1) Cash Payment\n2) Several Times Payment\n3)Go back to menu");
+            Console.Write("                                          ");
+            Console.WriteLine("How do you want to make your payment ?" +
+                "\n                                          1) Cash Payment" +
+                "\n                                          2) Several Times Payment" +
+                "\n                                          3)Go back to menu");
             int menu = Convert.ToInt32(Console.ReadLine());
             switch (menu)
             {
@@ -53,27 +57,28 @@ namespace oop_group5_project
                     Console.Clear();
                     StudentMenu();
                     break;
-
             }
         }
 
         public void modifprofil()
         {
-            Console.WriteLine("What di you want to modifie?");
-            Console.WriteLine("1)Name\n2)Date of Birthday\n3)Mail");
+            centerText("What di you want to modifie?");
+            Console.WriteLine("                                          1)Name" +
+                "\n                                          2)Date of Birthday" +
+                "\n                                          3)Mail");
             int value = Convert.ToInt32(Console.ReadLine());
             switch (value)
             {
                 case 1:
-                    Console.WriteLine("What is your real name");
+                    centerText("What is your real name : ");
                     Name = Console.ReadLine();
                     break;
                 case 2:
-                    Console.WriteLine("What is your Birthday (DD/MM/YYYY)");
+                    centerText("What is your Birthday (DD/MM/YYYY) :");
                     Profil.Add(Console.ReadLine());
                     break;
                 case 3:
-                    Console.WriteLine("What is your email?");
+                    centerText("What is your email ? : ");
                     Profil.Add(Console.ReadLine());
                     break;
             }
@@ -83,19 +88,20 @@ namespace oop_group5_project
         {
             if(Cost == 0)
             {
-                Console.WriteLine("Your payment is done");
+                centerText("Your payment is done");
             }
             else if(Cost != 8900)
             {
-                Console.WriteLine("You have already begun a several times payment");
+                centerText("You have already begun a several times payment");
             }
             else
             {
-                Console.WriteLine("Please pay " + Cost + " euros" + "\n" + "Enter your number card : ");
+                centerText("                Please pay " + Cost + " euros" + 
+                    "\n" + "                                          Enter how much you want to pay : ");
 
                 int numbercard = Convert.ToInt32(Console.ReadLine()); // faire un solde pour l'étudiant, si l'étudiant à le solde demandé, alors retourner true, sinon false.
                 Cost = 0;
-                Console.WriteLine("Successfull Payment !");
+                centerText("Successfull Payment !");
             }
             System.Threading.Thread.Sleep(2000);
             Console.Clear();
@@ -109,11 +115,11 @@ namespace oop_group5_project
             int alreadypaid = 0;
             if(remainingpayment == 0)
             {
-                Console.WriteLine("Your payment is done");
+                centerText("Your payment is done");
             }
             else
             {
-                Console.WriteLine("You have " + remainingpayment + " euros left to pay\nHow much do you want to pay right now ? : ");
+                centerText("You have " + remainingpayment + " euros left to pay\nHow much do you want to pay right now ? : ");
 
                 int payment = Convert.ToInt32(Console.ReadLine());
 
@@ -123,17 +129,16 @@ namespace oop_group5_project
 
                 if (remainingpayment == 0 && alreadypaid == Cost)
                 {
-                    Console.WriteLine("Your payment is complete !");
+                    centerText("Your payment is complete !");
                     Cost = remainingpayment;
                 }
                 else
                 {
-                    Console.WriteLine("There is " + remainingpayment + " euros left to pay");
+                    Console.WriteLine("                                          There is " + remainingpayment + " euros left to pay");
                     Cost = remainingpayment;
 
                 }
             }
-            
             System.Threading.Thread.Sleep(2000);
             Console.Clear();
             StudentMenu();
@@ -146,17 +151,18 @@ namespace oop_group5_project
             {
                 stringprofil += s;
                 Console.WriteLine("");
-
-                
             }
-            Console.WriteLine($"{Name}\n{Classeroom}\n{stringprofil}");
-            Console.WriteLine("1) Modify Profile\nor press any touch to exit");
+            Console.WriteLine($"                                          {Name}" +
+                $"\n                                          {Classeroom}" +
+                $"\n                                          {stringprofil}");
+            centerText("1) Modify Profile" +
+                "\n                                          or press any touch to exit");
             string z = Console.ReadLine();
             if (z == "1")
             {
                 Console.Clear();
                 modifprofil();
-                Console.WriteLine("Press any touch to exit");
+                centerText("Press any touch to exit");
                 Console.ReadKey();
                 StudentMenu();
 
@@ -166,7 +172,6 @@ namespace oop_group5_project
                 Console.Clear();
                 StudentMenu();
             }
-
         }
 
         public void SeeExamsandAssignementResults()
@@ -182,9 +187,7 @@ namespace oop_group5_project
                     Console.WriteLine(grade);
                 }
             }
-            
-
-            Console.WriteLine("Press any touch to exit");
+            centerText("Press any touch to exit");
             Console.ReadKey();
             StudentMenu();
         }
@@ -192,6 +195,7 @@ namespace oop_group5_project
         public void SeeAttendence()
         {
             Console.Clear();
+            Console.WriteLine("\n\n");
             Console.WriteLine("    Monday       Tuesday      Wednesday      Thursday      Friday");
             Console.WriteLine("-----------------------------------------------------------------");
             for (int hour = 6; hour< 20; hour++)
@@ -205,7 +209,7 @@ namespace oop_group5_project
                 Console.WriteLine();
                 
             }
-            Console.WriteLine("Press any touch to exit");
+            centerText("Press any touch to exit");
             Console.ReadKey();
             Console.Clear();
             StudentMenu();
@@ -218,8 +222,6 @@ namespace oop_group5_project
                 if (cours.Date.hour == hour&&cours.Date.day==day )
                 {
                     mess = Convert.ToString(cours.Matter);
-                    
-                    
                 }
                 else
                 {
@@ -239,8 +241,8 @@ namespace oop_group5_project
         {
             if(Nonattendance.Count == 0)
             {
-                Console.WriteLine("You have 0 absences this semester");
-                Console.WriteLine("Press any touch to exit");
+                centerText("You have 0 absences this semester");
+                centerText("Press any touch to exit");
                 Console.ReadKey();
                 StudentMenu();
             }
@@ -251,8 +253,8 @@ namespace oop_group5_project
                     Console.WriteLine(cou.ToString());
                     
                 }
-                Console.WriteLine($"You have {Nonattendance.Count} absences this semester");
-                Console.WriteLine("Press any touch to exit");
+                Console.WriteLine($"                                          You have {Nonattendance.Count} absences this semester");
+                centerText("Press any touch to exit");
                 Console.ReadKey();
                 StudentMenu();
             }
@@ -262,7 +264,14 @@ namespace oop_group5_project
         public void StudentMenu()
         {
             Console.Clear();
-            Console.WriteLine($"Welcome {Name}, choose an option :\n1)See profile\n2)See Timetable\n3)Payment\n4)See exam/assignement results\n5)See the classes you missed\n6)Deconnexion");
+            Console.WriteLine("\n\n\n\n\n\n\n\n");
+            Console.WriteLine($"                                          Welcome {Name}, choose an option :" +
+                $"\n                                          1)See profile" +
+                $"\n                                          2)See Timetable" +
+                $"\n                                          3)Payment" +
+                $"\n                                          4)See exam/assignement results" +
+                $"\n                                          5)See the classes you missed" +
+                $"\n                                          6)Deconnexion");
             int menu = Convert.ToInt32(Console.ReadLine());
             switch (menu)
             {
@@ -296,6 +305,14 @@ namespace oop_group5_project
         {
             return $"{Name} -- {Classeroom.Name} {Id} {Password}";
         }
+
+
+        static void centerText(String text)
+        {
+            Console.Write(new string(' ', (Console.WindowWidth - text.Length) / 2));
+            Console.Write(text);
+        }
     }  
     
+
 }

@@ -6,6 +6,12 @@ namespace oop_group5_project
 {
     class Admin : User
     {
+                                                                    //23024 Thomas BAUDU 
+                                                                   //23189 Audrey CHANTY
+                                                                  //23182 Jean-Baptiste CORRE
+                                                                 //23165 Victor FAUCHARD
+                                                                //23213 Tristan GERON
+                                                               //23164 Alexandre MAROTTE
         public string Name { get; set; }
         public List<Student> StudentFullList { get; set; }
         /*public string id;
@@ -18,42 +24,9 @@ namespace oop_group5_project
             Name = name;
             Id = id;
             Password = password;
-            Usertype = "Admin";                                     //23024 Thomas BAUDU 
-                                                                    //23189 Audrey CHANTY
-                                                                    //23182 Jean-Baptiste CORRE
-                                                                    //23165 Victor FAUCHARD
-                                                                    //23213 Tristan GERON
-                                                                    //23164 Alexandre MAROTTE
-
+            Usertype = "Admin";                                     
         }
-        /*public Student createstudent()
-        {
-            string name = "Paul";
-            Console.WriteLine("What is the id for the student?");
-            int id = Convert.ToInt32(Console.ReadLine());
-            List<string> profil = new List<string> { };
-            Console.WriteLine("What is the first name of the student?");
-            profil.Add(Console.ReadLine());
-            Console.WriteLine("What is the last name of the student?");
-            profil.Add(Console.ReadLine());
-            Console.WriteLine("What is the date of birth of the student?");
-            profil.Add(Console.ReadLine());
-            profil.Add(profil[0] + "." + profil[1] + "@virtualglobalcollege.com");
-            Console.WriteLine("What is the student's address?");
-            profil.Add(Console.ReadLine());
-            Console.WriteLine("What is the phone number of the student?");
-            profil.Add(Console.ReadLine());
-            TimeTable timetable = new TimeTable(new List<Class> { });
-            // Payment payment = new Payment(7900);   - ne sert plus à rien avec l'interface
-            List<Grade> listgrade = new List<Grade> { };
-            int cost = 7900;
-            
-            Student student = new Student(Name, id, profil, timetable, listgrade, cost);
-            
-            return student;
-
-
-        }*/
+        
         public void TrackPaymentStudent(Student a)
         {
             centerText($"{a.Name} has {a.Cost} euros left to pay");
@@ -79,23 +52,26 @@ namespace oop_group5_project
             }
         }
 
-
         public void SeeClassAttendance(Classroom c)
         {
+            Console.WriteLine();
             foreach (Student s in c.Classroomlist)
             {
-                Console.WriteLine($"{s.Name} : {s.Nonattendance.Count} classes missed ");
+                Console.WriteLine($"                                          {s.Name} : {s.Nonattendance.Count} classes missed ");
                 foreach (Class classes in s.Nonattendance)
                 {
                     Console.WriteLine(classes);
                 }
             }
-            Console.WriteLine($"1)Remove an absence for a student\n2)Go back to menu");
+            Console.WriteLine();
+            Console.WriteLine($"                                          1)Remove an absence for a student" +
+                $"\n                                          2)Go back to menu");
             string r = Console.ReadLine();
             if (r == "1")
             {
                 Console.Clear();
-                Console.WriteLine($"Enter a Student ID");
+                Console.WriteLine("\n\n\n\n\n");
+                centerText($"Enter a Student ID :");
                 bool cd = false;
                 string wantedId = Console.ReadLine();
                 foreach (Student s in StudentFullList)
@@ -114,15 +90,15 @@ namespace oop_group5_project
                 }
                 if (cd == false)
                 {
-                    Console.WriteLine("The student was not found");
-                    Console.WriteLine("Press any touch to exit");
+                    centerText("The student was not found");
+                    centerText("Press any touch to exit");
                     Console.ReadKey();
                     Console.Clear();
                     AdminMenu();
                 }
                 else
                 {
-                    Console.WriteLine("Press any touch to exit");
+                    centerText("Press any touch to exit");
                     Console.ReadKey();
                     Console.Clear();
                     AdminMenu();
@@ -137,15 +113,16 @@ namespace oop_group5_project
         }
         public void RemoveAbsence(Student s)
         {
-            Console.WriteLine($"What is the day of the absence you would like to remove ?");
+            Console.WriteLine("\n\n\n\n\n\n\n\n");
+            centerText($"What is the day of the absence you would like to remove ? :");
             string day = Console.ReadLine();
-            Console.WriteLine($"What is the time of the absence you would like to remove ?");
+            centerText($"What is the time of the absence you would like to remove ? :");
             int hour = Convert.ToInt32(Console.ReadLine());
             Date wanteddate = new Date(day, hour);
             bool absence = false;
             if(s.Nonattendance.Count == 0)
             {
-                Console.WriteLine("There is no absences to remove");
+                centerText("There is no absences to remove");
             }
             else
             {
@@ -167,11 +144,11 @@ namespace oop_group5_project
 
                 if(absence == false)
                 {
-                    Console.WriteLine("There was no absence found at this date and this time");
+                    centerText("There was no absence found at this date and this time");
                 }
                 else
                 {
-                    Console.WriteLine($"The absence for the class has been removed");
+                    centerText($"The absence for the class has been removed");
                 }
 
             }
@@ -180,6 +157,7 @@ namespace oop_group5_project
 
         public void SeeClassTimetable(Classroom c)
         {
+            Console.WriteLine("\n\n\n\n");
             Console.WriteLine($"Class {c.Name} : ");
             Console.Clear();
             Console.WriteLine("    Monday       Tuesday      Wednesday      Thursday      Friday");
@@ -196,11 +174,17 @@ namespace oop_group5_project
 
             }
             
-            Console.WriteLine("1) Add an exam to this class\n 2)Go back to menu");
+            Console.WriteLine("                                          1) Add an exam to this class" +
+                "\n                                          2)Go back to menu");
             string z = Console.ReadLine();
             if (z == "1")
             {
-                Console.WriteLine($"What is the matter of the exam ?\n1)Mathematics\n2)French\n3)Physics\n4) Sport\n5)Litterature");
+                Console.WriteLine($"                                          What is the matter of the exam ?" +
+                    $"\n                                          1)Mathematics" +
+                    $"\n                                          2)French" +
+                    $"\n                                          3)Physics" +
+                    $"\n                                          4) Sport" +
+                    $"\n                                          5)Litterature");
                 int menu = Convert.ToInt32(Console.ReadLine());
                 Matter matter = new Matter();
                 switch (menu)
@@ -221,14 +205,14 @@ namespace oop_group5_project
                         matter = Matter.litterarenglish;
                         break;
                 }
-                Console.WriteLine($"On what day would you like to add an exam ?");
+                centerText($"On what day would you like to add an exam ? :");
                 string day = Console.ReadLine();
-                Console.WriteLine($"On what time ?");
+                centerText($"On what time ? : ");
                 int hour = Convert.ToInt32(Console.ReadLine());
                 Date date = new Date(day, hour);
-                Console.WriteLine($"In which room ?");
+                centerText($"In which room ? : ");
                 string location = Console.ReadLine();
-                Console.WriteLine($"Enter the Teacher ID");
+                centerText($"Enter the Teacher ID : ");
                 string wantedId = Console.ReadLine();
                 bool tea = false;
                 foreach (Teacher t in TeacherFullList)
@@ -251,16 +235,16 @@ namespace oop_group5_project
                 }
                 if(tea == false)
                 {
-                    Console.WriteLine("The teacher was not found");
-                    Console.WriteLine("Press any touch to exit");
+                    centerText("The teacher was not found");
+                    centerText("Press any touch to exit");
                     Console.ReadKey();
                     Console.Clear();
                     AdminMenu();
                 }
                 else
                 {
-                    Console.WriteLine($"A new exam of {matter} has been added for next {date.day} at {date.hour}h ");//Méthode pour ajouter un EXAMEN
-                    Console.WriteLine("Press any touch to exit");
+                    centerText($"A new exam of {matter} has been added for next {date.day} at {date.hour}h ");//Méthode pour ajouter un EXAMEN
+                    centerText("Press any touch to exit");
                     Console.ReadKey();
                     Console.Clear();
                     AdminMenu();
@@ -277,6 +261,7 @@ namespace oop_group5_project
 
         public void SeeStudentProfile(Student s)
         {
+            Console.WriteLine("\n\n");
             string stringprofil = "";
             foreach (string a in s.Profil)
             {
@@ -284,17 +269,16 @@ namespace oop_group5_project
                 Console.Write(" / ");
 
             }
-            Console.WriteLine($"{s.Name}\n{s.Classeroom}\n{stringprofil}");
+            Console.WriteLine($"                                          {s.Name}" +
+                $"\n                                          {s.Classeroom}" +
+                $"\n                                          {stringprofil}");
         }
 
 
         public void AdminMenu()
         {
             Console.Clear();
-            for(int i=0;i<=10;i++)
-            {
-                Console.WriteLine();
-            }
+            Console.WriteLine("\n\n\n\n\n\n\n\n\n\n");
             Console.Write("                                          ");
             Console.WriteLine($"Welcome {Name}, choose an option :" +
                 "\n                                          1)Track Payment" +
@@ -320,6 +304,7 @@ namespace oop_group5_project
                     {
                         if (wantedId == s.Id)
                         {
+                            Console.WriteLine();
                             TrackPaymentStudent(s);
                             Console.WriteLine();
                             a = true;
@@ -340,6 +325,7 @@ namespace oop_group5_project
                     }
                     else
                     {
+                        Console.WriteLine();
                         centerText("Press any touch to exit");
                         Console.ReadKey();
                         Console.Clear();
@@ -349,6 +335,7 @@ namespace oop_group5_project
                     break;
                 case 2:
                     Console.Clear();
+                    Console.WriteLine("\n\n\n\n\n\n");
                     centerText($"Enter a Class Name : ");
                     bool b = false;
                     string wantedClass = Console.ReadLine();
@@ -384,6 +371,7 @@ namespace oop_group5_project
                     break;
                 case 3:
                     Console.Clear();
+                    Console.WriteLine("\n\n\n\n\n");
                     centerText($"Enter a Class Name : ");
                     bool cd = false;
                     string wantedClass2 = Console.ReadLine();
@@ -419,6 +407,7 @@ namespace oop_group5_project
                 case 4:
                     Console.Clear();
                     bool abc = false;
+                    Console.WriteLine("\n\n\n\n\n");
                     centerText($"Enter a Class Name : "); 
                     string wantedClass3 = Console.ReadLine();
                     foreach (Classroom c in ClassroomsFullList)
@@ -454,6 +443,7 @@ namespace oop_group5_project
                     break;
                 case 5:
                     Console.Clear();
+                    Console.WriteLine("\n\n\n\n\n");
                     centerText($"Enter a Student ID : ");
                     bool aze = false;
                     string wantedId2 = Console.ReadLine();
