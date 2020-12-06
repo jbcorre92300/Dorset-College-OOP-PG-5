@@ -363,48 +363,6 @@ namespace oop_group5_project
                 userexist = false;      //IF DECISION OF BEING DISCONNECTED, WE GO BACK TO THE LOGIN SESSION
             }
 
-
-            
-            
-
-
-
-
-
-            /*
-            List<User> userlist = new List<User>();
-            Admin admintest = new Admin("JB", "12345", "AZA", "3");
-            userlist.Add(admintest);
-            List<Student> liststudent = new List<Student>();
-            Classroom classroom = new Classroom("1", liststudent);
-            List<string> profil = new List<string> { "01/01/2000", "jj", "Dupont" };
-            TimeTable timetable = new TimeTable(new List<Class> { });
-            // Payment payment = new Payment(7900);   - ne sert plus à rien avec l'interface
-            List<Grade> listgrade = new List<Grade> { };
-            int cost = 7900;
-
-            Student studenttest = new Student("jj", classroom, profil, timetable, listgrade, cost, "2255", "AZE", "1");
-            userlist.Add(studenttest);
-            List < Classroom > listclassroom = new List<Classroom>();
-
-            Teacher teachertest = new Teacher("Ms.Smith", listclassroom, Matter.french, "159", "eee", "2");
-            userlist.Add(teachertest);
-
-            studenttest.StudentMenu();
-            */
-
-
-
-            /*
-            Date date1 = new Date("Wednesday", 14);
-            Date date2 = new Date("Monday", 9);
-            Class classtest1 = new Class(date1,Matter.art,"L210",teachertest);
-            Class classtest2 = new Class(date2, Matter.mathematics, "L210", teachertest);
-            studenttest.Timetable.Listclass.Add(classtest1);
-            studenttest.Timetable.Listclass.Add(classtest2);
-            studenttest.SeeAttendence();
-            */
-
             Console.ReadKey();
             Console.Clear();
             
