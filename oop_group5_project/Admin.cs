@@ -98,10 +98,11 @@ namespace oop_group5_project
                 }
                 else
                 {
-                    centerText("Press any touch to exit");
+                    Console.Write("");
+                    /*centerText("Press any touch to exit");
                     Console.ReadKey();
                     Console.Clear();
-                    AdminMenu();
+                    AdminMenu();*/
                 }
             }
             else
@@ -435,10 +436,8 @@ namespace oop_group5_project
                     }
                     else
                     {
-                        centerText("Press any touch to exit");
-                        Console.ReadKey();
-                        Console.Clear();
-                        AdminMenu();
+                        Console.Write("");
+                        
                     }
 
                     break;
@@ -477,6 +476,9 @@ namespace oop_group5_project
                         Console.Clear();
                         AdminMenu();
                     }
+                    break;
+                case 6:
+                    Console.Clear();
                     break;
                
             }
