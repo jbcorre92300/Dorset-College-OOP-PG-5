@@ -64,8 +64,10 @@ namespace oop_group5_project
 
         public void modifprofil()
         {
-            centerText("What do you want to modify?");
-            Console.WriteLine("                                          1)Name" +
+            Console.WriteLine("\n\n\n\n\n\n");
+            centerText("What do you want to modify ?\n");
+            Console.WriteLine("" +
+                "\n                                          1)Name" +
                 "\n                                          2)Date of Birthday" +
                 "\n                                          3)Mail");
             int value = Convert.ToInt32(Console.ReadLine());
@@ -76,7 +78,7 @@ namespace oop_group5_project
                     Name = Console.ReadLine();
                     break;
                 case 2:
-                    centerText("What is your Birthday (DD/MM/YYYY) :");
+                    centerText("What is your Birthday (DD/MM/YYYY) : ");
                     Profil.Add(Console.ReadLine());
                     break;
                 case 3:
@@ -159,8 +161,7 @@ namespace oop_group5_project
             Console.WriteLine($"                                          {Name}" +
                 $"\n                                          {Classeroom}" +
                 $"\n                                          {stringprofil}");
-            centerText("                           1) Modify Profile" +
-                "\n                                          or press any touch to exit");
+            centerText("1) Modify Profile or press any key : ");
             string z = Console.ReadLine();
             if (z == "1")
             {

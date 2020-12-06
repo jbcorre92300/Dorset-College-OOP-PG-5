@@ -44,7 +44,7 @@ namespace oop_group5_project
 
         public void CashPayment()
         {
-            Console.WriteLine("Please pay " + cost + " euros" + "\n" + "Enter yout number card : ");
+            Console.WriteLine("Please pay " + cost + " euros" + "\n" + "Enter your card number : ");
 
             int numbercard = Convert.ToInt32(Console.ReadLine()); // faire un solde pour l'étudiant, si l'étudiant à le solde demandé, alors retourner true, sinon false.
 

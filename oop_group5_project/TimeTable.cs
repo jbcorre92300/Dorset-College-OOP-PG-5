@@ -13,19 +13,9 @@ namespace oop_group5_project
     class TimeTable
     {
         public List<Class> Listclass;
-
-
         public TimeTable(List<Class> listclass)
         {
             Listclass = listclass;
         }
-
-        public void AddClass (Class newclass)
-        {
-            Listclass.Add(newclass);
-        }
-            
-
-
     }
 }

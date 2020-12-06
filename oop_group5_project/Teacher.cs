@@ -45,7 +45,6 @@ namespace oop_group5_project
 
                         Grade grade = new Grade (gradename, Matter, mark);
                         element2.Listgrade.Add(grade);
-                        Console.WriteLine(element2.Listgrade.Count);
                         
                     }
                     break;
@@ -77,8 +76,8 @@ namespace oop_group5_project
         {
             foreach (Student student in classroom.Classroomlist)
             {
-                centerText("Is this student" + student.Name + " here ?" +
-                    "\n                                  Type Yes or No");
+                centerText("Is this student " + student.Name + " here ?" +
+                    "\n                                  Type Yes or No : ");
 
                 string answer = Console.ReadLine();
 
@@ -95,7 +94,6 @@ namespace oop_group5_project
         {
             foreach(Student s in c.Classroomlist)
             {
-                Console.WriteLine(s.Listgrade.Count);
                 if(s.Listgrade.Count == 0)
                 {
                     centerText($"{s.Name} hasn't got any grade in his list");
@@ -117,7 +115,8 @@ namespace oop_group5_project
             foreach (Student s in c.Classroomlist)
             {
                 
-                Console.WriteLine($"{s.Name} : {s.Nonattendance.Count} classes missed ");
+                centerText($"{s.Name} : {s.Nonattendance.Count} classes missed ");
+                Console.WriteLine();
                 foreach (Class classes in s.Nonattendance)
                 {
                     Console.WriteLine(classes);
@@ -278,6 +277,7 @@ namespace oop_group5_project
                 
                 case 4:
                     Console.Clear();
+                    Console.WriteLine("\n\n\n\n\n\n\n");
                     centerText($"Enter a Class Name : ");
                     string wantedClass2 = Console.ReadLine();
                     Console.Clear();
@@ -287,15 +287,14 @@ namespace oop_group5_project
                         if (c.Name == wantedClass2)
                         {
                             b = true;
+                            Console.WriteLine("\n\n\n\n\n\n\n");
                             SeeClassAttendance(c);
                             break;
-                            
                         }
                         else
                         {
                             Console.Write("");
                         }
-
                     }
                     if (b == false)
                     {
@@ -307,6 +306,7 @@ namespace oop_group5_project
                     }
                     else
                     {
+                        Console.WriteLine(); 
                         centerText("Press any touch to exit");
                         Console.ReadKey();
                         Console.Clear();
@@ -315,8 +315,8 @@ namespace oop_group5_project
                     break;
 
                 case 5:
-
                     Console.Clear();
+                    Console.WriteLine("\n\n\n\n\n\n\n");
                     centerText($"Enter a Student Name : ");
                     bool bol = false;
                     string wantedName2 = Console.ReadLine();
