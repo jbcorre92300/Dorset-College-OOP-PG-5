@@ -180,7 +180,21 @@ namespace oop_group5_project
         public void SeeClassTimetable(Classroom c)
         {
             Console.WriteLine($"Class {c.Name} : ");
-            c.Classroomlist[1].SeeAttendence();
+            Console.Clear();
+            Console.WriteLine("    Monday       Tuesday      Wednesday      Thursday      Friday");
+            Console.WriteLine("-----------------------------------------------------------------");
+            for (int hour = 6; hour < 20; hour++)
+            {
+                Console.Write(hour + "h ");
+                c.Classroomlist[1].testclassaday(hour, "Monday");
+                c.Classroomlist[1].testclassaday(hour, "Tuesday");
+                c.Classroomlist[1].testclassaday(hour, "Wednesday");
+                c.Classroomlist[1].testclassaday(hour, "Thursday");
+                c.Classroomlist[1].testclassaday(hour, "Friday");
+                Console.WriteLine();
+
+            }
+            
             Console.WriteLine("1) Add an exam to this class\n 2)Go back to menu");
             string z = Console.ReadLine();
             if (z == "1")
@@ -258,7 +272,7 @@ namespace oop_group5_project
                 Console.Write(" / ");
 
             }
-            Console.WriteLine($"{Name}\n{s.Classeroom}\n{stringprofil}");
+            Console.WriteLine($"{s.Name}\n{s.Classeroom}\n{stringprofil}");
         }
 
 

@@ -70,11 +70,11 @@ namespace oop_group5_project
                     break;
                 case 2:
                     Console.WriteLine("What is your Birthday (DD/MM/YYYY)");
-                    Profil[0] = Console.ReadLine();
+                    Profil.Add(Console.ReadLine());
                     break;
                 case 3:
                     Console.WriteLine("What is your email?");
-                    Profil[1] = Console.ReadLine();
+                    Profil.Add(Console.ReadLine());
                     break;
             }
         }
@@ -156,6 +156,10 @@ namespace oop_group5_project
             {
                 Console.Clear();
                 modifprofil();
+                Console.WriteLine("Press any touch to exit");
+                Console.ReadKey();
+                StudentMenu();
+
             }
             else
             {
@@ -199,8 +203,12 @@ namespace oop_group5_project
                 testclassaday(hour, "Thursday");
                 testclassaday(hour, "Friday");
                 Console.WriteLine();
+                
             }
-            
+            Console.WriteLine("Press any touch to exit");
+            Console.ReadKey();
+            Console.Clear();
+            StudentMenu();
         }
         public void testclassaday(int hour, string day)
         {
@@ -212,6 +220,10 @@ namespace oop_group5_project
                     mess = Convert.ToString(cours.Matter);
                     
                     
+                }
+                else
+                {
+                    Console.Write("");
                 }
             }
             int end = day.Length + 6 - mess.Length+1;
