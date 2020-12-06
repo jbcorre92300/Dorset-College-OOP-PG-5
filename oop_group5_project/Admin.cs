@@ -151,7 +151,8 @@ namespace oop_group5_project
             {
                 foreach (Class c in s.Nonattendance)
                 {
-                    if (wanteddate == c.Date)
+                    
+                    if ((hour == c.Date.hour) && (day == c.Date.day))
                     {
                         absence = true;
                         s.Nonattendance.Remove(c);

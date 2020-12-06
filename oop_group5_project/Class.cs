@@ -20,7 +20,7 @@ namespace oop_group5_project
         }
         public override string ToString()
         {
-            return $"Matter : {Matter} -- {Teacher} {Date.day} {Date.hour}h";
+            return $"Matter : {Matter} -- {Teacher.Name} {Date.day} {Date.hour}h";
         }
     }
 }
