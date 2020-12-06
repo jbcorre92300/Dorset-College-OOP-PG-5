@@ -27,10 +27,10 @@ namespace oop_group5_project
 
         public void AddaGradeforaClassroom() // id student a la place de student 
         {
-            Console.WriteLine("What is the name of the grade ?");
+            centerText("What is the name of the grade ? : ");
             string gradename = Console.ReadLine();
             bool a = false;
-            Console.WriteLine ("For which classroom do you want to add a grade ?");
+            centerText("For which classroom do you want to add a grade ? : ");
             string nameclassroom = Console.ReadLine();
 
             foreach (Classroom element in Listclassroom)
@@ -57,15 +57,15 @@ namespace oop_group5_project
             }
             if (a == false)
             {
-                Console.WriteLine("there's a problem in your choice, please retry");
-                Console.WriteLine("Press any touch to exit");
+                centerText("There's a problem in your choice, please retry");
+                centerText("Press any touch to exit");
                 Console.ReadKey();
                 Console.Clear();
                 TeacherMenu();
             }
             else
             {
-                Console.WriteLine("Press any touch to exit");
+                centerText("Press any touch to exit");
                 Console.ReadKey();
                 Console.Clear();
                 TeacherMenu();
@@ -77,7 +77,8 @@ namespace oop_group5_project
         {
             foreach (Student student in classroom.Classroomlist)
             {
-                Console.WriteLine("Is this student" + student.Name + " here ?\nType Yes or No");
+                centerText("Is this student" + student.Name + " here ?" +
+                    "\n                                  Type Yes or No");
 
                 string answer = Console.ReadLine();
 
@@ -85,7 +86,7 @@ namespace oop_group5_project
 
                 else if (answer == "No") student.Nonattendance.Add(cours);
 
-                else Console.WriteLine("Error");
+                else centerText("Error");
             }
         }
 
@@ -97,7 +98,7 @@ namespace oop_group5_project
                 Console.WriteLine(s.Listgrade.Count);
                 if(s.Listgrade.Count == 0)
                 {
-                    Console.WriteLine($"{s.Name} hasn't got any grade in his list");
+                    centerText($"{s.Name} hasn't got any grade in his list");
                 }
                 else
                 {
@@ -126,6 +127,7 @@ namespace oop_group5_project
 
         public void SeeStudentProfile(Student s)
         {
+            Console.WriteLine("\n\n");
             string stringprofil = "";
             foreach (string a in s.Profil)
             {
@@ -133,7 +135,9 @@ namespace oop_group5_project
                 Console.Write(" / ");
 
             }
-            Console.WriteLine($"{Name}\n{s.Classeroom}\n{stringprofil}");
+            Console.WriteLine($"                                          {s.Name}" +
+                $"\n                                          {s.Classeroom}" +
+                $"\n                                          {stringprofil}");
         }
 
 
@@ -154,22 +158,20 @@ namespace oop_group5_project
             {
 
                 case 1:
-
                     Console.Clear();
-
-                    centerText("Choose the classroom you want to attempted");
+                    Console.WriteLine("\n\n\n");
+                    centerText("Choose the classroom you want to attempted : ");
                     string desiredclassroom = Console.ReadLine();
-
-                    centerText("Please type the day of the class");
+                    Console.WriteLine();
+                    centerText("Please type the day of the class : ");
                     string desiredday = Console.ReadLine();
-
+                    Console.WriteLine();
                     centerText("Please type the hour of the class : ");
                     int desiredhour = Convert.ToInt32(Console.ReadLine());
                     Console.Clear();
                     bool a = false;
                     foreach (Classroom element in Listclassroom)
                     {
-
                         if (desiredclassroom == element.Name)
                         {
                             foreach (Class element2 in element.Timetable.Listclass)
@@ -180,23 +182,21 @@ namespace oop_group5_project
                                     a = true;
                                     break;
                                 }
-
                                 else
                                 {
                                     Console.Write("");
                                 }
                             }                            
                         }
-
                         else
                         {
                             Console.Write("");
-
                         }
                     }
                     if (a == false)
                     {
-                        centerText("there's a problem in your choice, please retry");
+                        Console.WriteLine("\n\n\n\n\n");
+                        centerText("There's a problem in your choice, please retry");
                         centerText("Press any touch to exit");
                         Console.ReadKey();
                         Console.Clear();
@@ -209,14 +209,12 @@ namespace oop_group5_project
                         Console.Clear();
                         TeacherMenu();
                     }
-
                     break;
 
                 case 2:
-
-                    Console.Clear();                   
+                    Console.Clear();
+                    Console.WriteLine("\n\n\n\n\n");
                     AddaGradeforaClassroom();
-                    
                     break;
 
 

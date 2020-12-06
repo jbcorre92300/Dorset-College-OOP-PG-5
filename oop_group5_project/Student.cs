@@ -37,6 +37,7 @@ namespace oop_group5_project
 
         public void BeginningPayment()
         {
+            Console.WriteLine("\n\n\n\n\n");
             Console.Write("                                          ");
             Console.WriteLine("How do you want to make your payment ?" +
                 "\n                                          1) Cash Payment" +
@@ -47,6 +48,7 @@ namespace oop_group5_project
             {
                 case 1:
                     Console.Clear();
+                    Console.WriteLine("\n\n\n\n\n");
                     CashPayment();
                     break;
                 case 2:
@@ -62,7 +64,7 @@ namespace oop_group5_project
 
         public void modifprofil()
         {
-            centerText("What di you want to modifie?");
+            centerText("What do you want to modify?");
             Console.WriteLine("                                          1)Name" +
                 "\n                                          2)Date of Birthday" +
                 "\n                                          3)Mail");
@@ -119,7 +121,9 @@ namespace oop_group5_project
             }
             else
             {
-                centerText("You have " + remainingpayment + " euros left to pay\nHow much do you want to pay right now ? : ");
+                Console.WriteLine("\n\n\n\n\n");
+                centerText("          You have " + remainingpayment + " euros left to pay" +
+                    "\n                            How much do you want to pay right now ? : ");
 
                 int payment = Convert.ToInt32(Console.ReadLine());
 
@@ -155,7 +159,7 @@ namespace oop_group5_project
             Console.WriteLine($"                                          {Name}" +
                 $"\n                                          {Classeroom}" +
                 $"\n                                          {stringprofil}");
-            centerText("1) Modify Profile" +
+            centerText("                           1) Modify Profile" +
                 "\n                                          or press any touch to exit");
             string z = Console.ReadLine();
             if (z == "1")
@@ -277,6 +281,7 @@ namespace oop_group5_project
             {
                 case 1:
                     Console.Clear();
+                    Console.WriteLine("\n\n\n\n\n\n");
                     SeeProfile();
                     break;
                 case 2:
@@ -289,10 +294,12 @@ namespace oop_group5_project
                     break;
                 case 4:
                     Console.Clear();
+                    Console.WriteLine("\n\n\n\n\n");
                     SeeExamsandAssignementResults();
                     break;
                 case 5:
                     Console.Clear();
+                    Console.WriteLine("\n\n\n\n\n");
                     SeeNoAttendence();
                     break;
                 case 6:
